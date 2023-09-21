@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Copyright 2022 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# runs the config-connector build across all desired systems and architectures and creates a release tarball
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+source "${REPO_ROOT}/google-internal/scripts/shared-vars.sh"
+cd ${REPO_ROOT}
+
+# build a binary for each CPU architecture on linux, osx, and windows
+# list of dist we support:
+# linux_amd64/linux_arm64/darwin_amd64/darwin_arm64/windows_amd64
+# note gcloud does not support "windows/arm64" thus we exclude it from the list
+for DIST in $(go tool dist list | grep "linux\|darwin\|windows" | grep "amd64\|arm64" | grep -v "windows/arm64"); do
+  export GOOS=$(echo ${DIST} | cut -d '/' -f 1)
+  export GOARCH=$(echo ${DIST} | cut -d '/' -f 2)
+  ${REPO_ROOT}/scripts/config-connector/build.sh
+done
+# create a release tarball that contains all the binaries
+BASE_OUTPUT_DIR=${BIN_DIR}/${CONFIG_CONNECTOR_BINARY_NAME}
+echo "Creating release tarball"
+tar zcvf ${CLI_TARBALL_BUILD_PATH} -C ${BASE_OUTPUT_DIR} .
