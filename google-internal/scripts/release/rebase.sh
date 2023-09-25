@@ -55,6 +55,10 @@ trap cleanup EXIT
 
 git fetch origin
 git switch -C release origin/release
-git rebase origin/master
+
+
+# Pull in changes from main (our github mirror)
+git rebase origin/main
+
 # Reference a placeholder ticket due to new restrictions in Gerrit
 git push origin HEAD -f -o push-justification='b/299171215'
