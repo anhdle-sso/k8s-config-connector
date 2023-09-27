@@ -63,6 +63,8 @@ function main {
   cleanup_gcp_folders "--folder=${KCC_INTEGRATION_TESTS_FOLDER_ID}"
   cleanup_gcp_folders "--folder=${KCC_INTEGRATION_TESTS_2_FOLDER_ID}"
   cleanup_org_level_logging_log_views "--organization=${ORGANIZATION_ID}"
+
+  cleanup_test_attached_cluster
 }
 
 # remove_deleted_members_from_roles removes members of roles that
@@ -229,6 +231,26 @@ function cleanup_org_level_logging_log_views {
     gcloud logging views delete "$view_id" \
       $parent_args
   done
+}
+
+# Clean up test attached cluster resource after test completes.
+# KCC resource name: container-attached-cluster
+# GCP resource/attached cluster name: kcc-attached-cluster
+# Remaining test cluster will cause the test to fail during the next run,
+# so we have to ensure that it is cleaned up before triggering the next scheduled test.
+function cleanup_test_attached_cluster{
+  echo "Cleaning up test attached cluster..."
+  echo "Searching for test attached cluster... "
+  COUNT=$(gcloud container attached clusters list --location us-west1 \
+  --filter "name=projects/461360080950/locations/us-west1/attachedClusters/kcc-attached-cluster AND createTime<-P1H" \
+  --format json | jq length)
+    if [ "${COUNT}" == 0 ]
+    then
+        echo "No test attached cluster found."
+    else
+        echo "Deleting test attached cluster..."
+        kubectl delete containerattachedcluster --all
+    fi
 }
 
 main

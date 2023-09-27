@@ -33,6 +33,7 @@ IDENTITY_PLATFORM_TEST_PROJECT="kcc-identity-platform"
 INTERCONNECT_TEST_PROJECT="kcc-interconnect"
 HIGH_CPU_QUOTA_TEST_PROJECT="kcc-highcpuquota"
 RECAPTCHA_ENTERPRISE_TEST_PROJECT="kcc-recaptcha-enterprise"
+KCC_ATTACHED_CLUSTER_TEST_PROJECT="kcc-attached-cluster-test"
 # IAM Workforce Pools integration test Service Account
 IAM_WORKFORCE_TEST_GSA="cnrm-system@cnrm-test-iam.iam.gserviceaccount.com"
 # IAM Access Boundary Policy integration test Service Account
@@ -77,6 +78,7 @@ SHARED_PROJECTS=(
   ${INTERCONNECT_TEST_PROJECT}
   ${HIGH_CPU_QUOTA_TEST_PROJECT}
   ${RECAPTCHA_ENTERPRISE_TEST_PROJECT}
+  ${KCC_ATTACHED_CLUSTER_TEST_PROJECT}
 )
 
 # package names and locations

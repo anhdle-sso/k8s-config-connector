@@ -19,6 +19,8 @@ function jreport {
     return
   fi
 
+  cp test_*.txt ${ARTIFACTS}/
+
   cat test_sample_log1.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_sample_report1.xml
 }
 
@@ -35,4 +37,4 @@ cd ${REPO_ROOT}
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
   --target-directory './config/tests/samples/...' \
-  " | tee test_sample_log1.txt
+  " 2>&1 | tee test_sample_log1.txt

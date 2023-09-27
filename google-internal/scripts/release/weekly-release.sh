@@ -113,7 +113,7 @@ ${REPO_ROOT}/google-internal/scripts/release/update-public-docs.sh
 # TODO: b/243566783 Re-enable update-gcloud and update oncall
 # instructions after b/243566783 is done
 # update the config-connector component in gcloud
-# ${REPO_ROOT}/scripts/update-gcloud.sh --version ${VERSION}
+# ${REPO_ROOT}/google-internal/scripts/update-gcloud.sh --version ${VERSION}
 
 # Update Cloud Code snippets on our Git-on-Borg repo
 CNRM_DIR=$(mktemp -td kcc-release.cnrm.XXXXXXXX)

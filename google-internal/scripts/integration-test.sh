@@ -19,9 +19,10 @@ function jreport {
     return
   fi
 
+  cp test_*.txt ${ARTIFACTS}/
+
   cat test_int_log1.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_int_report1.xml
   cat test_int_log2.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_int_report2.xml
-  cp test_int_log2.txt ${ARTIFACTS}/test_int_log2.txt
   cat test_int_log3.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_int_report3.xml
   cat test_int_log4.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_int_report4.xml
   cat test_int_log5.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_int_report5.xml
@@ -46,10 +47,6 @@ IAM_TEST_PACKAGE="github.com/GoogleCloudPlatform/k8s-config-connector/pkg/contro
 OTHER_TEST_PACKAGES=$(go list ./pkg/... | grep -v ${CRUD_TEST_PACKAGE} | grep -v ${IAM_TEST_PACKAGE})
 
 # Temporarily disabled tests are kept in pkg/test/constants/constants.go
-
-# Regex used to match long running tests cases (10m+ runtime). Any new
-# long-running tests should be added to this regex in alphabetical order.
-LONG_RUNNING_CRUD_TESTS_REGEX="cidrconnector|configcontrollerinstance|containercluster|containernodepool|datafusioninstance|filestorebackup|filestoreinstance|gkehubmembership|memcacheinstance|redisinstance|removedefaultnodepool|subnetconnector"
 
 # Regex used to match periodic tests to be skipped during the main test run.
 # Note: cloudidentitygroup and cloudidentitymembership are tested separately (in
@@ -79,7 +76,7 @@ ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${CRUD_TEST_PACKAGE}/...' \
     --run-tests '${LONG_RUNNING_CRUD_TESTS_REGEX}'\
-  " | tee test_int_log1.txt &
+  " 2>&1 | tee test_int_log1.txt &
 PROCESS1=$!
 
 # Regular CRUD tests
@@ -88,23 +85,23 @@ ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${CRUD_TEST_PACKAGE}/...' \
     --skip-tests '${SKIP_CRUD_TESTS_ON_MAIN_RUN_REGEX}'\
-  " | tee test_int_log2.txt &
+  " 2>&1 | tee test_int_log2.txt &
 PROCESS2=$!
 
 # Singleton tests (due to quota and instance count limitation at org/project level)
 sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during project set-up.
 SINGLETON_TEST_COMMAND="${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh --target-directory ./pkg/controller/dynamic --run-tests 'computeinterconnectattachment|computefirewallpolicy|computefirewallpolicyassociation|computefirewallpolicyrule'"
-${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh --command "${SINGLETON_TEST_COMMAND}" | tee test_int_log3.txt
+${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh --command "${SINGLETON_TEST_COMMAND}" 2>&1 | tee test_int_log3.txt
 PROCESS3=$!
 
 # Special periodic CRUD test case: CloudIdentity
 sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during project set-up.
-${REPO_ROOT}/google-internal/scripts/cloudidentity-integration-test.sh | tee test_int_log4.txt
+${REPO_ROOT}/google-internal/scripts/cloudidentity-integration-test.sh 2>&1 | tee test_int_log4.txt
 PROCESS4=$!
 
 # Special period CRUD test case: IAMWorkforcePool
 sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during project set-up.
-${REPO_ROOT}/google-internal/scripts/iam-integration-test.sh | tee test_int_log5.txt
+${REPO_ROOT}/google-internal/scripts/iam-integration-test.sh 2>&1 | tee test_int_log5.txt
 PROCESS5=$!
 
 # IAM tests
@@ -113,7 +110,7 @@ ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${IAM_TEST_PACKAGE}'\
     --skip-tests '${SKIP_IAM_TESTS_ON_MAIN_RUN_REGEX}'\
-  " | tee test_int_log6.txt &
+  " 2>&1 | tee test_int_log6.txt &
 PROCESS6=$!
 
 # All other tests
@@ -121,7 +118,7 @@ sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during pr
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${OTHER_TEST_PACKAGES}'\
-  " | tee test_int_log7.txt &
+  " 2>&1 | tee test_int_log7.txt &
 PROCESS7=$!
 
 wait ${PROCESS1}

@@ -19,8 +19,9 @@ function jreport {
     return
   fi
 
+  cp test_*.txt ${ARTIFACTS}/
+
   cat test_int_autogen_log1.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_int_autogen_report1.xml
-  cp test_int_autogen_log1.txt ${ARTIFACTS}/test_int_autogen_log1.txt
 }
 
 trap jreport EXIT
@@ -46,7 +47,7 @@ ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${CRUD_TEST_PACKAGE}/...' \
     --run-tests '${AUTOGEN_TESTS_REGEX}'\
-  " | tee test_int_autogen_log1.txt &
+  " 2>&1 | tee test_int_autogen_log1.txt &
 PROCESS1=$!
 
 # Using wait command as we may add more test commands in parallel in the future.

@@ -56,7 +56,6 @@ trap cleanup EXIT
 git fetch origin
 git switch -C release origin/release
 
-
 # Pull in changes from main (our github mirror)
 git rebase origin/main
 

@@ -19,6 +19,8 @@ function jreport {
     return
   fi
 
+  cp test_*.txt ${ARTIFACTS}/
+
   cat test_pre_log1.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_pre_report1.xml
   cat test_pre_log2.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_pre_report2.xml
 }
@@ -44,7 +46,7 @@ ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${CRUD_TEST_PACKAGE}'\
     --run-tests '${TESTS_TO_RUN}'\
-  " | tee test_pre_log1.txt &
+  " 2>&1 | tee test_pre_log1.txt &
 PROCESS1=$!
 
 # All other tests
@@ -52,7 +54,7 @@ sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during pr
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${OTHER_TEST_PACKAGES}'\
-  " | tee test_pre_log2.txt &
+  " 2>&1 | tee test_pre_log2.txt &
 PROCESS2=$!
 
 wait ${PROCESS1}

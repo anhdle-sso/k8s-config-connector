@@ -50,63 +50,9 @@ REPO_ROOT="$(git rev-parse --show-toplevel)"
 source "${REPO_ROOT}/google-internal/scripts/shared-vars.sh"
 cd ${REPO_ROOT}
 
-services=(
-  accesscontextmanager.googleapis.com
-  apigee.googleapis.com
-  appengine.googleapis.com
-  artifactregistry.googleapis.com
-  bigquery.googleapis.com
-  bigtableadmin.googleapis.com
-  billingbudgets.googleapis.com
-  binaryauthorization.googleapis.com
-  certificatemanager.googleapis.com
-  cloudasset.googleapis.com
-  cloudbilling.googleapis.com
-  cloudbuild.googleapis.com
-  cloudidentity.googleapis.com
-  cloudfunctions.googleapis.com
-  cloudkms.googleapis.com
-  cloudresourcemanager.googleapis.com
-  cloudscheduler.googleapis.com
-  compute.googleapis.com
-  container.googleapis.com
-  containeranalysis.googleapis.com
-  datacatalog.googleapis.com
-  dataflow.googleapis.com
-  datafusion.googleapis.com
-  dataproc.googleapis.com
-  dlp.googleapis.com
-  dns.googleapis.com
-  eventarc.googleapis.com
-  file.googleapis.com
-  gkehub.googleapis.com
-  iap.googleapis.com
-  identitytoolkit.googleapis.com
-  krmapihosting.googleapis.com
-  logging.googleapis.com
-  monitoring.googleapis.com
-  memcache.googleapis.com
-  networkconnectivity.googleapis.com
-  networksecurity.googleapis.com
-  networkservices.googleapis.com
-  osconfig.googleapis.com
-  privateca.googleapis.com
-  pubsub.googleapis.com
-  pubsublite.googleapis.com
-  recaptchaenterprise.googleapis.com
-  redis.googleapis.com
-  run.googleapis.com
-  secretmanager.googleapis.com
-  servicedirectory.googleapis.com
-  servicenetworking.googleapis.com
-  sourcerepo.googleapis.com
-  spanner.googleapis.com
-  sqladmin.googleapis.com
-  storagetransfer.googleapis.com
-  vpcaccess.googleapis.com
-)
+services=("${SUPPORTED_SERVICES[@]}")
 
-echo "Enabling services:"
+echo "Enabling services on project ${CLOUDSDK_CORE_PROJECT}:"
 printf '  %s\n' "${services[@]}"
 # gcloud.services.enable can only enable <20 services at a time
 index=0
@@ -123,6 +69,7 @@ retry --max-retries 5 --sleep-seconds 15 --command \
   "gcloud app create --region=us-west2"
 
 PROJECT_ID=$(gcloud config get-value project)
+echo "PROJECT_ID is ${PROJECT_ID}"
 OAUTH2_TOKEN=$(gcloud auth print-access-token)
 # create API specific google service accounts
 curl -X GET -H "Authorization: Bearer ${OAUTH2_TOKEN}" \
@@ -145,4 +92,5 @@ TEST_FOLDER_ID=${KCC_INTEGRATION_TESTS_FOLDER_ID}  \
   INTERCONNECT_TEST_PROJECT=${INTERCONNECT_TEST_PROJECT}  \
   HIGH_CPU_QUOTA_TEST_PROJECT=${HIGH_CPU_QUOTA_TEST_PROJECT}  \
   RECAPTCHA_ENTERPRISE_TEST_PROJECT=${RECAPTCHA_ENTERPRISE_TEST_PROJECT}  \
+  KCC_ATTACHED_CLUSTER_TEST_PROJECT=${KCC_ATTACHED_CLUSTER_TEST_PROJECT} \
   go test -v -parallel 20 ${TARGET_TESTS} ${RUN_TESTS_REGEX} ${SKIP_TESTS_REGEX} -coverprofile cover.out -tags=integration,performance -timeout 75m
