@@ -60,7 +60,6 @@ cd ${CNRM_DIR}
 git checkout ${RELEASE_SHA}
 
 git clone git@github.com:GoogleCloudPlatform/k8s-config-connector.git ${GITHUB_DIR}
-cp -rf ${CNRM_DIR}/github/. ${GITHUB_DIR}
 rm -rf ${GITHUB_DIR}/samples/*
 cp -rf ${CNRM_DIR}/config/samples ${GITHUB_DIR}
 # Substitute occurrences of "github.com/GoogleCloudPlatform/k8s-config-connector" with "github.com/GoogleCloudPlatform/k8s-config-connector" in the import paths.
