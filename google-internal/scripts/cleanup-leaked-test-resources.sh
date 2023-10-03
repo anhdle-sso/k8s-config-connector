@@ -233,23 +233,19 @@ function cleanup_org_level_logging_log_views {
   done
 }
 
-# Clean up test attached cluster resource after test completes.
-# KCC resource name: container-attached-cluster
+# Ensure that any underlying test attached cluster resources are properly removed after the test is finished.
 # GCP resource/attached cluster name: kcc-attached-cluster
-# Remaining test cluster will cause the test to fail during the next run,
-# so we have to ensure that it is cleaned up before triggering the next scheduled test.
-function cleanup_test_attached_cluster{
+function cleanup_test_attached_cluster {
   echo "Cleaning up test attached cluster..."
-  echo "Searching for test attached cluster... "
   COUNT=$(gcloud container attached clusters list --location us-west1 \
-  --filter "name=projects/461360080950/locations/us-west1/attachedClusters/kcc-attached-cluster AND createTime<-P1H" \
+  --filter "name=projects/461360080950/locations/us-west1/attachedClusters/kcc-attached-cluster AND createTime < -P1H" \
   --format json | jq length)
     if [ "${COUNT}" == 0 ]
     then
         echo "No test attached cluster found."
     else
         echo "Deleting test attached cluster..."
-        kubectl delete containerattachedcluster --all
+        gcloud container attached clusters delete kcc-attached-cluster --ignore-errors --allow-missing --location=us-west1 --quiet
     fi
 }
 
