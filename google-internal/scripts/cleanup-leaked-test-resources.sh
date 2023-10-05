@@ -235,9 +235,10 @@ function cleanup_org_level_logging_log_views {
 
 # Ensure that any underlying test attached cluster resources are properly removed after the test is finished.
 # GCP resource/attached cluster name: kcc-attached-cluster
+# GCP test project id: kcc-attached-cluster-test
 function cleanup_test_attached_cluster {
   echo "Cleaning up test attached cluster..."
-  COUNT=$(gcloud container attached clusters list --location us-west1 \
+  COUNT=$(gcloud container attached clusters list --location us-west1  --project kcc-attached-cluster-test \
   --filter "name=projects/461360080950/locations/us-west1/attachedClusters/kcc-attached-cluster AND createTime < -P1H" \
   --format json | jq length)
     if [ "${COUNT}" == 0 ]
@@ -245,7 +246,8 @@ function cleanup_test_attached_cluster {
         echo "No test attached cluster found."
     else
         echo "Deleting test attached cluster..."
-        gcloud container attached clusters delete kcc-attached-cluster --ignore-errors --allow-missing --location=us-west1 --quiet
+        gcloud container attached clusters delete kcc-attached-cluster \
+        --ignore-errors --allow-missing --location=us-west1 --project kcc-attached-cluster-test --quiet
     fi
 }
 
