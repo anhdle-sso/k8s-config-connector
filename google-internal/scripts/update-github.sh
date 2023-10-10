@@ -78,10 +78,13 @@ done
 
 cp -rf ${RELEASE_DIR}/install* ${GITHUB_INSTALL_BUNDLES_DIR}
 
-# Push release and version  tag to GitHub
+# 1. Update CustomResourceDefinitions under crds/
+# 2. Update Cloud Code Snippets under config/cloudcodesnippets/
+# 3. Push release and version tag to GitHub
 # GitHub tag needs to be formatted as vMAJOR.MINOR.PATCH because Go Modules
 # must be semantically versioned
 cd ${GITHUB_DIR}
+go run ${GITHUB_DIR}/scripts/generate-cloud-code-snippets/generate_snippets.go
 changed_file_count=$(git ls-files --modified --other | wc -l)
 if [[ ${changed_file_count} -gt 0 ]]; then
     git add -A ${GITHUB_DIR}

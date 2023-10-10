@@ -114,15 +114,3 @@ ${REPO_ROOT}/google-internal/scripts/release/update-public-docs.sh
 # instructions after b/243566783 is done
 # update the config-connector component in gcloud
 # ${REPO_ROOT}/google-internal/scripts/update-gcloud.sh --version ${VERSION}
-
-# Update Cloud Code snippets on our Git-on-Borg repo
-CNRM_DIR=$(mktemp -td kcc-release.cnrm.XXXXXXXX)
-git clone sso://cnrm/cnrm ${CNRM_DIR}
-cd $REPO_ROOT
-go run ${REPO_ROOT}/scripts/generate-cloud-code-snippets/generate_snippets.go
-cp -rf ${REPO_ROOT}/config/cloudcodesnippets ${CNRM_DIR}/config/
-cd $CNRM_DIR
-f=`git rev-parse --git-dir`/hooks/commit-msg ; mkdir -p $(dirname $f) ; curl -Lo $f https://gerrit-review.googlesource.com/tools/hooks/commit-msg ; chmod +x $f
-git add .
-git commit -m "Updating Cloud Code snippets"
-git push origin HEAD:refs/for/master
