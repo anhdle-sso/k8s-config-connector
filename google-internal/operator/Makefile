@@ -14,8 +14,6 @@
 
 include ../../operator/Makefile # For the vars, targets are likely broken because of relative paths
 
-REPO_ROOT := $(shell git rev-parse --show-toplevel)
-
 SHORT_SHA := $(shell git rev-parse --short=7 HEAD)
 GKE_OPERATOR_IMG ?= gcr.io/gke-release/cnrm/operator\:${SHORT_SHA}
 
@@ -53,20 +51,6 @@ destroy:
 release:
 	make -C ${REPO_ROOT}/operator manifests
 	kustomize build ${REPO_ROOT}/operator/config/release
-
-# Upgrade KCC core manifest
-.PHONY: upgrade-kcc
-upgrade-kcc:
-	cd ${REPO_ROOT}/operator; go run scripts/update-kcc-manifest/main.go --version=latest
-	cd ${REPO_ROOT}/operator; go run scripts/copy-dependency-manifests/main.go
-	make -C ${REPO_ROOT}/operator manifests
-
-# Upgrade KCC core manifest
-.PHONY: upgrade-kcc-local
-upgrade-kcc-local:
-	cd ${REPO_ROOT}/operator; go run scripts/update-kcc-manifest/main.go --version=local
-	cd ${REPO_ROOT}/operator; go run scripts/copy-dependency-manifests/main.go
-	make -C ${REPO_ROOT}/operator manifests
 
 # Mount the docker image to gcr.io/gke-release
 .PHONY: docker-push-gke
