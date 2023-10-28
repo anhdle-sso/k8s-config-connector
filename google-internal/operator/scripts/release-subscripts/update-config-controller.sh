@@ -30,8 +30,21 @@ pushd .
 cd "${TEMP_DIR}"
 git clone sso://acp/acp
 cd acp
+
+# Update KCC operator
 make -C containers/bootstrap/assets/configconnector-operator update
 git add .
+
+# Update KCC Alpha Resources Experimental Feature
+git clone https://github.com/GoogleCloudPlatform/k8s-config-connector tmp-kcc-clone
+cd tmp-kcc-clone
+git checkout "v${VERSION}"
+cd ..
+rm containers/bootstrap/assets/config-connector-alpha-resources/*
+cp tmp-kcc-clone/crds/*v1alpha1*.yaml containers/bootstrap/assets/config-connector-alpha-resources/
+rm -rf tmp-kcc-clone
+git add .
+
 # ensure we have the the Change-Id hook installed.
 f=$(git rev-parse --git-dir)/hooks/commit-msg ; mkdir -p "$(dirname $f)" ; curl -Lo $f https://gerrit-review.googlesource.com/tools/hooks/commit-msg ; chmod +x $f
 git commit -m "Update KCC to $VERSION"
