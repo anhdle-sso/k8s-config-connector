@@ -74,12 +74,6 @@ config-connector-package:
 	make -C ${REPO_ROOT} generate fmt vet
 	./scripts/config-connector/package.sh
 
-# Upgrades dcl dependencies
-.PHONY: upgrade-dcl
-upgrade-dcl:
-	go get github.com/GoogleCloudPlatform/declarative-resource-client-library
-	make -C ${REPO_ROOT} ensure
-
 # deploy, but with all targets required to generate and push a working build
 .PHONY: deploy-full
 deploy-full:
