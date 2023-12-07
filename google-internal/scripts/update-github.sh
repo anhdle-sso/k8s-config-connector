@@ -24,6 +24,7 @@ while [[ $# -gt 0 ]]; do
   case "${1}" in
     --version)      VERSION="${2:-}"; shift ;;
     --release-sha)  RELEASE_SHA="${2:-}"; shift ;;
+    --tag-sha)      TAG_SHA="${2:-}"; shift ;;
     *)              echo "Unrecognized command line parameter: $1"; exit 1 ;;
   esac
   shift
@@ -36,9 +37,10 @@ if [[ $? -gt 0 ]]; then
     exit 1
 fi
 
-# Check if version & release SHA were given
+# Check if version, release SHA and tag SHA were given
 [[ -z "${VERSION:-}" ]] && { echo "Error: Version not specified"; exit 1; }
 [[ -z "${RELEASE_SHA:-}" ]] && { echo "Error: Release SHA not specified"; exit 1; }
+[[ -z "${TAG_SHA:-}" ]] && { echo "Error: Tag SHA not specified"; exit 1; }
 
 source "${REPO_ROOT}/google-internal/scripts/shared-vars.sh"
 
@@ -87,6 +89,7 @@ changed_file_count=$(git ls-files --modified --other | wc -l)
 if [[ ${changed_file_count} -gt 0 ]]; then
     git add -A ${GITHUB_DIR}
     git commit -m "Update for version ${VERSION}"
-    git tag ${GITHUB_VERSION_TAG}
-    git push origin master ${GITHUB_VERSION_TAG}
+    git tag -a "${GITHUB_VERSION_TAG}" ${TAG_SHA} -m "KCC release version ${GITHUB_VERSION_TAG}"
+    git push origin master
+    git push origin ${GITHUB_VERSION_TAG}
 fi

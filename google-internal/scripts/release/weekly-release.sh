@@ -94,7 +94,8 @@ gsutil cp -r ${GCS_OUTPUT_PATH}/* gs://${RELEASE_BUCKET}/${VERSION}/
 gsutil cp -r gs://${RELEASE_BUCKET}/${VERSION}/* gs://${RELEASE_BUCKET}/latest/
 
 # Update the GitHub repo
-${REPO_ROOT}/google-internal/scripts/update-github.sh --version ${VERSION} --release-sha ${RELEASE_SHA}
+GIT_ORIGIN_REVID=$(git log -n 1 --pretty=format:"%b" "${RELEASE_SHA}" | grep -oP 'GitOrigin-RevId: \K\S+')
+${REPO_ROOT}/google-internal/scripts/update-github.sh --version ${VERSION} --release-sha ${RELEASE_SHA} --tag-sha ${GIT_ORIGIN_REVID}
 
 # Update Runtime Config with the latest public version
 gcloud beta runtime-config configs variables set latest-public-version ${VERSION} \
