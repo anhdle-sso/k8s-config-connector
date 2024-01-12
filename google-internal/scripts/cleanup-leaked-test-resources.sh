@@ -63,6 +63,7 @@ function main {
   cleanup_gcp_folders "--folder=${KCC_INTEGRATION_TESTS_FOLDER_ID}"
   cleanup_gcp_folders "--folder=${KCC_INTEGRATION_TESTS_2_FOLDER_ID}"
   cleanup_org_level_logging_log_views "--organization=${ORGANIZATION_ID}"
+  cleanup_dlp_storage_iam_bindings
 
   cleanup_test_attached_cluster
 }
@@ -232,6 +233,34 @@ function cleanup_org_level_logging_log_views {
       $parent_args
   done
 }
+
+# cleanup_dlp_storage_iam_bindings first retrieves IAM Policy from a storage named
+# aaa-dont-delete-kcc-dlp-testing in GCP project kcc-dlp, then it removes all IAM Policy members
+# starts with "deleted:serviceAccount"
+function cleanup_dlp_storage_iam_bindings {
+
+  gcloud config set project $DLP_TEST_PROJECT
+
+  # DLP Test Storage Bucket
+  bucket="aaa-dont-delete-kcc-dlp-testing"
+
+  # Get the current IAM policy for the bucket
+  iam_policy=$(gcloud storage buckets get-iam-policy "gs://$bucket" --format=json)
+  etag=$(echo $iam_policy | jq -r '.etag')
+
+  new_iam_policy=$(echo $iam_policy | jq '(.bindings[] | select(.members[] | startswith("deleted:serviceAccount")) | .members) |= map(select(startswith("deleted:serviceAccount") | not))')
+
+  # Update the IAM policy for the bucket, abort if there are concurrent writes
+  if [ "$iam_policy" != "$new_iam_policy" ]; then
+    echo "Updating IAM policy for bucket: $bucket"
+    echo "$new_iam_policy" > new_iam_policy.json
+    update_status=$(gcloud storage buckets set-iam-policy "gs://$bucket" --etag=$etag new_iam_policy.json 2>&1)
+    if [[ $update_status == *"conditionNotMet"* ]]; then
+      echo "Update failed due to concurrent modification. Abort and will retry next time..."
+    fi
+  fi
+}
+
 
 # Ensure that any underlying test attached cluster resources are properly removed after the test is finished.
 # GCP resource/attached cluster name: kcc-attached-cluster
