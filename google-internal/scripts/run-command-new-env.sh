@@ -33,9 +33,11 @@ UNIQUE_ID=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 16 | head -n 1) || true
 PROJECT_ID="${PROJECT_ID_PREFIX_FOR_TESTS}-${UNIQUE_ID}"
 TEST_DEPENDENT_ORG_PROJECT_ID="${PROJECT_ID_PREFIX_FOR_TESTS}-${UNIQUE_ID}-01"
 TEST_DEPENDENT_FOLDER_PROJECT_ID="${PROJECT_ID_PREFIX_FOR_TESTS}-${UNIQUE_ID}-02"
-TEST_DEPENDENT_NO_NETWORK_PROJECT_ID="${PROJECT_ID_PREFIX_FOR_TESTS}-${UNIQUE_ID}-03"
+TEST_DEPENDENT_FOLDER_2_PROJECT_ID="${PROJECT_ID_PREFIX_FOR_TESTS}-${UNIQUE_ID}-03"
+TEST_DEPENDENT_NO_NETWORK_PROJECT_ID="${PROJECT_ID_PREFIX_FOR_TESTS}-${UNIQUE_ID}-04"
 export TEST_DEPENDENT_ORG_PROJECT_ID
 export TEST_DEPENDENT_FOLDER_PROJECT_ID
+export TEST_DEPENDENT_FOLDER_2_PROJECT_ID
 export TEST_DEPENDENT_NO_NETWORK_PROJECT_ID
 
 SERVICE_ACCOUNT_EMAIL="${GSA_ID_FOR_TESTS}@${PROJECT_ID}.iam.gserviceaccount.com"
@@ -93,6 +95,8 @@ function cleanup_project {
     gcloud projects delete ${TEST_DEPENDENT_ORG_PROJECT_ID} || true
     echo "Deleting project ${TEST_DEPENDENT_FOLDER_PROJECT_ID}..."
     gcloud projects delete ${TEST_DEPENDENT_FOLDER_PROJECT_ID} || true
+    echo "Deleting project ${TEST_DEPENDENT_FOLDER_2_PROJECT_ID}..."
+    gcloud projects delete ${TEST_DEPENDENT_FOLDER_2_PROJECT_ID} || true
     echo "Deleting project ${TEST_DEPENDENT_NO_NETWORK_PROJECT_ID}..."
     gcloud projects delete ${TEST_DEPENDENT_NO_NETWORK_PROJECT_ID} || true
 }
@@ -157,6 +161,7 @@ echo "Creating new projects..."
 gcloud projects create ${PROJECT_ID} --labels="cnrm-test=true" --organization ${ORGANIZATION_ID}
 gcloud projects create ${TEST_DEPENDENT_ORG_PROJECT_ID} --labels="cnrm-test=true" --organization ${ORGANIZATION_ID}
 gcloud projects create ${TEST_DEPENDENT_FOLDER_PROJECT_ID} --labels="cnrm-test=true" --folder ${KCC_INTEGRATION_TESTS_FOLDER_ID}
+gcloud projects create ${TEST_DEPENDENT_FOLDER_2_PROJECT_ID} --labels="cnrm-test=true" --folder ${KCC_INTEGRATION_TESTS_FOLDER_ID}
 gcloud projects create ${TEST_DEPENDENT_NO_NETWORK_PROJECT_ID} --labels="cnrm-test=true" --folder ${KCC_INTEGRATION_TESTS_FOLDER_ID}
 trap_exit_add cleanup_project
 
@@ -164,6 +169,7 @@ export CLOUDSDK_CORE_PROJECT=${PROJECT_ID}
 gcloud beta billing projects link --billing-account ${BILLING_ACCOUNT_ID} ${PROJECT_ID}
 gcloud beta billing projects link --billing-account ${BILLING_ACCOUNT_ID} ${TEST_DEPENDENT_ORG_PROJECT_ID}
 gcloud beta billing projects link --billing-account ${BILLING_ACCOUNT_ID} ${TEST_DEPENDENT_FOLDER_PROJECT_ID}
+gcloud beta billing projects link --billing-account ${BILLING_ACCOUNT_ID} ${TEST_DEPENDENT_FOLDER_2_PROJECT_ID}
 gcloud beta billing projects link --billing-account ${BILLING_ACCOUNT_ID} ${TEST_DEPENDENT_NO_NETWORK_PROJECT_ID}
 
 echo "Creating service account..."
@@ -178,6 +184,7 @@ do
   retry --max-retries 7 --command "gcloud projects add-iam-policy-binding ${PROJECT_ID} --no-user-output-enabled --member ${IAM_MEMBER} --role ${role}"
   retry --max-retries 7 --command "gcloud projects add-iam-policy-binding ${TEST_DEPENDENT_ORG_PROJECT_ID} --no-user-output-enabled --member ${IAM_MEMBER} --role ${role}"
   retry --max-retries 7 --command "gcloud projects add-iam-policy-binding ${TEST_DEPENDENT_FOLDER_PROJECT_ID} --no-user-output-enabled --member ${IAM_MEMBER} --role ${role}"
+  retry --max-retries 7 --command "gcloud projects add-iam-policy-binding ${TEST_DEPENDENT_FOLDER_2_PROJECT_ID} --no-user-output-enabled --member ${IAM_MEMBER} --role ${role}"
   retry --max-retries 7 --command "gcloud projects add-iam-policy-binding ${TEST_DEPENDENT_NO_NETWORK_PROJECT_ID} --no-user-output-enabled --member ${IAM_MEMBER} --role ${role}"
 done
 
