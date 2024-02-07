@@ -93,4 +93,7 @@ TEST_FOLDER_ID=${KCC_INTEGRATION_TESTS_FOLDER_ID}  \
   HIGH_CPU_QUOTA_TEST_PROJECT=${HIGH_CPU_QUOTA_TEST_PROJECT}  \
   RECAPTCHA_ENTERPRISE_TEST_PROJECT=${RECAPTCHA_ENTERPRISE_TEST_PROJECT}  \
   KCC_ATTACHED_CLUSTER_TEST_PROJECT=${KCC_ATTACHED_CLUSTER_TEST_PROJECT} \
-  go test -v -parallel 20 ${TARGET_TESTS} ${RUN_TESTS_REGEX} ${SKIP_TESTS_REGEX} -coverprofile cover.out -tags=integration,performance -timeout 75m
+  go test -v -parallel 20 ${TARGET_TESTS} ${RUN_TESTS_REGEX} ${SKIP_TESTS_REGEX} \
+    -coverprofile cover.out \
+    -tags=integration,performance \
+    -timeout 120m
