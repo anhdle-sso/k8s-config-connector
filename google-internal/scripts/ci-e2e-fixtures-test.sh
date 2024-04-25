@@ -30,5 +30,5 @@ ${REPO_ROOT}/scripts/validate-prereqs.sh
 echo "Activating service-account in gcloud..."
 gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
 
-echo "Running unified test TestAllInSeries/fixtures..."
-make -C google-internal unified-fixtures-test
+echo "Running e2e test TestAllInSeries/fixtures..."
+make -C google-internal e2e-fixtures-test

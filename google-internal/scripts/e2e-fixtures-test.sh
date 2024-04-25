@@ -21,7 +21,7 @@ function jreport {
 
   cp test_*.txt ${ARTIFACTS}/
 
-  cat test_unified_fixture_log1.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_unified_fixture_report1.xml
+  cat test_e2e_fixture_log1.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_e2e_fixture_report1.xml
 }
 
 trap jreport EXIT
@@ -39,4 +39,4 @@ ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
      ${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory './tests/e2e' \
     --run 'TestAllInSeries/fixtures' \
-    " 2>&1 | tee test_unified_fixture_log1.txt
+    " 2>&1 | tee test_e2e_fixture_log1.txt

@@ -68,6 +68,12 @@ samples-test:
 	make -C ${REPO_ROOT} generate fmt vet manifests
 	./scripts/samples-test.sh
 
+# Run e2e fixtures tests
+.PHONY: e2e-fixtures-test
+e2e-fixtures-test:
+	make -C ${REPO_ROOT} generate fmt vet manifests
+	./scripts/e2e-fixtures-test.sh
+
 # package a config-connector release tarball
 .PHONY: config-connector-package
 config-connector-package:
