@@ -17,6 +17,7 @@ set -o nounset
 set -o pipefail
 
 RUN_TESTS_REGEX=""
+GO_TEST_RUN_REGEX=""
 SKIP_TESTS_REGEX=""
 EXIT_ON_ERROR=false
 
@@ -28,6 +29,10 @@ while [[ $# -gt 0 ]]; do
     --target-directory) TARGET_TESTS="${2:-}"; shift ;;
     # Take in the additional "--run-tests" flag for particular tests to run
     --run-tests)        RUN_TESTS_REGEX="-run-tests ${2:-}"; shift ;;
+    # Take in the go test built-in "--run" flag for particular tests to run
+    # This flag is only used to run e2e test(tests/e2e/unified_test.go),
+    # because we do not have custom flag -run-tests set for it
+    --go-test-run)      GO_TEST_RUN_REGEX="-run ${2:-}"; shift ;;
     # Take in the additional "--skip-tests" flag for particular tests to skip
     --skip-tests)       SKIP_TESTS_REGEX="-skip-tests ${2:-}"; shift ;;
     --exit-on-error)       EXIT_ON_ERROR=true;;
@@ -93,7 +98,7 @@ TEST_FOLDER_ID=${KCC_INTEGRATION_TESTS_FOLDER_ID}  \
   HIGH_CPU_QUOTA_TEST_PROJECT=${HIGH_CPU_QUOTA_TEST_PROJECT}  \
   RECAPTCHA_ENTERPRISE_TEST_PROJECT=${RECAPTCHA_ENTERPRISE_TEST_PROJECT}  \
   KCC_ATTACHED_CLUSTER_TEST_PROJECT=${KCC_ATTACHED_CLUSTER_TEST_PROJECT} \
-  go test -v -parallel 20 ${TARGET_TESTS} ${RUN_TESTS_REGEX} ${SKIP_TESTS_REGEX} \
+  go test -v -parallel 20 ${TARGET_TESTS} ${RUN_TESTS_REGEX} ${SKIP_TESTS_REGEX} ${GO_TEST_RUN_REGEX} \
     -coverprofile cover.out \
     -tags=integration,performance \
     -timeout 120m

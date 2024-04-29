@@ -38,5 +38,5 @@ ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "E2E_KUBE_TARGET=envtest RUN_E2E=1 E2E_GCP_TARGET=real
      ${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory './tests/e2e' \
-    --run 'TestAllInSeries/fixtures' \
+    --go-test-run 'TestAllInSeries/fixtures' \
     " 2>&1 | tee test_e2e_fixture_log1.txt
