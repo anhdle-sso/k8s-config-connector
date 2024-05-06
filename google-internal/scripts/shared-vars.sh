@@ -38,6 +38,10 @@ KCC_ATTACHED_CLUSTER_TEST_PROJECT="kcc-attached-cluster-test"
 IAM_WORKFORCE_TEST_GSA="cnrm-system@cnrm-test-iam.iam.gserviceaccount.com"
 # IAM Access Boundary Policy integration test Service Account
 IAM_ACCESS_BOUNDARY_TEST_GSA="cnrm-system@kcc-access-boundary.iam.gserviceaccount.com"
+# Pre-created GCP bucket and content for Vertex AI Index
+KCC_VERTEX_AI_TEST_PROJECT="kcc-vertex-ai-test" # this is the pre-created test project
+KCC_VERTEX_AI_INDEX_TEST_BUCKET="kcc-vertex-ai-index-test" # this is the GCS bucket pre-created in project "kcc-vertex-ai-test"
+KCC_VERTEX_AI_INDEX_TEST_DATA_URI="gs://kcc-vertex-ai-index-test/kcc-vertex-ai-index-testdata.json" # this is the content pre-uploaded to GCS bucket "kcc-vertex-ai-index-test"
 
 # Integration test variables
 PROJECT_ID_PREFIX_FOR_TESTS="cnrm-test"
@@ -79,6 +83,7 @@ SHARED_PROJECTS=(
   ${HIGH_CPU_QUOTA_TEST_PROJECT}
   ${RECAPTCHA_ENTERPRISE_TEST_PROJECT}
   ${KCC_ATTACHED_CLUSTER_TEST_PROJECT}
+  ${KCC_VERTEX_AI_TEST_PROJECT}
 )
 
 # package names and locations
