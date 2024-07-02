@@ -69,6 +69,13 @@ and all following characters must be a dash, underscore, letter or digit.`,
 				Optional:    true,
 				Description: `A human-readable description of the resource.`,
 			},
+			"location": {
+				Type:        schema.TypeString,
+				Optional:    true,
+				ForceNew:    true,
+				Description: `The Certificate Manager DNS Authorization location. If not specified, "global" is used.`,
+				Default:     "global",
+			},
 			"labels": {
 				Type:        schema.TypeMap,
 				Optional:    true,
@@ -140,7 +147,7 @@ func resourceCertificateManagerDnsAuthorizationCreate(d *schema.ResourceData, me
 		obj["domain"] = domainProp
 	}
 
-	url, err := tpgresource.ReplaceVars(d, config, "{{CertificateManagerBasePath}}projects/{{project}}/locations/global/dnsAuthorizations?dnsAuthorizationId={{name}}")
+	url, err := tpgresource.ReplaceVars(d, config, "{{CertificateManagerBasePath}}projects/{{project}}/locations/{{location}}/dnsAuthorizations?dnsAuthorizationId={{name}}")
 	if err != nil {
 		return err
 	}
@@ -173,7 +180,7 @@ func resourceCertificateManagerDnsAuthorizationCreate(d *schema.ResourceData, me
 	}
 
 	// Store the ID now
-	id, err := tpgresource.ReplaceVars(d, config, "projects/{{project}}/locations/global/dnsAuthorizations/{{name}}")
+	id, err := tpgresource.ReplaceVars(d, config, "projects/{{project}}/locations/{{location}}/dnsAuthorizations/{{name}}")
 	if err != nil {
 		return fmt.Errorf("Error constructing id: %s", err)
 	}
@@ -201,7 +208,7 @@ func resourceCertificateManagerDnsAuthorizationRead(d *schema.ResourceData, meta
 		return err
 	}
 
-	url, err := tpgresource.ReplaceVars(d, config, "{{CertificateManagerBasePath}}projects/{{project}}/locations/global/dnsAuthorizations/{{name}}")
+	url, err := tpgresource.ReplaceVars(d, config, "{{CertificateManagerBasePath}}projects/{{project}}/locations/{{location}}/dnsAuthorizations/{{name}}")
 	if err != nil {
 		return err
 	}
@@ -279,7 +286,7 @@ func resourceCertificateManagerDnsAuthorizationUpdate(d *schema.ResourceData, me
 		obj["labels"] = labelsProp
 	}
 
-	url, err := tpgresource.ReplaceVars(d, config, "{{CertificateManagerBasePath}}projects/{{project}}/locations/global/dnsAuthorizations/{{name}}")
+	url, err := tpgresource.ReplaceVars(d, config, "{{CertificateManagerBasePath}}projects/{{project}}/locations/{{location}}/dnsAuthorizations/{{name}}")
 	if err != nil {
 		return err
 	}
@@ -348,7 +355,7 @@ func resourceCertificateManagerDnsAuthorizationDelete(d *schema.ResourceData, me
 	}
 	billingProject = project
 
-	url, err := tpgresource.ReplaceVars(d, config, "{{CertificateManagerBasePath}}projects/{{project}}/locations/global/dnsAuthorizations/{{name}}")
+	url, err := tpgresource.ReplaceVars(d, config, "{{CertificateManagerBasePath}}projects/{{project}}/locations/{{location}}/dnsAuthorizations/{{name}}")
 	if err != nil {
 		return err
 	}
@@ -389,7 +396,7 @@ func resourceCertificateManagerDnsAuthorizationDelete(d *schema.ResourceData, me
 func resourceCertificateManagerDnsAuthorizationImport(d *schema.ResourceData, meta interface{}) ([]*schema.ResourceData, error) {
 	config := meta.(*transport_tpg.Config)
 	if err := tpgresource.ParseImportId([]string{
-		"projects/(?P<project>[^/]+)/locations/global/dnsAuthorizations/(?P<name>[^/]+)",
+		"projects/(?P<project>[^/]+)/locations/(?P<location>[^/]+)/dnsAuthorizations/(?P<name>[^/]+)",
 		"(?P<project>[^/]+)/(?P<name>[^/]+)",
 		"(?P<name>[^/]+)",
 	}, d, config); err != nil {
@@ -397,7 +404,7 @@ func resourceCertificateManagerDnsAuthorizationImport(d *schema.ResourceData, me
 	}
 
 	// Replace import id for the resource id
-	id, err := tpgresource.ReplaceVars(d, config, "projects/{{project}}/locations/global/dnsAuthorizations/{{name}}")
+	id, err := tpgresource.ReplaceVars(d, config, "projects/{{project}}/locations/{{location}}/dnsAuthorizations/{{name}}")
 	if err != nil {
 		return nil, fmt.Errorf("Error constructing id: %s", err)
 	}

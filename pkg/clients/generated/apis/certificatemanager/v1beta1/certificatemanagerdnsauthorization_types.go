@@ -45,6 +45,10 @@ type CertificateManagerDNSAuthorizationSpec struct {
 	be used to issue certificates for "example.com" and "*.example.com". */
 	Domain string `json:"domain"`
 
+	/* Immutable. The Certificate Manager DNS Authorization location. If not specified, "global" is used. */
+	// +optional
+	Location *string `json:"location,omitempty"`
+
 	/* The project that this resource belongs to. */
 	ProjectRef v1alpha1.ResourceRef `json:"projectRef"`
 

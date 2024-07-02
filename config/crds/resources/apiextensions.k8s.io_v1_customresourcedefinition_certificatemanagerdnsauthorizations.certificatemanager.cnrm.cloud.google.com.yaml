@@ -67,6 +67,10 @@ spec:
                   single domain and its wildcard, e.g. authorization for "example.com" can
                   be used to issue certificates for "example.com" and "*.example.com".
                 type: string
+              location:
+                description: Immutable. The Certificate Manager DNS Authorization
+                  location. If not specified, "global" is used.
+                type: string
               projectRef:
                 description: The project that this resource belongs to.
                 oneOf:
@@ -208,6 +212,10 @@ spec:
                   Immutable. A domain which is being authorized. A DnsAuthorization resource covers a
                   single domain and its wildcard, e.g. authorization for "example.com" can
                   be used to issue certificates for "example.com" and "*.example.com".
+                type: string
+              location:
+                description: Immutable. The Certificate Manager DNS Authorization
+                  location. If not specified, "global" is used.
                 type: string
               projectRef:
                 description: The project that this resource belongs to.
