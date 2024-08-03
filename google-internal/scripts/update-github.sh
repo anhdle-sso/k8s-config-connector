@@ -68,7 +68,7 @@ export GOFLAGS=-mod=readonly && cd ${GITHUB_DIR} && go vet ./pkg/...
 
 # Prepare CRDs
 crds_file=${RELEASE_DIR}/install-bundle-workload-identity/crds.yaml # All install bundles have the same crds.yaml file, so any of them would work
-cd ${REPO_ROOT} && go run ${REPO_ROOT}/scripts/parse-crds/parse-crds.go -file ${crds_file} -output-dir ${CRD_DIR}
+cd ${REPO_ROOT} && go run -mod=readonly ${REPO_ROOT}/scripts/parse-crds/parse-crds.go -file ${crds_file} -output-dir ${CRD_DIR}
 rm -rf ${GITHUB_CRD_DIR}
 mkdir ${GITHUB_CRD_DIR}
 for filepath in ${CRD_DIR}/*.yaml; do
@@ -84,7 +84,7 @@ cp -rf ${RELEASE_DIR}/install* ${GITHUB_INSTALL_BUNDLES_DIR}
 # GitHub tag needs to be formatted as vMAJOR.MINOR.PATCH because Go Modules
 # must be semantically versioned
 cd ${GITHUB_DIR}
-go run ${GITHUB_DIR}/scripts/generate-cloud-code-snippets/generate_snippets.go
+go run -mod=readonly ${GITHUB_DIR}/scripts/generate-cloud-code-snippets/generate_snippets.go
 changed_file_count=$(git ls-files --modified --other | wc -l)
 if [[ ${changed_file_count} -gt 0 ]]; then
     git add -A ${GITHUB_DIR}
