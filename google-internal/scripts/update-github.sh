@@ -64,7 +64,7 @@ git checkout ${RELEASE_SHA}
 git clone git@github.com:GoogleCloudPlatform/k8s-config-connector.git ${GITHUB_DIR}
 # Substitute occurrences of "github.com/GoogleCloudPlatform/k8s-config-connector" with "github.com/GoogleCloudPlatform/k8s-config-connector" in the import paths.
 find ${GITHUB_DIR}/pkg/ -type f -print0 | xargs -0 sed -i 's/cnrm.googlesource.com\/cnrm/github.com\/GoogleCloudPlatform\/k8s-config-connector/g'
-export GOFLAGS=-mod=mod && cd ${GITHUB_DIR} && go vet ./pkg/...
+export GOFLAGS=-mod=readonly && cd ${GITHUB_DIR} && go vet ./pkg/...
 
 # Prepare CRDs
 crds_file=${RELEASE_DIR}/install-bundle-workload-identity/crds.yaml # All install bundles have the same crds.yaml file, so any of them would work
