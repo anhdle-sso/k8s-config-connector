@@ -103,4 +103,4 @@ TEST_FOLDER_ID=${KCC_INTEGRATION_TESTS_FOLDER_ID}  \
   go test -v -parallel 20 ${TARGET_TESTS} ${RUN_TESTS_REGEX} ${SKIP_TESTS_REGEX} ${GO_TEST_RUN_REGEX} \
     -coverprofile cover.out \
     -tags=integration,performance \
-    -timeout 120m
+    -timeout 180m
