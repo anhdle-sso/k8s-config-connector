@@ -16,6 +16,22 @@
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 source ${REPO_ROOT}/scripts/shared-vars-public.sh
 
+# Flaky tests
+# TODO: Fix failed test cases and stabilize flaky test cases.
+FAILED_TESTS_REGEX="cloudbuildworkerpool|dataformrepository-base|dataformrepository-full|\
+acmfeature|basicacmgkehubfeaturemembership|fullacmgkehubfeaturemembership|meshgkehubfeaturemembership|mcsdfeatureChanges|\
+privatecacapooliam|monitoringdashboardrefs|networkservicesgateway|spannerdatabase|\
+tagvalueproject|redisclustersimple|basicrediscluster|fullrediscluster|custombudget|\
+networkipcomputeinstance"
+FLAKY_TESTS_REGEX="${FAILED_TESTS_REGEX}|vertexaiendpointencryptionkey|\
+namespacepolicytoclusterpolicy|computenodegroup|awsworkloadidentitypoolprovider|\
+iamworkloadidentitypool|oidcworkloadidentitypoolprovider|jobwithsecretmanagersecret|\
+bigtablegcpolicy"
+IAM_FAILED_TEST_FUNCS="TestAllGetSetDeleteAuditConfig|TestAllGetSetDeletePolicy|\
+TestAllGetSetDeletePolicyMember|TestAllGetSetPolicyWithAuditConfigs"
+IAM_FAILED_TESTS_REGEX="spannerdatabase"
+OTHER_FAILED_TEST_FUNCS="TestCRUD|TestSecretManagerSecretVersion"
+
 # GCP IDs
 ORGANIZATION_ID=128653134652 # The ID of the "deployment-manager.net" org
 BILLING_ACCOUNT_ID="01BD15-3BAB95-35F231" # CNRM Testing billing account

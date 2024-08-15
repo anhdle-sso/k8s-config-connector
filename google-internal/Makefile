@@ -50,11 +50,17 @@ presubmit-test:
 	make -C ${REPO_ROOT} generate fmt vet manifests
 	./scripts/presubmit-test.sh
 
-# Run all integration tests excluding the ones for auto-generated resources.
+# Run all integration tests excluding the flaky ones and the autogen ones.
 .PHONY: integration-test
 integration-test:
 	make -C ${REPO_ROOT} generate fmt vet manifests
 	./scripts/integration-test.sh
+
+# Run the tracked flaky integration tests.
+.PHONY: integration-test-flaky
+integration-test-flaky:
+	make -C ${REPO_ROOT} generate fmt vet manifests
+	./scripts/integration-test-flaky.sh
 
 # Run integration tests for auto-generated resources.
 .PHONY: integration-test-autogen

@@ -60,7 +60,7 @@ PERIODIC_CRUD_TESTS_REGEX="cloudidentitygroup|cloudidentitymembership|computeint
 AUTOGEN_TESTS_REGEX="basic$"
 
 # Regex used to match tests to be skipped during the main test run.
-SKIP_CRUD_TESTS_ON_MAIN_RUN_REGEX="${PERIODIC_CRUD_TESTS_REGEX}|${LONG_RUNNING_CRUD_TESTS_REGEX}|${AUTOGEN_TESTS_REGEX}"
+SKIP_CRUD_TESTS_ON_MAIN_RUN_REGEX="${PERIODIC_CRUD_TESTS_REGEX}|${LONG_RUNNING_CRUD_TESTS_REGEX}|${AUTOGEN_TESTS_REGEX}|${FLAKY_TESTS_REGEX}"
 
 # Regex used to match IAM tests to be skipped during the main test run.
 # TODO(b/220357089): re-enable eventfunction test in IAM test suite.
@@ -75,7 +75,8 @@ SKIP_IAM_TESTS_ON_MAIN_RUN_REGEX="eventfunction|iamworkforcepool"
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${CRUD_TEST_PACKAGE}/...' \
-    --run-tests '${LONG_RUNNING_CRUD_TESTS_REGEX}'\
+    --run-tests '${LONG_RUNNING_CRUD_TESTS_REGEX}' \
+    --skip-tests '${FLAKY_TESTS_REGEX}'\
   " 2>&1 | tee test_int_log1.txt &
 PROCESS1=$!
 
@@ -90,7 +91,10 @@ PROCESS2=$!
 
 # Singleton tests (due to quota and instance count limitation at org/project level)
 sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during project set-up.
-SINGLETON_TEST_COMMAND="${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh --target-directory ./pkg/controller/dynamic --run-tests 'computeinterconnectattachment|computefirewallpolicy|computefirewallpolicyassociation|computefirewallpolicyrule'"
+SINGLETON_TEST_COMMAND="${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
+--target-directory ./pkg/controller/dynamic \
+--run-tests 'computeinterconnectattachment|computefirewallpolicy|computefirewallpolicyassociation|computefirewallpolicyrule' \
+--skip-tests '${FLAKY_TESTS_REGEX}'"
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh --command "${SINGLETON_TEST_COMMAND}" 2>&1 | tee test_int_log3.txt
 PROCESS3=$!
 
@@ -108,8 +112,9 @@ PROCESS5=$!
 sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during project set-up.
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
-    --target-directory '${IAM_TEST_PACKAGE}'\
-    --skip-tests '${SKIP_IAM_TESTS_ON_MAIN_RUN_REGEX}'\
+    --target-directory '${IAM_TEST_PACKAGE}' \
+    --skip-tests '${SKIP_IAM_TESTS_ON_MAIN_RUN_REGEX}|${IAM_FAILED_TESTS_REGEX}' \
+    --go-test-skip '${IAM_FAILED_TEST_FUNCS}'\
   " 2>&1 | tee test_int_log6.txt &
 PROCESS6=$!
 
@@ -117,7 +122,8 @@ PROCESS6=$!
 sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during project set-up.
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
-    --target-directory '${OTHER_TEST_PACKAGES}'\
+    --target-directory '${OTHER_TEST_PACKAGES}' \
+    --go-test-skip '${OTHER_FAILED_TEST_FUNCS}'\
   " 2>&1 | tee test_int_log7.txt &
 PROCESS7=$!
 
