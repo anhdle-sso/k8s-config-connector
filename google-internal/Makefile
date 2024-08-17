@@ -74,6 +74,12 @@ samples-test:
 	make -C ${REPO_ROOT} generate fmt vet manifests
 	./scripts/samples-test.sh
 
+# Run flaky sample resource tests
+.PHONY: samples-test-flaky
+samples-test-flaky:
+	make -C ${REPO_ROOT} generate fmt vet manifests
+	./scripts/samples-test-flaky.sh
+
 # Run e2e fixtures tests
 .PHONY: e2e-fixtures-test
 e2e-fixtures-test:

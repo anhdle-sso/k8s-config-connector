@@ -37,5 +37,6 @@ cd ${REPO_ROOT}
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
   --target-directory './config/tests/samples/...' \
-  --skip-tests '${FLAKY_SAMPLES_TESTS_REGEX}'\
+  --go-test-run 'TestAll'
+  --run-tests '${FLAKY_SAMPLES_TESTS_REGEX}'\
   " 2>&1 | tee test_sample_log1.txt

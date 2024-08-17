@@ -13,19 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-function jreport {
-  if [[ -z "${ARTIFACTS}" ]]; then
-    echo "${ARTIFACTS} env var is missing, JUnit report will not be generated"
-    return
-  fi
-
-  cp test_*.txt ${ARTIFACTS}/
-
-  cat test_sample_log1.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_sample_report1.xml
-}
-
-trap jreport EXIT
-
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -34,8 +21,13 @@ REPO_ROOT="$(git rev-parse --show-toplevel)"
 source "${REPO_ROOT}/google-internal/scripts/shared-vars.sh"
 cd ${REPO_ROOT}
 
-${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
-  --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
-  --target-directory './config/tests/samples/...' \
-  --skip-tests '${FLAKY_SAMPLES_TESTS_REGEX}'\
-  " 2>&1 | tee test_sample_log1.txt
+source ${REPO_ROOT}/scripts/fetch_ext_bins.sh && \
+	fetch_tools && \
+	setup_envs
+
+${REPO_ROOT}/scripts/validate-prereqs.sh
+
+echo "Activating service-account in gcloud..."
+gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
+
+make -C google-internal samples-test-flaky
