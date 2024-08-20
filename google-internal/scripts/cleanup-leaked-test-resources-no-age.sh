@@ -40,6 +40,7 @@ function main {
   delete_org_level_iam_custom_roles
   cleanup_iam_workforce_pools
   cleanup_iam_workforce_pools_sa_keys
+  cleanup_billing_budgets
 }
 
 function delete_org_level_iam_custom_roles {
@@ -106,6 +107,24 @@ function cleanup_iam_workforce_pools_sa_keys {
       echo "Deleting key ${KEY_NAME} for SA ${IAM_WORKFORCE_TEST_GSA}..."
       gcloud iam service-accounts keys delete ${KEY_NAME} \
         --iam-account=${IAM_WORKFORCE_TEST_GSA} -q
+    done
+  fi
+}
+
+function cleanup_billing_budgets {
+  BUDGET_NAMES=$(
+    gcloud billing budgets list \
+      --billing-account=${BILLING_ACCOUNT_ID_FOR_BILLING_RESOURCES} \
+      --format "value(name)"
+  )
+  if [[ -z "${BUDGET_NAMES}" ]]
+  then
+    echo "No budget found for billing account ${BILLING_ACCOUNT_ID_FOR_BILLING_RESOURCES}."
+  else
+    for BUDGET_NAME in ${BUDGET_NAMES}; do
+      echo "Deleting budget ${BUDGET_NAME} for billing account ${BILLING_ACCOUNT_ID_FOR_BILLING_RESOURCES}..."
+      gcloud billing budgets delete ${BUDGET_NAME} --quiet
+      sleep .5  # Billing Budget API has a quota limit of 100 write calls per minute.
     done
   fi
 }
