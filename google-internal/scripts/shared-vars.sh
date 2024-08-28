@@ -32,10 +32,8 @@ TestAllGetSetDeletePolicyMember|TestAllGetSetPolicyWithAuditConfigs"
 IAM_FAILED_TESTS_REGEX="spannerdatabase"
 OTHER_FAILED_TEST_FUNCS="TestCRUD|TestSecretManagerSecretVersion"
 
-FAILED_SAMPLES_TESTS_REGEX="workerpool-with-peered-network|anthos-config-management-feature"
-FAILED_DIRECT_SAMPLES_TESTS_REGEX="build-trigger-for-cloud-source-repo|exponential-log-metric|linear-log-metric|\
-monitoringdashboard|explicit-log-metric|workerpool-with-default-network|int-log-metric"
-FLAKY_SAMPLES_TESTS_REGEX="${FAILED_SAMPLES_TESTS_REGEX}|${FAILED_DIRECT_SAMPLES_TESTS_REGEX}|\
+FAILED_SAMPLES_TESTS_REGEX="workerpool-with-peered-network|anthos-config-management-feature|build-trigger-for-cloud-source-repo"
+FLAKY_SAMPLES_TESTS_REGEX="${FAILED_SAMPLES_TESTS_REGEX}|\
 vertexai-endpoint-encryptionkey|bigtablegcpolicy|computenetworkfirewallpolicyrule|vertexai-dataset-encryptionkey|\
 oidc-workload-identity-pool-provider|aws-workload-identity-pool-provider"
 
