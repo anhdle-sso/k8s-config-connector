@@ -39,8 +39,8 @@ cd ${REPO_ROOT}
 CRUD_TEST_PACKAGE="github.com/GoogleCloudPlatform/k8s-config-connector/pkg/controller/dynamic"
 
 # Regex used to match test cases for auto-generated resources. Their test names
-# should all end with 'basic'.
-AUTOGEN_TESTS_REGEX="basic$"
+# should all end with 'autogen'.
+AUTOGEN_TESTS_REGEX="autogen$"
 
 # CRUD tests for auto-generated resources.
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \

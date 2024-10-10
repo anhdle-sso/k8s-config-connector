@@ -56,8 +56,8 @@ OTHER_TEST_PACKAGES=$(go list ./pkg/... | grep -v ${CRUD_TEST_PACKAGE} | grep -v
 PERIODIC_CRUD_TESTS_REGEX="cloudidentitygroup|cloudidentitymembership|computeinterconnectattachment|computefirewallpolicy|computefirewallpolicyassociation|computefirewallpolicyrule|iamaccessboundarypolicy|iamworkforcepool|oidcworkforcepoolprovider|samlworkforcepoolprovider"
 
 # Regex used to match test cases for auto-generated resources. Their test names
-# should all end with 'basic'.
-AUTOGEN_TESTS_REGEX="basic$"
+# should all end with 'autogen'.
+AUTOGEN_TESTS_REGEX="autogen$"
 
 # Regex used to match tests to be skipped during the main test run.
 SKIP_CRUD_TESTS_ON_MAIN_RUN_REGEX="${PERIODIC_CRUD_TESTS_REGEX}|${LONG_RUNNING_CRUD_TESTS_REGEX}|${AUTOGEN_TESTS_REGEX}|${FLAKY_TESTS_REGEX}"
