@@ -69,6 +69,7 @@ PROJECT_ID_PREFIX_FOR_TESTS="cnrm-test"
 GSA_ID_FOR_TESTS="integration-test"
 ORG_ROLES_FOR_TESTS=(
   roles/accesscontextmanager.policyAdmin
+  roles/compute.networkAdmin
   roles/compute.orgFirewallPolicyAdmin
   roles/compute.orgSecurityResourceAdmin
   roles/compute.xpnAdmin
