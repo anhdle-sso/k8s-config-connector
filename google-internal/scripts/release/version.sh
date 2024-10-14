@@ -16,7 +16,7 @@
 # this command finds the next valid version, a version is considered valid if there is no git tag with the same name
 
 # this loop finds the next available version id, a version is available if there is no associated git tag
-TENTATIVE_NEXT_VERSION=1.123.1
+TENTATIVE_NEXT_VERSION=1.124.0
 
 while git rev-parse ${TENTATIVE_NEXT_VERSION} &> /dev/null
 do
