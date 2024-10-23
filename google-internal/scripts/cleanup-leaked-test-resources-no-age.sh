@@ -41,6 +41,7 @@ function main {
   cleanup_iam_workforce_pools
   cleanup_iam_workforce_pools_sa_keys
   cleanup_billing_budgets
+  cleanup_dlp_output
 }
 
 function delete_org_level_iam_custom_roles {
@@ -127,6 +128,46 @@ function cleanup_billing_budgets {
       sleep .5  # Billing Budget API has a quota limit of 100 write calls per minute.
     done
   fi
+}
+
+function cleanup_dlp_output {
+  echo "Cleaning up DLP output in test bucket gs://${DLP_TEST_BUCKET}..."
+  for folder in "large-custom-dictionary-1" "large-custom-dictionary-2";
+  do
+    # The rm command always output using stderr (so weird).
+    # When objects are successfully deleted, output are in stderr with exit code 0.
+    # When objects can't be found, output are in stderr with exit code 1.
+    # To handle it properly:
+    # * First, check if exit code of running the rm command is 0:
+    #   |-> * Yes, nothing needs to be done. The objects have been cleaned up successfully.
+    #   |-> * No, check if the output from stderr does NOT match the expected error message when no objects are found:
+    #         "Removing objects:\n  \n\n
+    #         Removing managed folders:\n  \n
+    #         failed.\n
+    #         ERROR: (gcloud.storage.rm) The following URLs matched no objects or files:\n
+    #         gs://${DLP_TEST_BUCKET}/${folder}/dlp_api_stored_info_types/".
+    #         |-> * Yes, something unexpected happened. Return 1.
+    #         |-> * No, nothing needs to be done.
+
+    url="gs://${DLP_TEST_BUCKET}/${folder}/dlp_api_stored_info_types/"
+    echo "Cleaning up DLP output under ${url}..."
+    if stderr=$(gcloud storage rm --recursive ${url} 2>&1); then
+      echo "Successfully cleaned up DLP output under ${url}!"
+    else
+      err_msg_str="Removing objects:\n  \n\n\
+Removing managed folders:\n  \n\
+failed.\n\
+ERROR: (gcloud.storage.rm) The following URLs matched no objects or files:\n\
+gs://${DLP_TEST_BUCKET}/${folder}/dlp_api_stored_info_types/"
+      err_msg_with_newline=$(echo -e "${err_msg_str}")
+      if [[ "${stderr}" != "${err_msg_with_newline}" ]]; then
+        echo "Unexpected error removing objects under ${url}: ${stderr}"
+        return 1
+      fi
+      echo "No need to clean up output under ${url}."
+    fi
+  done
+  echo "Successfully cleaned up DLP output in test bucket gs://${DLP_TEST_BUCKET}!"
 }
 
 main
