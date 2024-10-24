@@ -48,6 +48,7 @@ KCC_IAM_INTEGRATION_TESTS_ORGANIZATION_ID="929083500066" # The "configconnector.
 KCC_INTEGRATION_TESTS_ISOLATED_ORGANIZATION_NAME="kcc.joonix.net" # The isolated KCC test organization
 # Pre-created test projects
 FIRESTORE_TEST_PROJECT="cnrm-test-firestore"
+COMPUTE_IMAGE_TEST_PROJECT="cnrm-computeimage-test" # this is the pre-created test project to hold the config-connector-computeimage-raw storage bucket
 CLOUD_FUNCTIONS_TEST_PROJECT="kcc-cloud-functions"
 DLP_TEST_PROJECT="kcc-dlp"
 IDENTITY_PLATFORM_TEST_PROJECT="kcc-identity-platform"
@@ -99,6 +100,7 @@ BILLING_ACCOUNT_ROLES_FOR_TESTS=(
 # these projects are shared across all tests
 SHARED_PROJECTS=(
   ${FIRESTORE_TEST_PROJECT}
+  ${COMPUTE_IMAGE_TEST_PROJECT}
   ${CLOUD_FUNCTIONS_TEST_PROJECT}
   ${DLP_TEST_PROJECT}
   ${IDENTITY_PLATFORM_TEST_PROJECT}
