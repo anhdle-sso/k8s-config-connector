@@ -79,6 +79,7 @@ ORG_ROLES_FOR_TESTS=(
   roles/iam.organizationRoleAdmin
   roles/logging.admin
   roles/orgpolicy.policyAdmin
+  roles/privilegedaccessmanager.admin
   roles/resourcemanager.folderAdmin
   roles/resourcemanager.organizationAdmin
   roles/resourcemanager.projectCreator
