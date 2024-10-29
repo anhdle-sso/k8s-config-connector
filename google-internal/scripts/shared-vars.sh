@@ -21,7 +21,7 @@ source ${REPO_ROOT}/scripts/shared-vars-public.sh
 FAILED_TESTS_REGEX="cloudbuildworkerpool|dataformrepository-base|dataformrepository-full|\
 acmfeature|basicacmgkehubfeaturemembership|fullacmgkehubfeaturemembership|meshgkehubfeaturemembership|mcsdfeatureChanges|\
 privatecacapooliam|monitoringdashboardrefs|networkservicesgateway|spannerdatabase|\
-tagvalueproject|redisclustersimple|basicrediscluster|fullrediscluster|custombudget|\
+tagvalueproject|redisclustersimple|basicrediscluster|fullrediscluster|redisinstance|custombudget|\
 networkipcomputeinstance"
 FLAKY_TESTS_REGEX="${FAILED_TESTS_REGEX}|vertexaiendpointencryptionkey|\
 namespacepolicytoclusterpolicy|computenodegroup|awsworkloadidentitypoolprovider|\
@@ -124,7 +124,7 @@ GCS_LATEST_DEST=gs://${INTERNAL_RELEASE_BUCKET}/latest
 DLP_TEST_BUCKET=aaa-dont-delete-kcc-dlp-testing
 
 RETRY_CMD=${REPO_ROOT}/hack/retry
- 
+
 function retry() {
   ${RETRY_CMD} "$@"
 }
