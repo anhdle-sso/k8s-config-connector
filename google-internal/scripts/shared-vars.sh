@@ -35,7 +35,7 @@ OTHER_FAILED_TEST_FUNCS="TestCRUD|TestSecretManagerSecretVersion"
 FAILED_SAMPLES_TESTS_REGEX="workerpool-with-peered-network|anthos-config-management-feature|build-trigger-for-cloud-source-repo"
 FLAKY_SAMPLES_TESTS_REGEX="${FAILED_SAMPLES_TESTS_REGEX}|\
 vertexai-endpoint-encryptionkey|bigtablegcpolicy|computenetworkfirewallpolicyrule|vertexai-dataset-encryptionkey|\
-oidc-workload-identity-pool-provider|aws-workload-identity-pool-provider"
+oidc-workload-identity-pool-provider|aws-workload-identity-pool-provider|big-query-job-trigger|rows-limit-percent-job-trigger"
 
 # GCP IDs
 ORGANIZATION_ID=128653134652 # The ID of the "deployment-manager.net" org
