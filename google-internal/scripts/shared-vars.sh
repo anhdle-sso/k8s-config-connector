@@ -64,6 +64,7 @@ IAM_ACCESS_BOUNDARY_TEST_GSA="cnrm-system@kcc-access-boundary.iam.gserviceaccoun
 KCC_VERTEX_AI_TEST_PROJECT="kcc-vertex-ai-test" # this is the pre-created test project
 KCC_VERTEX_AI_INDEX_TEST_BUCKET="kcc-vertex-ai-index-test" # this is the GCS bucket pre-created in project "kcc-vertex-ai-test"
 KCC_VERTEX_AI_INDEX_TEST_DATA_URI="gs://kcc-vertex-ai-index-test/kcc-vertex-ai-index-testdata.json" # this is the content pre-uploaded to GCS bucket "kcc-vertex-ai-index-test"
+KCC_ENG_GROUP_EMAIL="kcc-eng@google.com" # this is the underlying env var used by placeholder ${GROUP_EMAIL?}
 
 # Integration test variables
 PROJECT_ID_PREFIX_FOR_TESTS="cnrm-test"
