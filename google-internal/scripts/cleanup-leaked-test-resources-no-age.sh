@@ -42,6 +42,7 @@ function main {
   cleanup_iam_workforce_pools_sa_keys
   cleanup_billing_budgets
   cleanup_dlp_output
+  cleanup_firewall_policies
 }
 
 function delete_org_level_iam_custom_roles {
@@ -168,6 +169,32 @@ gs://${DLP_TEST_BUCKET}/${folder}/dlp_api_stored_info_types/"
     fi
   done
   echo "Successfully cleaned up DLP output in test bucket gs://${DLP_TEST_BUCKET}!"
+}
+
+# Cleanup remaining test firewall policy in test org.
+# UNASSOCIATED_HIERARCHICAL_FIREWALL_POLICIES quota is 50.0 globally.
+# Filter test firewall policy by checking its display name regex with format
+# "firewallpolicy-{uniqueID}", unique ID is generated that has exactly 15 characters.
+function cleanup_firewall_policies {
+  echo "Cleaning up test firewall policy in organization ${ORGANIZATION_ID}..."
+  POLICY_NAMES=$(
+    gcloud compute firewall-policies list \
+    --organization=${ORGANIZATION_ID} \
+    --filter="display_name~^firewallpolicy-[a-z0-9]{15}$" \
+    --format "value(display_name)"
+  )
+  if [[ -z "${POLICY_NAMES}" ]]
+  then
+    echo "No test firewall policy found in organization ${ORGANIZATION_ID}."
+  else
+    for POLICY_NAME in ${POLICY_NAMES}; do
+      echo "Deleting test firewall policy ${POLICY_NAME} in organization ${ORGANIZATION_ID}..."
+      gcloud compute firewall-policies delete ${POLICY_NAME} \
+      --organization=${ORGANIZATION_ID} \
+      --quiet
+    done
+  fi
+  echo "Successfully cleaned up test firewall policies in organization ${ORGANIZATION_ID}."
 }
 
 main
