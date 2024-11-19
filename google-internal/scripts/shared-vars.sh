@@ -18,15 +18,14 @@ source ${REPO_ROOT}/scripts/shared-vars-public.sh
 
 # Flaky tests
 # TODO: Fix failed test cases and stabilize flaky test cases.
-FAILED_TESTS_REGEX="cloudbuildworkerpool|dataformrepository-base|dataformrepository-full|\
-acmfeature|basicacmgkehubfeaturemembership|fullacmgkehubfeaturemembership|meshgkehubfeaturemembership|mcsdfeatureChanges|\
+FAILED_TESTS_REGEX="cloudbuildworkerpool|\
+basicacmgkehubfeaturemembership|fullacmgkehubfeaturemembership|meshgkehubfeaturemembership|mcsdfeatureChanges|\
 privatecacapooliam|monitoringdashboardrefs|networkservicesgateway|spannerdatabase|\
-tagvalueproject|redisclustersimple|basicrediscluster|fullrediscluster|redisinstance|custombudget|\
+tagvalueproject|redisclustersimple|basicrediscluster|fullrediscluster|redisinstance|\
 networkipcomputeinstance"
 FLAKY_TESTS_REGEX="${FAILED_TESTS_REGEX}|vertexaiendpointencryptionkey|\
 namespacepolicytoclusterpolicy|computenodegroup|awsworkloadidentitypoolprovider|\
-iamworkloadidentitypool|oidcworkloadidentitypoolprovider|jobwithsecretmanagersecret|\
-bigtablegcpolicy"
+iamworkloadidentitypool|oidcworkloadidentitypoolprovider|jobwithsecretmanagersecret"
 IAM_FAILED_TEST_FUNCS="TestAllGetSetDeleteAuditConfig|TestAllGetSetDeletePolicy|\
 TestAllGetSetDeletePolicyMember|TestAllGetSetPolicyWithAuditConfigs"
 IAM_FAILED_TESTS_REGEX="spannerdatabase"
