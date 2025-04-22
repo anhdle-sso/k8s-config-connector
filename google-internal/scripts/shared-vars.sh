@@ -64,6 +64,7 @@ KCC_VERTEX_AI_TEST_PROJECT="kcc-vertex-ai-test" # this is the pre-created test p
 KCC_VERTEX_AI_INDEX_TEST_BUCKET="kcc-vertex-ai-index-test" # this is the GCS bucket pre-created in project "kcc-vertex-ai-test"
 KCC_VERTEX_AI_INDEX_TEST_DATA_URI="gs://kcc-vertex-ai-index-test/kcc-vertex-ai-index-testdata.json" # this is the content pre-uploaded to GCS bucket "kcc-vertex-ai-index-test"
 KCC_ENG_GROUP_EMAIL="kcc-eng@google.com" # this is the underlying env var used by placeholder ${GROUP_EMAIL?}
+TEST_INTERCONNECT="z2z-dclaxa-kcc-test-a" # test interconnect created following go/z2z-encap-user-guide to test ComputeInterconnectAttachment
 
 # Integration test variables
 PROJECT_ID_PREFIX_FOR_TESTS="cnrm-test"
