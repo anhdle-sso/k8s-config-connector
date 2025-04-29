@@ -20,6 +20,7 @@ RUN_TESTS_REGEX=""
 GO_TEST_RUN_REGEX=""
 SKIP_TESTS_REGEX=""
 GO_TEST_SKIP_REGEX=""
+RUN_TESTS_VERSION=""
 EXIT_ON_ERROR=false
 
 while [[ $# -gt 0 ]]; do
@@ -37,6 +38,8 @@ while [[ $# -gt 0 ]]; do
     # Take in the additional "--skip-tests" flag for particular tests to skip
     --skip-tests)       SKIP_TESTS_REGEX="-skip-tests ${2:-}"; shift ;;
     --go-test-skip)     GO_TEST_SKIP_REGEX="-skip ${2:-}"; shift ;;
+    # Take in the additional "--run-tests-version" flag for particular tests to run
+    --run-tests-version)   RUN_TESTS_VERSION="-run-tests-version ${2:-}"; shift ;;
     --exit-on-error)       EXIT_ON_ERROR=true;;
     *)                   echo "Unrecognized command line parameter: $1"; exit 1 ;;
   esac
@@ -103,7 +106,8 @@ TEST_FOLDER_ID=${KCC_INTEGRATION_TESTS_FOLDER_ID}  \
   KCC_ATTACHED_CLUSTER_TEST_PROJECT=${KCC_ATTACHED_CLUSTER_TEST_PROJECT} \
   KCC_VERTEX_AI_INDEX_TEST_BUCKET=${KCC_VERTEX_AI_INDEX_TEST_BUCKET} \
   KCC_VERTEX_AI_INDEX_TEST_DATA_URI=${KCC_VERTEX_AI_INDEX_TEST_DATA_URI} \
-  go test -v -parallel 20 ${TARGET_TESTS} ${RUN_TESTS_REGEX} ${SKIP_TESTS_REGEX} ${GO_TEST_RUN_REGEX} ${GO_TEST_SKIP_REGEX} \
+  go test -v -parallel 20 ${TARGET_TESTS} \
+    ${RUN_TESTS_REGEX} ${SKIP_TESTS_REGEX} ${GO_TEST_RUN_REGEX} ${GO_TEST_SKIP_REGEX} ${RUN_TESTS_VERSION}\
     -coverprofile cover.out \
     -tags=integration,performance \
     -timeout 180m

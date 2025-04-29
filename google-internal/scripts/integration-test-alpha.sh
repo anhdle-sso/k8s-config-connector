@@ -21,7 +21,8 @@ function jreport {
 
   cp test_*.txt ${ARTIFACTS}/
 
-  cat test_int_autogen_log1.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_int_autogen_report1.xml
+  cat test_int_alpha_log1.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_int_alpha_report1.xml
+  cat test_int_alpha_log2.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_int_alpha_report2.xml
 }
 
 trap jreport EXIT
@@ -47,8 +48,18 @@ ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${CRUD_TEST_PACKAGE}/...' \
     --run-tests '${AUTOGEN_TESTS_REGEX}'\
-  " 2>&1 | tee test_int_autogen_log1.txt &
+  " 2>&1 | tee test_int_alpha_log1.txt &
 PROCESS1=$!
+
+# CRUD tests for other alpha resources.
+${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
+  --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
+    --target-directory '${CRUD_TEST_PACKAGE}/...' \
+    --skip-tests '${AUTOGEN_TESTS_REGEX}'\
+    --run-tests-version alpha \
+  " 2>&1 | tee test_int_alpha_log2.txt &
+PROCESS2=$!
 
 # Using wait command as we may add more test commands in parallel in the future.
 wait ${PROCESS1}
+wait ${PROCESS2}

@@ -71,21 +71,23 @@ SKIP_IAM_TESTS_ON_MAIN_RUN_REGEX="eventfunction|iamworkforcepool"
 # (i.e. in their own processes and with their own GCP projects). This is done
 # to improve test velocity and to prevent quota issues.
 
-# Long-running (10m+) CRUD tests
+# Long-running (10m+) Beta CRUD tests
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${CRUD_TEST_PACKAGE}/...' \
     --run-tests '${LONG_RUNNING_CRUD_TESTS_REGEX}' \
     --skip-tests '${FLAKY_TESTS_REGEX}'\
+    --run-tests-version beta \
   " 2>&1 | tee test_int_log1.txt &
 PROCESS1=$!
 
-# Regular CRUD tests
+# Regular Beta CRUD tests
 sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during project set-up.
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${CRUD_TEST_PACKAGE}/...' \
     --skip-tests '${SKIP_CRUD_TESTS_ON_MAIN_RUN_REGEX}'\
+    --run-tests-version beta \
   " 2>&1 | tee test_int_log2.txt &
 PROCESS2=$!
 
@@ -118,12 +120,13 @@ ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   " 2>&1 | tee test_int_log6.txt &
 PROCESS6=$!
 
-# All other tests
+# All other Beta tests
 sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during project set-up.
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${OTHER_TEST_PACKAGES}' \
     --go-test-skip '${OTHER_FAILED_TEST_FUNCS}'\
+    --run-tests-version beta \
   " 2>&1 | tee test_int_log7.txt &
 PROCESS7=$!
 
