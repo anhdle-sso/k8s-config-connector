@@ -69,13 +69,12 @@ ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   " 2>&1 | tee test_int_flaky_log3.txt &
 PROCESS3=$!
 
-# All other Beta flaky tests.
+# All other flaky tests.
 sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during project set-up.
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${OTHER_TEST_PACKAGES}' \
     --go-test-run '${OTHER_FAILED_TEST_FUNCS}'\
-    --run-tests-version beta \
   " 2>&1 | tee test_int_flaky_log4.txt &
 PROCESS4=$!
 
