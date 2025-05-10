@@ -50,6 +50,12 @@ presubmit-test:
 	make -C ${REPO_ROOT} generate fmt vet manifests
 	./scripts/presubmit-test.sh
 
+# Run IAM tests separately as IAM resources are special.
+.PHONY: iam-tests
+iam-tests:
+	make -C ${REPO_ROOT} generate fmt vet manifests
+	./scripts/iam-tests.sh
+
 # Run all Beta integration tests excluding the flaky ones.
 .PHONY: integration-test
 integration-test:
