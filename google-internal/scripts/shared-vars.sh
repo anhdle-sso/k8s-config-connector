@@ -36,6 +36,33 @@ FLAKY_SAMPLES_TESTS_REGEX="${FAILED_SAMPLES_TESTS_REGEX}|\
 vertexai-endpoint-encryptionkey|bigtablegcpolicy|computenetworkfirewallpolicyrule|vertexai-dataset-encryptionkey|\
 oidc-workload-identity-pool-provider|aws-workload-identity-pool-provider|big-query-job-trigger|rows-limit-percent-job-trigger"
 
+# For CRUD integration tests
+CRUD_TEST_PACKAGE="github.com/GoogleCloudPlatform/k8s-config-connector/pkg/controller/dynamic"
+IAM_TEST_PACKAGE="github.com/GoogleCloudPlatform/k8s-config-connector/pkg/controller/iam/iamclient"
+
+# Temporarily disabled tests are kept in pkg/test/constants/constants.go
+#
+# Regex used to match periodic tests to be skipped during the main test run.
+# Note: cloudidentitygroup and cloudidentitymembership are tested separately (in
+# cloudidentity-integration-test.sh) because they need to run as a pre-created & pre-enabled
+# service account, which includes needing to generate a key for that service
+# account (SA can only have at most 10 keys at any time).
+PERIODIC_CRUD_TESTS_SKIP_ON_MAIN_RUN_REGEX="cloudidentitygroup|cloudidentitymembership|computeinterconnectattachment|\
+computefirewallpolicy|computefirewallpolicyassociation|computefirewallpolicyrule|\
+iamaccessboundarypolicy|iamworkforcepool|oidcworkforcepoolprovider|samlworkforcepoolprovider"
+
+# Regex used to match test cases for auto-generated resources. Their test names
+# should all end with 'autogen'.
+AUTOGEN_TESTS_REGEX="autogen$"
+
+# Regex used to match all CRUD tests to be skipped during the main test run.
+CRUD_TESTS_SKIP_ON_MAIN_RUN_REGEX="${PERIODIC_CRUD_TESTS_SKIP_ON_MAIN_RUN_REGEX}|${AUTOGEN_TESTS_REGEX}|${FLAKY_TESTS_REGEX}"
+
+# Regex used to match IAM tests to be skipped during the main test run.
+# TODO(b/220357089): re-enable eventfunction test in IAM test suite.
+# TODO(b/240727419): Remove iamworkforcepool from the regex below to enable IAM tests.
+IAM_TESTS_SKIP_ON_MAIN_RUN_REGEX="eventfunction|iamworkforcepool"
+
 # GCP IDs
 ORGANIZATION_ID=128653134652 # The ID of the "deployment-manager.net" org
 BILLING_ACCOUNT_ID="01BD15-3BAB95-35F231" # CNRM Testing billing account

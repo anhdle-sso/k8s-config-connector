@@ -40,7 +40,6 @@ function jreport {
 
   cat test_int_log1.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_int_report1.xml
   cat test_int_log2.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_int_report2.xml
-  cat test_int_log3.txt | ${REPO_ROOT}/hack/convert-to-junit-report > ${ARTIFACTS}/junit_int_report3.xml
 }
 
 trap jreport EXIT
@@ -48,16 +47,8 @@ trap jreport EXIT
 echo "Activating service-account in gcloud..."
 gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
 
-TEST_GROUP_REGEX="alloydb"
-
-# Split out the long-running test cases into small batches that can be finished
-# in two hours when running in series.
-# basicsecondaryalloydbinstance test takes about 2200s to finish
-# readalloydbinstance test takes about 2400s to finish
-# fullalloydbinstance test takes about 3100s to finish
-# basicalloydbinstance test takes about 1900s to finish
-LOCAL_LONG_RUNNING_CRUD_TESTS_REGEX_1="basicsecondaryalloydbinstance|readalloydbinstance"
-LOCAL_LONG_RUNNING_CRUD_TESTS_REGEX_2="fullalloydbinstance|basicalloydbinstance"
+TEST_GROUP_REGEX="iam"
+NON_IAM_TEST_REGEX="iamalloydbuser|jobwithiamserviceaccount"
 
 # Divide the integration test suite into several parts and run them in parallel separately
 # (i.e. in their own processes and with their own GCP projects). This is done
@@ -66,34 +57,15 @@ LOCAL_LONG_RUNNING_CRUD_TESTS_REGEX_2="fullalloydbinstance|basicalloydbinstance"
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env-in-series.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment-in-series.sh \
     --target-directory '${CRUD_TEST_PACKAGE}/...' \
-    --run-tests '${LOCAL_LONG_RUNNING_CRUD_TESTS_REGEX_1}' \
-    --skip-tests '${CRUD_TESTS_SKIP_ON_MAIN_RUN_REGEX}'\
+    --run-tests '${TEST_GROUP_REGEX}' \
+    --skip-tests '${CRUD_TESTS_SKIP_ON_MAIN_RUN_REGEX}|${NON_IAM_TEST_REGEX}'\
   " 2>&1 | tee test_int_log1.txt &
 PROCESS1=$!
 
+# Special period CRUD test case: IAMWorkforcePool
 sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during project set-up.
-${REPO_ROOT}/google-internal/scripts/run-command-new-env-in-series.sh \
-  --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment-in-series.sh \
-    --target-directory '${CRUD_TEST_PACKAGE}/...' \
-    --run-tests '${LOCAL_LONG_RUNNING_CRUD_TESTS_REGEX_2}' \
-    --skip-tests '${CRUD_TESTS_SKIP_ON_MAIN_RUN_REGEX}'\
-  " 2>&1 | tee test_int_log2.txt &
+${REPO_ROOT}/google-internal/scripts/iam-integration-test.sh 2>&1 | tee test_int_log2.txt
 PROCESS2=$!
-
-# It took more than 2 hours to finish running the rest of the AlloyDB tests in
-# series so making it running 2 tests in parallel to accelerate.
-# We want to minimize the parallelization as much as possible to avoid flakiness
-# caused by potential conflict or quota issues.
-sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during project set-up.
-${REPO_ROOT}/google-internal/scripts/run-command-new-env-in-series.sh \
-  --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment-in-series.sh \
-    --target-directory '${CRUD_TEST_PACKAGE}/...' \
-    --run-tests '${TEST_GROUP_REGEX}' \
-    --skip-tests '${CRUD_TESTS_SKIP_ON_MAIN_RUN_REGEX}|${LOCAL_LONG_RUNNING_CRUD_TESTS_REGEX_1}|${LOCAL_LONG_RUNNING_CRUD_TESTS_REGEX_2}'\
-    --parallel 2 \
-  " 2>&1 | tee test_int_log3.txt &
-PROCESS3=$!
 
 wait ${PROCESS1}
 wait ${PROCESS2}
-wait ${PROCESS3}

@@ -42,30 +42,7 @@ REPO_ROOT="$(git rev-parse --show-toplevel)"
 source "${REPO_ROOT}/google-internal/scripts/shared-vars.sh"
 cd ${REPO_ROOT}
 
-CRUD_TEST_PACKAGE="github.com/GoogleCloudPlatform/k8s-config-connector/pkg/controller/dynamic"
-IAM_TEST_PACKAGE="github.com/GoogleCloudPlatform/k8s-config-connector/pkg/controller/iam/iamclient"
 OTHER_TEST_PACKAGES=$(go list ./pkg/... | grep -v ${CRUD_TEST_PACKAGE} | grep -v ${IAM_TEST_PACKAGE})
-
-# Temporarily disabled tests are kept in pkg/test/constants/constants.go
-
-# Regex used to match periodic tests to be skipped during the main test run.
-# Note: cloudidentitygroup and cloudidentitymembership are tested separately (in
-# cloudidentity-integration-test.sh) because they need to run as a pre-created & pre-enabled
-# service account, which includes needing to generate a key for that service
-# account (SA can only have at most 10 keys at any time).
-PERIODIC_CRUD_TESTS_REGEX="cloudidentitygroup|cloudidentitymembership|computeinterconnectattachment|computefirewallpolicy|computefirewallpolicyassociation|computefirewallpolicyrule|iamaccessboundarypolicy|iamworkforcepool|oidcworkforcepoolprovider|samlworkforcepoolprovider"
-
-# Regex used to match test cases for auto-generated resources. Their test names
-# should all end with 'autogen'.
-AUTOGEN_TESTS_REGEX="autogen$"
-
-# Regex used to match tests to be skipped during the main test run.
-SKIP_CRUD_TESTS_ON_MAIN_RUN_REGEX="${PERIODIC_CRUD_TESTS_REGEX}|${LONG_RUNNING_CRUD_TESTS_REGEX}|${AUTOGEN_TESTS_REGEX}|${FLAKY_TESTS_REGEX}"
-
-# Regex used to match IAM tests to be skipped during the main test run.
-# TODO(b/220357089): re-enable eventfunction test in IAM test suite.
-# TODO(b/240727419): Remove iamworkforcepool from the regex below to enable IAM tests.
-SKIP_IAM_TESTS_ON_MAIN_RUN_REGEX="eventfunction|iamworkforcepool"
 
 # Divide the integration test suite into several parts and run them in parallel separately
 # (i.e. in their own processes and with their own GCP projects). This is done
@@ -86,7 +63,7 @@ sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during pr
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${CRUD_TEST_PACKAGE}/...' \
-    --skip-tests '${SKIP_CRUD_TESTS_ON_MAIN_RUN_REGEX}'\
+    --skip-tests '${CRUD_TESTS_SKIP_ON_MAIN_RUN_REGEX}|${LONG_RUNNING_CRUD_TESTS_REGEX}'\
     --run-tests-version beta \
   " 2>&1 | tee test_int_log2.txt &
 PROCESS2=$!
@@ -115,7 +92,7 @@ sleep 120 # Sleep for a bit to reduce conflicts (e.g. IAM permissions) during pr
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
   --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
     --target-directory '${IAM_TEST_PACKAGE}' \
-    --skip-tests '${SKIP_IAM_TESTS_ON_MAIN_RUN_REGEX}|${IAM_FAILED_TESTS_REGEX}' \
+    --skip-tests '${IAM_TESTS_SKIP_ON_MAIN_RUN_REGEX}|${IAM_FAILED_TESTS_REGEX}' \
     --go-test-skip '${IAM_FAILED_TEST_FUNCS}'\
   " 2>&1 | tee test_int_log6.txt &
 PROCESS6=$!

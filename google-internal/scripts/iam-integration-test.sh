@@ -64,7 +64,7 @@ function run_accessboundary_test {
     export GOOGLE_APPLICATION_CREDENTIALS=${TMP_IAM_ACCESS_BOUNDARY_CREDENTIALS}
 
     TEST_ORG_ID=${ORGANIZATION_ID} \
-      go test -v ${CRUD_TEST_PACKAGE} -run-tests "iamaccessboundarypolicy" -tags=integration
+      go test -timeout 60m -v ${CRUD_TEST_PACKAGE} -run-tests "iamaccessboundarypolicy" -tags=integration
 }
 
 run_workforce_test
