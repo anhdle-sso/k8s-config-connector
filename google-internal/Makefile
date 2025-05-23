@@ -56,6 +56,12 @@ iam-tests:
 	make -C ${REPO_ROOT} generate fmt vet manifests
 	./scripts/iam-tests.sh
 
+# Run IAM flaky tests separately.
+.PHONY: iam-flaky-tests
+iam-flaky-tests:
+	make -C ${REPO_ROOT} generate fmt vet manifests
+	./scripts/iam-flaky-tests.sh
+
 # Run all Beta integration tests excluding the flaky ones.
 .PHONY: integration-test
 integration-test:
