@@ -45,7 +45,7 @@ SKIP_IAM_TESTS_ON_MAIN_RUN_REGEX="eventfunction|iamworkforcepool"
 
 # IAM tests
 ${REPO_ROOT}/google-internal/scripts/run-command-new-env.sh \
-  --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment.sh \
+  --command "${REPO_ROOT}/google-internal/scripts/run-tests-fresh-environment-in-series.sh \
     --target-directory '${IAM_TEST_PACKAGE}' \
     --skip-tests '${SKIP_IAM_TESTS_ON_MAIN_RUN_REGEX}|${IAM_FAILED_TESTS_REGEX}' \
     --go-test-skip '${IAM_FAILED_TEST_FUNCS}'\
