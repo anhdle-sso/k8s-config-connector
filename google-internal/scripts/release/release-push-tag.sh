@@ -53,14 +53,14 @@ git checkout -b push_tag_${version}
 repo_root="$(git rev-parse --show-toplevel)"
 cd ${repo_root}
 go run . --remote sso://cnrm/cnrm  --branch push_tag_${version} --version-file version/VERSION  --source ${repo_root} -v=2  --push-options push-justification=b/382575614
-    
+
 # Ask for user confirmation
 read -p "Does the result look good? (y/n): " answer
 
 if [ "$answer" = "y" ] || [ "$answer" = "Y" ]; then
     echo "Proceeding with the command..."
     go run . --remote sso://cnrm/cnrm \
-            --branch "push_tag_${VERSION}" \
+            --branch "push_tag_${version}" \
             --version-file version/VERSION \
             --source "${repo_root}" \
             -v=2 \
