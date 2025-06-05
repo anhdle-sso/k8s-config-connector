@@ -28,7 +28,7 @@ THIS_SCRIPTS_DIR=$(dirname "${BASH_SOURCE}")
 cd $REPO_ROOT
 CLIENT_NAME=configconnector_resource_doc_$(date +%s)
 p4 g4d -f $CLIENT_NAME
-GOOGLE3_DOCS_DIR=/google/src/cloud/$USER/$CLIENT_NAME/google3/googledata/devsite/site-cloud/en/config-connector/docs/
+GOOGLE3_DOCS_DIR=/google/src/cloud/$USER/$CLIENT_NAME/google3/third_party/devsite/cloud/en/config-connector/docs
 # Resource reference docs
 cp -r ${REPO_ROOT}/scripts/generate-google3-docs/resource-reference/generated/resource-docs ${GOOGLE3_DOCS_DIR}/reference/
 cp -f ${REPO_ROOT}/scripts/generate-google3-docs/resource-reference/_toc.yaml ${GOOGLE3_DOCS_DIR}/reference/
