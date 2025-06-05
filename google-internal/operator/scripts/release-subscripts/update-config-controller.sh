@@ -19,7 +19,7 @@
 set -o nounset
 set -o pipefail
 
-REVIEWERS_FLAGGED_COMMA_DELIMITED="r=haoweic@google.com,r=justinsb@google.com"
+REVIEWERS_FLAGGED_COMMA_DELIMITED="r=wfender@google.com,r=jingyih@google.com,r=xiaoweim@google.com"
 
 TEMP_DIR=$(mktemp -td update-config-controller.cnrm-operator.XXXXXXXX)
 # rf is very risky, but git repos write protected files.
