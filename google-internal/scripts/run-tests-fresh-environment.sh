@@ -22,6 +22,7 @@ SKIP_TESTS_REGEX=""
 GO_TEST_SKIP_REGEX=""
 RUN_TESTS_VERSION=""
 EXIT_ON_ERROR=false
+GO_TEST_TIMEOUT="180m"
 
 while [[ $# -gt 0 ]]; do
   case "${1}" in
@@ -40,6 +41,7 @@ while [[ $# -gt 0 ]]; do
     --go-test-skip)     GO_TEST_SKIP_REGEX="-skip ${2:-}"; shift ;;
     # Take in the additional "--run-tests-version" flag for particular tests to run
     --run-tests-version)   RUN_TESTS_VERSION="-run-tests-version ${2:-}"; shift ;;
+    --go-test-timeout)             GO_TEST_TIMEOUT="${2:-}"; shift ;;
     --exit-on-error)       EXIT_ON_ERROR=true;;
     *)                   echo "Unrecognized command line parameter: $1"; exit 1 ;;
   esac
@@ -110,4 +112,4 @@ TEST_FOLDER_ID=${KCC_INTEGRATION_TESTS_FOLDER_ID}  \
     ${RUN_TESTS_REGEX} ${SKIP_TESTS_REGEX} ${GO_TEST_RUN_REGEX} ${GO_TEST_SKIP_REGEX} ${RUN_TESTS_VERSION}\
     -coverprofile cover.out \
     -tags=integration,performance \
-    -timeout 180m
+    -timeout "${GO_TEST_TIMEOUT}"
