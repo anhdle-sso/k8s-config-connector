@@ -13,61 +13,111 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -o errexit
-set -o nounset
-set -o pipefail
 
-#!/bin/bash
+# Exit immediately if a command exits with a non-zero status.
+set -e
 
-# Check if version is set
-if [ -z "$version" ]; then
-    echo "Error: version must be set"
-    exit 1
+# --- Environment Variable Check ---
+# This script requires GIT_COMMIT and VERSION to be set as environment variables.
+
+if [ -z "$GIT_COMMIT" ]; then
+  echo "ERROR: The GIT_COMMIT environment variable is not set."
+  echo "Usage: export GIT_COMMIT=<commit-hash>"
+  exit 1
 fi
 
-echo "Version: $version"
-
-# Check if GitOrigin-RevId parameter is provided
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 <GitOrigin-RevId>"
-    exit 1
+if [ -z "$VERSION" ]; then
+  echo "ERROR: The VERSION environment variable is not set."
+  echo "Usage: export VERSION=<version-string>"
+  exit 1
 fi
 
-git_origin_rev_id=$1
+if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+  echo "ERROR: VERSION must be in the format of major.minor.patch (e.g., 1.116.0)."
+  echo "Current value is: ${VERSION}"
+  exit 1
+fi
 
-# Search for the commit SHA using git log
-commit_sha=$(git log --grep="GitOrigin-RevId: $git_origin_rev_id" --format="%H" | head -n 1)
+if [ -z "$VERSION_MAJOR_MINOR" ]; then
+  echo "ERROR: The VERSION_MAJOR_MINOR environment variable is not set."
+  echo "Usage: export VERSION_MAJOR_MINOR=<major.minor-string>"
+  exit 1
+fi
 
-if [ -n "$commit_sha" ]; then
-    echo "Found commit SHA: $commit_sha"
+if ! [[ "$VERSION_MAJOR_MINOR" =~ ^[0-9]+\.[0-9]+$ ]]; then
+  echo "ERROR: VERSION_MAJOR_MINOR must be in the format of major.minor (e.g., 1.116)."
+  echo "Current value is: ${VERSION_MAJOR_MINOR}"
+  exit 1
+fi
+
+if [ -z "$REPO_PATH" ]; then
+  echo "ERROR: The REPO_PATH environment variable is not set."
+  echo "Usage: export REPO_PATH=<repo-path-string>"
+  exit 1
+fi
+
+
+# --- Configuration ---
+# Please edit the variables below if they differ from your setup.
+
+# The local path to your GoB source code checkout.
+# This should be the path where you have cloned the Github repository.
+# e.g., "/usr/local/google/home/${username}/cnrm/""
+SOURCE_CHECKOUT_PATH="${REPO_PATH}"
+
+# --- Script ---
+
+# Verify that the commit exists
+if ! git cat-file -e "${GIT_COMMIT}^{commit}"; then
+  echo "ERROR: Commit ${GIT_COMMIT} does not exist."
+  exit 1
+fi
+
+# Derive the major.minor version for the branch name
+BRANCH_NAME="release_${VERSION_MAJOR_MINOR}"
+REMOTE="sso://cnrm/cnrm"
+VERSION_FILE="version/VERSION"
+BUGANIZER_ID="382575614"
+PUSH_OPTIONS="push-justification=b/${BUGANIZER_ID}"
+
+echo "--- Preparing local repository ---"
+echo "GIT_COMMIT=${GIT_COMMIT}"
+echo "VERSION=${VERSION} for the release tag"
+
+echo "Checking out commit: ${GIT_COMMIT}"
+git checkout "${GIT_COMMIT}"
+
+echo "Creating new branch: ${BRANCH_NAME}"
+git checkout -b "${BRANCH_NAME}"
+
+# The command to be run, constructed from the main.go flags and the release document.
+GO_COMMAND=(go run .
+  --remote "${REMOTE}"
+  --branch "${BRANCH_NAME}"
+  --version-file "${VERSION_FILE}"
+  --source "${SOURCE_CHECKOUT_PATH}"
+  --push-options "${PUSH_OPTIONS}"
+  -v=2
+)
+
+echo ""
+echo "--- Step 1: Performing Dry Run ---"
+echo "The following command will be executed for a dry run:"
+echo "${GO_COMMAND[@]}"
+echo ""
+
+"${GO_COMMAND[@]}"
+
+echo ""
+echo "--- Step 2: Push Tag ---"
+read -p "Dry run complete. Do you want to proceed with pushing the tag? (y/n) " -n 1 -r
+echo ""
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  echo "Proceeding to push the tag..."
+  # The release document mentions adding '--yes=1' and the main.go file defines this flag as '--yes'.
+  "${GO_COMMAND[@]}" --yes=true
+  echo "--- Tag pushed successfully. ---"
 else
-    echo "No commit found with GitOrigin-RevId: $git_origin_rev_id"
-    exit 1
-fi
-
-# Checkout to the commit and create a new branch for the release version
-git checkout $commit_sha
-git checkout -b push_tag_${version}
-
-
-repo_root="$(git rev-parse --show-toplevel)"
-cd ${repo_root}
-go run . --remote sso://cnrm/cnrm  --branch push_tag_${version} --version-file version/VERSION  --source ${repo_root} -v=2  --push-options push-justification=b/382575614
-
-# Ask for user confirmation
-read -p "Does the result look good? (y/n): " answer
-
-if [ "$answer" = "y" ] || [ "$answer" = "Y" ]; then
-    echo "Proceeding with the command..."
-    go run . --remote sso://cnrm/cnrm \
-            --branch "push_tag_${version}" \
-            --version-file version/VERSION \
-            --source "${repo_root}" \
-            -v=2 \
-            --push-options push-justification=b/382575614 \
-            --yes=1
-    echo "Successfully executed the command."
-else
-    echo "Failed to push tag."
-    exit 0
+  echo "Aborted. No tag was pushed."
+  exit 1
 fi
