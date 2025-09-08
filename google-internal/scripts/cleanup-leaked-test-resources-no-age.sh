@@ -155,17 +155,15 @@ function cleanup_dlp_output {
     if stderr=$(gcloud storage rm --recursive ${url} 2>&1); then
       echo "Successfully cleaned up DLP output under ${url}!"
     else
-      err_msg_str="Removing objects:\n  \n\n\
-Removing managed folders:\n  \n\
-failed.\n\
-ERROR: (gcloud.storage.rm) The following URLs matched no objects or files:\n\
+      err_msg_str="ERROR: (gcloud.storage.rm) The following URLs matched no objects or files:\n\
 gs://${DLP_TEST_BUCKET}/${folder}/dlp_api_stored_info_types/"
       err_msg_with_newline=$(echo -e "${err_msg_str}")
-      if [[ "${stderr}" != "${err_msg_with_newline}" ]]; then
+      if [[ "${stderr}" =~ "${err_msg_with_newline}" ]]; then
+        echo "No need to clean up output under ${url}."
+      else
         echo "Unexpected error removing objects under ${url}: ${stderr}"
         return 1
       fi
-      echo "No need to clean up output under ${url}."
     fi
   done
   echo "Successfully cleaned up DLP output in test bucket gs://${DLP_TEST_BUCKET}!"
