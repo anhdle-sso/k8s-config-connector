@@ -19,7 +19,7 @@
 set -o nounset
 set -o pipefail
 
-REVIEWERS_FLAGGED_COMMA_DELIMITED="r=wfender@google.com,r=jingyih@google.com,r=xiaoweim@google.com"
+REVIEWERS_FLAGGED_COMMA_DELIMITED="r=wfender@google.com,r=yuwenma@google.com,r=xiaoweim@google.com"
 
 TEMP_DIR=$(mktemp -td update-config-controller.cnrm-operator.XXXXXXXX)
 # rf is very risky, but git repos write protected files.
@@ -32,7 +32,7 @@ git clone sso://acp/acp
 cd acp
 
 # Update KCC operator
-make -C containers/bootstrap/assets/configconnector-operator update
+KCC_VERSION="${VERSION}" make -C containers/bootstrap/assets/configconnector-operator update
 git add .
 
 # Update KCC Alpha Resources Experimental Feature
