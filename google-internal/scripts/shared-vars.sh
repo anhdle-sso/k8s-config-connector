@@ -55,8 +55,13 @@ iamaccessboundarypolicy|iamworkforcepool|oidcworkforcepoolprovider|samlworkforce
 # should all end with 'autogen'.
 AUTOGEN_TESTS_REGEX="autogen$"
 
+# Regex used to match test cases generated from Kompanion report.
+# They aren't supported for running against real GCP or in postsubmit.
+# Their test names should all end with '-kompanion$'.
+KOMPANION_TESTS_REGEX="-kompanion$"
+
 # Regex used to match all CRUD tests to be skipped during the main test run.
-CRUD_TESTS_SKIP_ON_MAIN_RUN_REGEX="${PERIODIC_CRUD_TESTS_SKIP_ON_MAIN_RUN_REGEX}|${AUTOGEN_TESTS_REGEX}|${FLAKY_TESTS_REGEX}"
+CRUD_TESTS_SKIP_ON_MAIN_RUN_REGEX="${PERIODIC_CRUD_TESTS_SKIP_ON_MAIN_RUN_REGEX}|${AUTOGEN_TESTS_REGEX}|${FLAKY_TESTS_REGEX}|${KOMPANION_TESTS_REGEX}"
 
 # Regex used to match IAM tests to be skipped during the main test run.
 # TODO(b/220357089): re-enable eventfunction test in IAM test suite.
