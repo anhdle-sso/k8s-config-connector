@@ -50,6 +50,7 @@ type PreviewOptions struct {
 	timeout          int
 	reportNamePrefix string
 	fullReport       bool
+	inCluster        bool
 }
 
 func BuildPreviewCmd() *cobra.Command {
@@ -68,12 +69,16 @@ func BuildPreviewCmd() *cobra.Command {
 	cmd.Flags().IntVarP(&opts.timeout, timeoutFlag, "", 15, "timeout in minutes. Default to 15 minutes.")
 	cmd.Flags().StringVarP(&opts.reportNamePrefix, reportNamePrefixFlag, "", "preview-report", "Prefix for the report name. The tool appends a timestamp to this in the format \"YYYYMMDD-HHMMSS.milliseconds\".")
 	cmd.Flags().BoolVarP(&opts.fullReport, "full-report", "f", false, "Enable verbose logging.")
+	cmd.Flags().BoolVarP(&opts.inCluster, "in-cluster", "i", false, "Run in cluster.")
 
 	return cmd
 }
 
 func getRESTConfig(ctx context.Context, opts *PreviewOptions) (*rest.Config, error) {
 	// TODO: Add rate limiting.
+	if opts.inCluster {
+		return rest.InClusterConfig()
+	}
 	var loadingRules clientcmd.ClientConfigLoader
 	if opts.kubeconfig != "" {
 		loadingRules = &clientcmd.ClientConfigLoadingRules{ExplicitPath: opts.kubeconfig}
