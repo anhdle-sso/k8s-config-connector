@@ -97,6 +97,11 @@ gsutil cp -r gs://${RELEASE_BUCKET}/${VERSION}/* gs://${RELEASE_BUCKET}/latest/
 GIT_ORIGIN_REVID=$(git log -n 1 --pretty=format:"%b" "${RELEASE_SHA}" | grep -oP 'GitOrigin-RevId: \K\S+')
 ${REPO_ROOT}/google-internal/scripts/update-github.sh --version ${VERSION} --release-sha ${RELEASE_SHA} --tag-sha ${GIT_ORIGIN_REVID}
 
+# Fetch the previous public version before updating it
+PREVIOUS_VERSION=$(gcloud beta runtime-config configs variables get-value latest-public-version \
+  --config-name cnrm-eap \
+  --project cnrm-eap)
+
 # Update Runtime Config with the latest public version
 gcloud beta runtime-config configs variables set latest-public-version ${VERSION} \
   --config-name cnrm-eap \
@@ -109,7 +114,9 @@ git tag -a "${VERSION}" ${RELEASE_SHA} -m "KCC release version ${VERSION}"
 git push origin "${VERSION}" -o push-justification='b/299319213'
 
 # Update resource docs
-${REPO_ROOT}/google-internal/scripts/release/update-public-docs.sh
+PREVIOUS_RELEASE_TAG="github/v${PREVIOUS_VERSION}"
+CURRENT_RELEASE_TAG="github/v${VERSION}"
+${REPO_ROOT}/google-internal/scripts/release/update-public-docs.sh "${PREVIOUS_RELEASE_TAG}" "${CURRENT_RELEASE_TAG}"
 
 # TODO: b/243566783 Re-enable update-gcloud and update oncall
 # instructions after b/243566783 is done
