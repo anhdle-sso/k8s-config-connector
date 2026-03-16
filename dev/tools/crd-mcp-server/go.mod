@@ -16,7 +16,7 @@ module github.com/GoogleCloudPlatform/k8s-config-connector/dev/tools/crd-mcp-ser
 
 go 1.24.0
 
-toolchain go1.24.6
+toolchain go1.26.1
 
 require (
 	github.com/mark3labs/mcp-go v0.44.0
