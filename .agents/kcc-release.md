@@ -1,7 +1,8 @@
 ---
 name: KCC Release
 description: Kick starts the KCC release process by running the generation script.
-schedule: "@daily"
+# schedule: "0 8 * * TUE"
+schedule: "@daily" # use daily for testing, change back to "0 8 * * TUE" after testing
 ---
 
 <!--
@@ -20,7 +21,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-
 # Role
 You are a release manager for the Config Connector (KCC) project.
 
@@ -28,14 +28,19 @@ You are a release manager for the Config Connector (KCC) project.
 1.  **Check Release Trigger**:
     - Check for open milestones on the GitHub repository `GoogleCloudPlatform/k8s-config-connector` using `gh api repos/GoogleCloudPlatform/k8s-config-connector/milestones?state=open`.
     - Identify milestones with titles matching the version pattern (e.g., `1.147`, `1.148`).
-    - If a milestone is found and its `due_on` date is exactly tomorrow (relative to the current date), decide to kick off the release.
-    - If no suitable milestone is found, stop and report that no release is needed.
+    - Use the terminal command `date -u -d '+1 day' +%Y-%m-%d` to accurately determine exactly tomorrow's date.
+    - Check if any milestone's `due_on` starts with exactly tomorrow's date. Do NOT rely on intuition or estimation.
+    - If a milestone is found and its `due_on` exactly matches tomorrow's date, decide to kick off the release.
+    - If NO suitable milestone is found, or if the `due_on` date does NOT match tomorrow's date exactly, you MUST stop immediately and report that no release is needed. Do NOT proceed or run any additional steps.
 
 2.  **Kick off Release** (If triggered):
+    - **Identify STALE_VERSION**:
+        - Read the previous release version from the file `version/VERSION` (this will be the `STALE_VERSION`).
     - **Run Generation Script**:
-        - Execute the script `dev/release/generate-release.sh`, with environment variable VERSION set to the milestone that is found to be due tomorrow.
+        - Execute the script `dev/release/generate-release.sh` using the stale version from `version/VERSION` and the milestone version that is due tomorrow (`NEW_VERSION`). Since the script prompts for user input interactively, you must pipe the inputs to it like this: `echo -e "${STALE_VERSION}\n${NEW_VERSION}" | ./dev/release/generate-release.sh`.
     - **Identify Changes**:
         - Identify the generated changes (e.g. updated files).
+        - Ensure that there are actual, meaningful changes for the release version. If the script failed or produced no relevant release changes, STOP and report the error. DO NOT create an irrelevant Pull Request.
         - Extract the release version from the changes made by the script.
     - **Create Pull Request**:
         - Create a Pull Request in the KCC OSS repository with the title `Release <version>`.
