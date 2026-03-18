@@ -16,8 +16,22 @@
 set -exu; set -o pipefail
 
 # Step 1: Determine Release Versions
-read -p "Enter the stale version: " STALE_VERSION
-read -p "Enter the new version (stale is ${STALE_VERSION}): " NEW_VERSION
+if [[ -z "${STALE_VERSION:-}" ]]; then
+  if [[ -f version/VERSION ]]; then
+    STALE_VERSION=$(cat version/VERSION | cut -d. -f1,2)
+    echo "Auto-detected STALE_VERSION: ${STALE_VERSION}"
+  else
+    echo "Error: STALE_VERSION cannot be empty and version/VERSION does not exist."
+    exit 1
+  fi
+fi
+
+if [[ -z "${NEW_VERSION:-}" ]]; then
+  if [[ -n "${VERSION:-}" ]]; then
+    NEW_VERSION="${VERSION}"
+    echo "Using NEW_VERSION from VERSION env var: ${NEW_VERSION}"
+  fi
+fi
 
 if [ -z "$NEW_VERSION" ]; then
   echo "Error: New version cannot be empty."
