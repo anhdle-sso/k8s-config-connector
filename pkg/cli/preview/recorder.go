@@ -67,6 +67,12 @@ func NewRecorder() *Recorder {
 	}
 }
 
+func (r *Recorder) GetRemainResourcesCount() int {
+	r.reconcileTrackerMutex.Lock()
+	defer r.reconcileTrackerMutex.Unlock()
+	return r.RemainResourcesCount
+}
+
 // objectInfo holds the activity from reconciling the objects
 type objectInfo struct {
 	events []event
@@ -344,6 +350,9 @@ func (r *Recorder) DoneReconciling() bool {
 
 // TODO: Implement concurrent worker by GVRs.
 func (r *Recorder) PreloadGKNN(ctx context.Context, config *rest.Config, namespace string) error {
+	r.reconcileTrackerMutex.Lock()
+	defer r.reconcileTrackerMutex.Unlock()
+
 	log := klog.FromContext(ctx)
 	log.V(0).Info("Preloading the list of resources to reconcile")
 	// Make a copy of config to increase QPS and burst.
@@ -416,11 +425,7 @@ func (r *Recorder) PreloadGKNN(ctx context.Context, config *rest.Config, namespa
 	return nil
 }
 
-func (recorder *Recorder) SummaryReport(summaryFile string) error {
-	return recorder.getOrCreateSummary().SummaryReport(summaryFile)
-}
-
-func (recorder *Recorder) getOrCreateSummary() *RecorderReconciledResults {
+func (recorder *Recorder) GetOrCreateReconciledResults() *RecorderReconciledResults {
 	if recorder.reconciledResults == nil {
 		recorder.reconciledResults = recorder.GenerateRecorderReconciledResults()
 	}
@@ -466,4 +471,79 @@ func toTrackedGVR(apiResource metav1.APIResource, apiResourceListGroupVersion sc
 		return gvr, false
 	}
 	return gvr, true
+}
+
+func (r *Recorder) DeepCopy() *Recorder {
+	r.mutex.Lock()
+	defer r.mutex.Unlock()
+	r.reconcileTrackerMutex.Lock()
+	defer r.reconcileTrackerMutex.Unlock()
+
+	res := &Recorder{
+		objects:              make(map[GKNN]*objectInfo),
+		ReconciledResources:  make(map[GKNN]bool),
+		RemainResourcesCount: r.RemainResourcesCount,
+	}
+
+	for k, v := range r.objects {
+		res.objects[k] = v.DeepCopy()
+	}
+
+	for k, v := range r.ReconciledResources {
+		res.ReconciledResources[k] = v
+	}
+
+	return res
+}
+
+func (i *objectInfo) DeepCopy() *objectInfo {
+	if i == nil {
+		return nil
+	}
+	res := &objectInfo{
+		events: make([]event, len(i.events)),
+	}
+	for idx, e := range i.events {
+		res.events[idx] = e.DeepCopy()
+	}
+	return res
+}
+
+func (e event) DeepCopy() event {
+	res := event{
+		eventType:      e.eventType,
+		reconcilerType: e.reconcilerType,
+	}
+	if e.diff != nil {
+		res.diff = &structuredreporting.Diff{
+			IsNewObject: e.diff.IsNewObject,
+			Fields:      make([]structuredreporting.DiffField, len(e.diff.Fields)),
+		}
+		if e.diff.Object != nil {
+			res.diff.Object = e.diff.Object.DeepCopy()
+		}
+		copy(res.diff.Fields, e.diff.Fields)
+	}
+	if e.kubeAction != nil {
+		res.kubeAction = &kubeAction{
+			method: e.kubeAction.method,
+			action: e.kubeAction.action,
+		}
+	}
+	if e.gcpAction != nil {
+		res.gcpAction = &gcpAction{
+			Method: e.gcpAction.Method,
+			URL:    e.gcpAction.URL,
+			Body:   e.gcpAction.Body,
+			Action: e.gcpAction.Action,
+		}
+		if e.gcpAction.UpdateMask != nil {
+			res.gcpAction.UpdateMask = make([]string, len(e.gcpAction.UpdateMask))
+			copy(res.gcpAction.UpdateMask, e.gcpAction.UpdateMask)
+		}
+	}
+	if e.object != nil {
+		res.object = e.object.DeepCopy()
+	}
+	return res
 }

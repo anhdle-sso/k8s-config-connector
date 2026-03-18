@@ -166,6 +166,7 @@ func (i *PreviewInstance) Start(ctx context.Context) error {
 	// creating multiple managers for tests will fail if more than one
 	// manager tries to bind to the same port.
 	kccConfig.ManagerOptions.HealthProbeBindAddress = "0"
+	kccConfig.SkipNameValidation = true
 
 	// Hook kube
 	kccConfig.ManagerOptions.NewCache = i.hookKube.NewCache
