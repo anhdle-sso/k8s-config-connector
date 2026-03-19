@@ -255,6 +255,20 @@ oneOf:
             - external
 `
 
+const legacyRefRule = `
+oneOf:
+- not:
+    required:
+    - valueFrom
+  required:
+  - value
+- not:
+    required:
+    - value
+  required:
+  - valueFrom
+`
+
 func addValidationToRefs(kind string, fieldPath string, props *apiextensions.JSONSchemaProps) error {
 	// Is this a ref?
 	if props.Type != "object" {
@@ -322,6 +336,8 @@ oneOf:
 			}
 		} else if signature == "external,name,namespace" {
 			ruleYAML = refRuleWithoutKind
+		} else if signature == "value,valueFrom" && kind == "AlloyDBUser" {
+			ruleYAML = legacyRefRule
 		} else {
 			if strings.HasPrefix(signature, "external,") {
 				klog.Warningf("unknown signature %q", signature)
