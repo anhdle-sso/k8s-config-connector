@@ -19,6 +19,7 @@
 // proto.service: google.cloud.compute.v1
 // resource: ComputeFirewallPolicyRule:FirewallPolicyRule
 // resource: ComputeForwardingRule:ForwardingRule
+// resource: ComputeResourcePolicy:ResourcePolicy
 // resource: ComputeSecurityPolicy:SecurityPolicy
 // resource: ComputeSubnetwork:Subnetwork
 // resource: ComputeTargetTcpProxy:TargetTcpProxy
@@ -54,6 +55,41 @@ type FirewallPolicyRuleSecureTag struct {
 	//  Check the State enum for the list of possible values.
 	// +kcc:proto:field=google.cloud.compute.v1.FirewallPolicyRuleSecureTag.state
 	State *string `json:"state,omitempty"`
+}
+
+// +kcc:proto=google.cloud.compute.v1.ResourcePolicyResourceStatus
+type ResourcePolicyResourceStatus struct {
+	// [Output Only] Specifies a set of output values reffering to the instance_schedule_policy system status. This field should have the same name as corresponding policy field.
+	// +kcc:proto:field=google.cloud.compute.v1.ResourcePolicyResourceStatus.instance_schedule_policy
+	InstanceSchedulePolicy *ResourcePolicyResourceStatusInstanceSchedulePolicyStatus `json:"instanceSchedulePolicy,omitempty"`
+}
+
+// +kcc:proto=google.cloud.compute.v1.ResourcePolicyResourceStatusInstanceSchedulePolicyStatus
+type ResourcePolicyResourceStatusInstanceSchedulePolicyStatus struct {
+	// [Output Only] The last time the schedule successfully ran. The timestamp is an RFC3339 string.
+	// +kcc:proto:field=google.cloud.compute.v1.ResourcePolicyResourceStatusInstanceSchedulePolicyStatus.last_run_start_time
+	LastRunStartTime *string `json:"lastRunStartTime,omitempty"`
+
+	// [Output Only] The next time the schedule is planned to run. The actual time might be slightly different. The timestamp is an RFC3339 string.
+	// +kcc:proto:field=google.cloud.compute.v1.ResourcePolicyResourceStatusInstanceSchedulePolicyStatus.next_run_start_time
+	NextRunStartTime *string `json:"nextRunStartTime,omitempty"`
+}
+
+// +kcc:proto=google.cloud.compute.v1.ResourcePolicyWorkloadPolicy
+type ResourcePolicyWorkloadPolicy struct {
+	// Specifies the topology required to create a partition for VMs that have interconnected GPUs.
+	// +kcc:proto:field=google.cloud.compute.v1.ResourcePolicyWorkloadPolicy.accelerator_topology
+	AcceleratorTopology *string `json:"acceleratorTopology,omitempty"`
+
+	// Specifies the maximum distance between instances.
+	//  Check the MaxTopologyDistance enum for the list of possible values.
+	// +kcc:proto:field=google.cloud.compute.v1.ResourcePolicyWorkloadPolicy.max_topology_distance
+	MaxTopologyDistance *string `json:"maxTopologyDistance,omitempty"`
+
+	// Specifies the intent of the instance placement in the MIG.
+	//  Check the Type enum for the list of possible values.
+	// +kcc:proto:field=google.cloud.compute.v1.ResourcePolicyWorkloadPolicy.type
+	Type *string `json:"type,omitempty"`
 }
 
 // +kcc:proto=google.cloud.compute.v1.SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfig
