@@ -88,7 +88,7 @@ echo "Verifying version ${VERSION} in generated manifests..."
 for channeldir in channels autopilot-channels; do
   MANIFEST_PATH="${REPO_ROOT}/operator/${channeldir}/packages/configconnector/${VERSION}/namespaced/0-cnrm-system.yaml"
   echo "Checking ${MANIFEST_PATH}..."
-  if ! grep -q "cnrm.cloud.google.com/version: ${VERSION}" "${MANIFEST_PATH}"; then
+  if ! grep -qE "cnrm.cloud.google.com/version: \"?${VERSION}\"?" "${MANIFEST_PATH}"; then
     echo "ERROR: Version ${VERSION} not found in ${MANIFEST_PATH}"
     # Log some context for debugging
     echo "Current annotations in ${MANIFEST_PATH}:"
@@ -96,7 +96,7 @@ for channeldir in channels autopilot-channels; do
     exit 1
   fi
   echo "Found version ${VERSION} in ${MANIFEST_PATH}:"
-  grep "cnrm.cloud.google.com/version: ${VERSION}" "${MANIFEST_PATH}" | head -n 1
+  grep -E "cnrm.cloud.google.com/version: \"?${VERSION}\"?" "${MANIFEST_PATH}" | head -n 1
 done
 
 echo "Channel manifests generated and verified successfully."
