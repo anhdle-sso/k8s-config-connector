@@ -19,237 +19,217 @@ import (
 	"reflect"
 
 	krm "github.com/GoogleCloudPlatform/k8s-config-connector/apis/gkehub/v1beta1"
+	"github.com/GoogleCloudPlatform/k8s-config-connector/pkg/controller/direct"
+	"github.com/GoogleCloudPlatform/k8s-config-connector/pkg/structuredreporting"
 	featureapi "google.golang.org/api/gkehub/v1beta"
 )
 
-func diffFeatureMembership(left *krm.GKEHubFeatureMembershipSpec, right *featureapi.MembershipFeatureSpec) []string {
-	var diffs []string
+func diffFeatureMembership(report *structuredreporting.Diff, left *krm.GKEHubFeatureMembershipSpec, right *featureapi.MembershipFeatureSpec) {
 	if left.Configmanagement != nil {
 		if right.Configmanagement == nil {
-			diffs = append(diffs, "configmanagement")
+			report.AddField("configmanagement", nil, left.Configmanagement)
 		} else {
-			diffs = append(diffs, diffConfigManagement(left.Configmanagement, right.Configmanagement)...)
+			diffConfigManagement(report, "configmanagement", left.Configmanagement, right.Configmanagement)
 		}
 	}
 	if left.Policycontroller != nil {
 		if right.Policycontroller == nil {
-			diffs = append(diffs, "policycontroller")
+			report.AddField("policycontroller", nil, left.Policycontroller)
 		} else {
-			diffs = append(diffs, diffPolicycontroller(left.Policycontroller, right.Policycontroller)...)
+			diffPolicycontroller(report, "policycontroller", left.Policycontroller, right.Policycontroller)
 		}
 	}
 	if left.Mesh != nil {
 		if right.Mesh == nil {
-			diffs = append(diffs, "mesh")
+			report.AddField("mesh", nil, left.Mesh)
 		} else {
-			diffs = append(diffs, diffMesh(left.Mesh, right.Mesh)...)
+			diffMesh(report, "mesh", left.Mesh, right.Mesh)
 		}
 	}
-	return diffs
 }
 
-func diffConfigManagement(left *krm.FeaturemembershipConfigmanagement, right *featureapi.ConfigManagementMembershipSpec) []string {
-	var diffs []string
+func diffConfigManagement(report *structuredreporting.Diff, prefix string, left *krm.FeaturemembershipConfigmanagement, right *featureapi.ConfigManagementMembershipSpec) {
 	if left.Binauthz != nil {
 		if right.Binauthz == nil {
-			diffs = append(diffs, "binauthz")
+			report.AddField(prefix+".binauthz", nil, left.Binauthz)
 		} else {
-			diffs = append(diffs, diffBinauthz(left.Binauthz, right.Binauthz)...)
+			diffBinauthz(report, prefix+".binauthz", left.Binauthz, right.Binauthz)
 		}
 	}
 	if left.ConfigSync != nil {
 		if right.ConfigSync == nil {
-			diffs = append(diffs, "configsync")
+			report.AddField(prefix+".configSync", nil, left.ConfigSync)
 		} else {
-			diffs = append(diffs, diffConfigSync(left.ConfigSync, right.ConfigSync)...)
+			diffConfigSync(report, prefix+".configSync", left.ConfigSync, right.ConfigSync)
 		}
 	}
 	if left.HierarchyController != nil {
 		if right.HierarchyController == nil {
-			diffs = append(diffs, "hierachycontroller")
+			report.AddField(prefix+".hierarchyController", nil, left.HierarchyController)
 		} else {
-			diffs = append(diffs, diffHierarchyController(left.HierarchyController, right.HierarchyController)...)
+			diffHierarchyController(report, prefix+".hierarchyController", left.HierarchyController, right.HierarchyController)
 		}
 	}
 	if left.PolicyController != nil {
 		if right.PolicyController == nil {
-			diffs = append(diffs, "policyController")
+			report.AddField(prefix+".policyController", nil, left.PolicyController)
 		} else {
-			diffs = append(diffs, diffPolicyController(left.PolicyController, right.PolicyController)...)
+			diffPolicyController(report, prefix+".policyController", left.PolicyController, right.PolicyController)
 		}
 	}
-	if left.Version != nil && !reflect.DeepEqual(left.Version, right.Version) {
-		diffs = append(diffs, "version")
+	if left.Version != nil && direct.ValueOf(left.Version) != right.Version {
+		report.AddField(prefix+".version", right.Version, direct.ValueOf(left.Version))
 	}
-	if left.Management != nil && !reflect.DeepEqual(left.Management, right.Management) {
-		diffs = append(diffs, "management")
+	if left.Management != nil && direct.ValueOf(left.Management) != right.Management {
+		report.AddField(prefix+".management", right.Management, direct.ValueOf(left.Management))
 	}
-	return diffs
 }
 
-func diffBinauthz(left *krm.FeaturemembershipBinauthz, right *featureapi.ConfigManagementBinauthzConfig) []string {
-	var diffs []string
-	if left.Enabled != nil && !reflect.DeepEqual(left.Enabled, right.Enabled) {
-		diffs = append(diffs, "enabled")
+func diffBinauthz(report *structuredreporting.Diff, prefix string, left *krm.FeaturemembershipBinauthz, right *featureapi.ConfigManagementBinauthzConfig) {
+	if left.Enabled != nil && direct.ValueOf(left.Enabled) != right.Enabled {
+		report.AddField(prefix+".enabled", right.Enabled, direct.ValueOf(left.Enabled))
 	}
-	return diffs
 }
 
-func diffConfigSync(left *krm.FeaturemembershipConfigSync, right *featureapi.ConfigManagementConfigSync) []string {
-	var diffs []string
+func diffConfigSync(report *structuredreporting.Diff, prefix string, left *krm.FeaturemembershipConfigSync, right *featureapi.ConfigManagementConfigSync) {
 	if left.Git != nil {
 		if right.Git == nil {
-			diffs = append(diffs, "git")
+			report.AddField(prefix+".git", nil, left.Git)
 		} else {
-			diffs = append(diffs, diffGit(left.Git, right.Git)...)
+			diffGit(report, prefix+".git", left.Git, right.Git)
 		}
 	}
-	if left.MetricsGcpServiceAccountRef != nil && !reflect.DeepEqual(left.MetricsGcpServiceAccountRef.External, right.MetricsGcpServiceAccountEmail) {
-		diffs = append(diffs, "metricsGcpServiceAccountEmail")
+	if left.MetricsGcpServiceAccountRef != nil && left.MetricsGcpServiceAccountRef.External != right.MetricsGcpServiceAccountEmail {
+		report.AddField(prefix+".metricsGcpServiceAccountEmail", right.MetricsGcpServiceAccountEmail, left.MetricsGcpServiceAccountRef.External)
 	}
 	if left.Oci != nil {
 		if right.Oci == nil {
-			diffs = append(diffs, "oci")
+			report.AddField(prefix+".oci", nil, left.Oci)
 		} else {
-			diffs = append(diffs, diffOci(left.Oci, right.Oci)...)
+			diffOci(report, prefix+".oci", left.Oci, right.Oci)
 		}
 	}
-	if left.PreventDrift != nil && !reflect.DeepEqual(left.PreventDrift, right.PreventDrift) {
-		diffs = append(diffs, "preventDrift")
+	if left.PreventDrift != nil && direct.ValueOf(left.PreventDrift) != right.PreventDrift {
+		report.AddField(prefix+".preventDrift", right.PreventDrift, direct.ValueOf(left.PreventDrift))
 	}
-	if left.StopSyncing != nil && !reflect.DeepEqual(left.StopSyncing, right.StopSyncing) {
-		diffs = append(diffs, "stopSyncing")
+	if left.StopSyncing != nil && direct.ValueOf(left.StopSyncing) != right.StopSyncing {
+		report.AddField(prefix+".stopSyncing", right.StopSyncing, direct.ValueOf(left.StopSyncing))
 	}
-	if left.SourceFormat != nil && !reflect.DeepEqual(left.SourceFormat, right.SourceFormat) {
-		diffs = append(diffs, "sourceFormat")
+	if left.SourceFormat != nil && direct.ValueOf(left.SourceFormat) != right.SourceFormat {
+		report.AddField(prefix+".sourceFormat", right.SourceFormat, direct.ValueOf(left.SourceFormat))
 	}
-	return diffs
 }
 
-func diffGit(left *krm.FeaturemembershipGit, right *featureapi.ConfigManagementGitConfig) []string {
-	var diffs []string
-	if left.GcpServiceAccountRef != nil && !reflect.DeepEqual(left.GcpServiceAccountRef.External, right.GcpServiceAccountEmail) {
-		diffs = append(diffs, "gcpServiceAccountEmail")
+func diffGit(report *structuredreporting.Diff, prefix string, left *krm.FeaturemembershipGit, right *featureapi.ConfigManagementGitConfig) {
+	if left.GcpServiceAccountRef != nil && left.GcpServiceAccountRef.External != right.GcpServiceAccountEmail {
+		report.AddField(prefix+".gcpServiceAccountEmail", right.GcpServiceAccountEmail, left.GcpServiceAccountRef.External)
 	}
-	if left.HttpsProxy != nil && !reflect.DeepEqual(left.HttpsProxy, right.HttpsProxy) {
-		diffs = append(diffs, "httpsProxy")
+	if left.HttpsProxy != nil && direct.ValueOf(left.HttpsProxy) != right.HttpsProxy {
+		report.AddField(prefix+".httpsProxy", right.HttpsProxy, direct.ValueOf(left.HttpsProxy))
 	}
-	if left.PolicyDir != nil && !reflect.DeepEqual(left.PolicyDir, right.PolicyDir) {
-		diffs = append(diffs, "policyDir")
+	if left.PolicyDir != nil && direct.ValueOf(left.PolicyDir) != right.PolicyDir {
+		report.AddField(prefix+".policyDir", right.PolicyDir, direct.ValueOf(left.PolicyDir))
 	}
-	if left.SecretType != nil && !reflect.DeepEqual(left.SecretType, right.SecretType) {
-		diffs = append(diffs, "secretType")
+	if left.SecretType != nil && direct.ValueOf(left.SecretType) != right.SecretType {
+		report.AddField(prefix+".secretType", right.SecretType, direct.ValueOf(left.SecretType))
 	}
-	if left.SyncBranch != nil && !reflect.DeepEqual(left.SyncBranch, right.SyncBranch) {
-		diffs = append(diffs, "syncBranch")
+	if left.SyncBranch != nil && direct.ValueOf(left.SyncBranch) != right.SyncBranch {
+		report.AddField(prefix+".syncBranch", right.SyncBranch, direct.ValueOf(left.SyncBranch))
 	}
-	if left.SyncRepo != nil && !reflect.DeepEqual(left.SyncRepo, right.SyncRepo) {
-		diffs = append(diffs, "syncRepo")
+	if left.SyncRepo != nil && direct.ValueOf(left.SyncRepo) != right.SyncRepo {
+		report.AddField(prefix+".syncRepo", right.SyncRepo, direct.ValueOf(left.SyncRepo))
 	}
-	if left.SyncRev != nil && !reflect.DeepEqual(left.SyncRev, right.SyncRev) {
-		diffs = append(diffs, "syncRev")
+	if left.SyncRev != nil && direct.ValueOf(left.SyncRev) != right.SyncRev {
+		report.AddField(prefix+".syncRev", right.SyncRev, direct.ValueOf(left.SyncRev))
 	}
-	if left.SyncWaitSecs != nil && !reflect.DeepEqual(left.SyncWaitSecs, fmt.Sprintf("%d", right.SyncWaitSecs)) {
-		diffs = append(diffs, "syncWaitSecss")
+	if left.SyncWaitSecs != nil && direct.ValueOf(left.SyncWaitSecs) != fmt.Sprintf("%d", right.SyncWaitSecs) {
+		report.AddField(prefix+".syncWaitSecs", right.SyncWaitSecs, direct.ValueOf(left.SyncWaitSecs))
 	}
-	return diffs
 }
 
-func diffOci(left *krm.FeaturemembershipOci, right *featureapi.ConfigManagementOciConfig) []string {
-	var diffs []string
-	if left.GcpServiceAccountRef != nil && !reflect.DeepEqual(left.GcpServiceAccountRef.External, right.GcpServiceAccountEmail) {
-		diffs = append(diffs, "gcpServiceAccountEmail")
+func diffOci(report *structuredreporting.Diff, prefix string, left *krm.FeaturemembershipOci, right *featureapi.ConfigManagementOciConfig) {
+	if left.GcpServiceAccountRef != nil && left.GcpServiceAccountRef.External != right.GcpServiceAccountEmail {
+		report.AddField(prefix+".gcpServiceAccountEmail", right.GcpServiceAccountEmail, left.GcpServiceAccountRef.External)
 	}
-	if left.PolicyDir != nil && !reflect.DeepEqual(left.PolicyDir, right.PolicyDir) {
-		diffs = append(diffs, "policyDir")
+	if left.PolicyDir != nil && direct.ValueOf(left.PolicyDir) != right.PolicyDir {
+		report.AddField(prefix+".policyDir", right.PolicyDir, direct.ValueOf(left.PolicyDir))
 	}
-	if left.SecretType != nil && !reflect.DeepEqual(left.SecretType, right.SecretType) {
-		diffs = append(diffs, "secretType")
+	if left.SecretType != nil && direct.ValueOf(left.SecretType) != right.SecretType {
+		report.AddField(prefix+".secretType", right.SecretType, direct.ValueOf(left.SecretType))
 	}
-	if left.SyncRepo != nil && !reflect.DeepEqual(left.SyncRepo, right.SyncRepo) {
-		diffs = append(diffs, "syncRepo")
+	if left.SyncRepo != nil && direct.ValueOf(left.SyncRepo) != right.SyncRepo {
+		report.AddField(prefix+".syncRepo", right.SyncRepo, direct.ValueOf(left.SyncRepo))
 	}
-	if left.SyncWaitSecs != nil && !reflect.DeepEqual(left.SyncWaitSecs, fmt.Sprintf("%d", right.SyncWaitSecs)) {
-		diffs = append(diffs, "syncWaitSecs")
+	if left.SyncWaitSecs != nil && direct.ValueOf(left.SyncWaitSecs) != fmt.Sprintf("%d", right.SyncWaitSecs) {
+		report.AddField(prefix+".syncWaitSecs", right.SyncWaitSecs, direct.ValueOf(left.SyncWaitSecs))
 	}
-	return diffs
 }
 
-func diffHierarchyController(left *krm.FeaturemembershipHierarchyController, right *featureapi.ConfigManagementHierarchyControllerConfig) []string {
-	var diffs []string
-	if left.EnableHierarchicalResourceQuota != nil && !reflect.DeepEqual(left.EnableHierarchicalResourceQuota, right.EnableHierarchicalResourceQuota) {
-		diffs = append(diffs, "enableHierarchicalResourceQuota")
+func diffHierarchyController(report *structuredreporting.Diff, prefix string, left *krm.FeaturemembershipHierarchyController, right *featureapi.ConfigManagementHierarchyControllerConfig) {
+	if left.EnableHierarchicalResourceQuota != nil && direct.ValueOf(left.EnableHierarchicalResourceQuota) != right.EnableHierarchicalResourceQuota {
+		report.AddField(prefix+".enableHierarchicalResourceQuota", right.EnableHierarchicalResourceQuota, direct.ValueOf(left.EnableHierarchicalResourceQuota))
 	}
-	if left.EnablePodTreeLabels != nil && !reflect.DeepEqual(left.EnablePodTreeLabels, right.EnablePodTreeLabels) {
-		diffs = append(diffs, "enablePodTreeLabels")
+	if left.EnablePodTreeLabels != nil && direct.ValueOf(left.EnablePodTreeLabels) != right.EnablePodTreeLabels {
+		report.AddField(prefix+".enablePodTreeLabels", right.EnablePodTreeLabels, direct.ValueOf(left.EnablePodTreeLabels))
 	}
-	if left.Enabled != nil && !reflect.DeepEqual(left.Enabled, right.Enabled) {
-		diffs = append(diffs, "enabled")
+	if left.Enabled != nil && direct.ValueOf(left.Enabled) != right.Enabled {
+		report.AddField(prefix+".enabled", right.Enabled, direct.ValueOf(left.Enabled))
 	}
-	return diffs
 }
 
-func diffPolicyController(left *krm.FeaturemembershipPolicyController, right *featureapi.ConfigManagementPolicyController) []string {
-	var diffs []string
-	if left.AuditIntervalSeconds != nil && !reflect.DeepEqual(left.AuditIntervalSeconds, fmt.Sprintf("%d", right.AuditIntervalSeconds)) {
-		diffs = append(diffs, "auditIntervalSeconds")
+func diffPolicyController(report *structuredreporting.Diff, prefix string, left *krm.FeaturemembershipPolicyController, right *featureapi.ConfigManagementPolicyController) {
+	if left.AuditIntervalSeconds != nil && direct.ValueOf(left.AuditIntervalSeconds) != fmt.Sprintf("%d", right.AuditIntervalSeconds) {
+		report.AddField(prefix+".auditIntervalSeconds", right.AuditIntervalSeconds, direct.ValueOf(left.AuditIntervalSeconds))
 	}
-	if left.Enabled != nil && !reflect.DeepEqual(left.Enabled, right.Enabled) {
-		diffs = append(diffs, "enabled")
+	if left.Enabled != nil && direct.ValueOf(left.Enabled) != right.Enabled {
+		report.AddField(prefix+".enabled", right.Enabled, direct.ValueOf(left.Enabled))
 	}
 	if left.ExemptableNamespaces != nil && !reflect.DeepEqual(left.ExemptableNamespaces, right.ExemptableNamespaces) {
-		diffs = append(diffs, "exemptableNamespaces")
+		report.AddField(prefix+".exemptableNamespaces", right.ExemptableNamespaces, left.ExemptableNamespaces)
 	}
-	if left.LogDeniesEnabled != nil && !reflect.DeepEqual(left.LogDeniesEnabled, right.LogDeniesEnabled) {
-		diffs = append(diffs, "logDeniesEnabled")
+	if left.LogDeniesEnabled != nil && direct.ValueOf(left.LogDeniesEnabled) != right.LogDeniesEnabled {
+		report.AddField(prefix+".logDeniesEnabled", right.LogDeniesEnabled, direct.ValueOf(left.LogDeniesEnabled))
 	}
 	if left.Monitoring != nil {
 		if right.Monitoring == nil {
-			diffs = append(diffs, "monitoring")
+			report.AddField(prefix+".monitoring", nil, left.Monitoring)
 		} else {
-			diffs = append(diffs, diffMonitoring(left.Monitoring, right.Monitoring)...)
+			diffMonitoring(report, prefix+".monitoring", left.Monitoring, right.Monitoring)
 		}
 	}
-	if left.MutationEnabled != nil && !reflect.DeepEqual(left.MutationEnabled, right.MutationEnabled) {
-		diffs = append(diffs, "mutationEnabled")
+	if left.MutationEnabled != nil && direct.ValueOf(left.MutationEnabled) != right.MutationEnabled {
+		report.AddField(prefix+".mutationEnabled", right.MutationEnabled, direct.ValueOf(left.MutationEnabled))
 	}
-	if left.ReferentialRulesEnabled != nil && !reflect.DeepEqual(left.ReferentialRulesEnabled, right.ReferentialRulesEnabled) {
-		diffs = append(diffs, "referentialRulesEnabled")
+	if left.ReferentialRulesEnabled != nil && direct.ValueOf(left.ReferentialRulesEnabled) != right.ReferentialRulesEnabled {
+		report.AddField(prefix+".referentialRulesEnabled", right.ReferentialRulesEnabled, direct.ValueOf(left.ReferentialRulesEnabled))
 	}
-	if left.TemplateLibraryInstalled != nil && !reflect.DeepEqual(left.TemplateLibraryInstalled, right.TemplateLibraryInstalled) {
-		diffs = append(diffs, "templateLibraryInstalled")
+	if left.TemplateLibraryInstalled != nil && direct.ValueOf(left.TemplateLibraryInstalled) != right.TemplateLibraryInstalled {
+		report.AddField(prefix+".templateLibraryInstalled", right.TemplateLibraryInstalled, direct.ValueOf(left.TemplateLibraryInstalled))
 	}
-	return diffs
 }
 
-func diffMonitoring(left *krm.FeaturemembershipMonitoring, right *featureapi.ConfigManagementPolicyControllerMonitoring) []string {
-	var diffs []string
+func diffMonitoring(report *structuredreporting.Diff, prefix string, left *krm.FeaturemembershipMonitoring, right *featureapi.ConfigManagementPolicyControllerMonitoring) {
 	if left.Backends != nil && !reflect.DeepEqual(left.Backends, right.Backends) {
-		diffs = append(diffs, "backends")
+		report.AddField(prefix+".backends", right.Backends, left.Backends)
 	}
-	return diffs
 }
 
-func diffMesh(left *krm.FeaturemembershipMesh, right *featureapi.ServiceMeshMembershipSpec) []string {
-	var diffs []string
-	if left.ControlPlane != nil && !reflect.DeepEqual(left.ControlPlane, right.ControlPlane) {
-		diffs = append(diffs, "controlPlane")
+func diffMesh(report *structuredreporting.Diff, prefix string, left *krm.FeaturemembershipMesh, right *featureapi.ServiceMeshMembershipSpec) {
+	if left.ControlPlane != nil && direct.ValueOf(left.ControlPlane) != right.ControlPlane {
+		report.AddField(prefix+".controlPlane", right.ControlPlane, direct.ValueOf(left.ControlPlane))
 	}
-	if left.Management != nil && !reflect.DeepEqual(left.Management, right.Management) {
-		diffs = append(diffs, "management")
+	if left.Management != nil && direct.ValueOf(left.Management) != right.Management {
+		report.AddField(prefix+".management", right.Management, direct.ValueOf(left.Management))
 	}
-	return diffs
 }
 
-func diffPolicycontroller(left *krm.FeaturemembershipPolicycontroller, right *featureapi.PolicyControllerMembershipSpec) []string {
-	var diffs []string
+func diffPolicycontroller(report *structuredreporting.Diff, prefix string, left *krm.FeaturemembershipPolicycontroller, right *featureapi.PolicyControllerMembershipSpec) {
 	if right.PolicyControllerHubConfig == nil {
-		diffs = append(diffs, "policyControllerHubConfig")
-	} else if !reflect.DeepEqual(left.PolicyControllerHubConfig, right.PolicyControllerHubConfig) {
-		diffs = append(diffs, "policyControllerHubConfig")
+		report.AddField(prefix+".policyControllerHubConfig", nil, left.PolicyControllerHubConfig)
+	} else if !reflect.DeepEqual(left.PolicyControllerHubConfig, FeaturemembershipPolicyControllerHubConfig_FromProto(&direct.MapContext{}, right.PolicyControllerHubConfig)) {
+		report.AddField(prefix+".policyControllerHubConfig", right.PolicyControllerHubConfig, left.PolicyControllerHubConfig)
 	}
-	if left.Version != nil && !reflect.DeepEqual(left.Version, right.Version) {
-		diffs = append(diffs, "version")
+	if left.Version != nil && direct.ValueOf(left.Version) != right.Version {
+		report.AddField(prefix+".version", right.Version, direct.ValueOf(left.Version))
 	}
-	return diffs
 }
