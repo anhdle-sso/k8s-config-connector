@@ -163,7 +163,7 @@ func (r *ParentReconciler) Reconcile(ctx context.Context, req reconcile.Request)
 		logger.V(1).Info("falling back to default controller type", "resource", req.NamespacedName, "type", controllerType)
 	}
 
-	logger.V(1).Info("routing to controller", "type", controllerType)
+	logger.V(1).Info("routing to controller", "resource", req.NamespacedName, "type", controllerType)
 
 	switch controllerType {
 	case k8s.ReconcilerTypeTerraform:
