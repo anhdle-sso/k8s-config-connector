@@ -30,7 +30,7 @@ const (
 	EQUIVALENCE_DESCRIPTION = `Check whether a CRD file change is equivalent to its previous git-committed version.
 
 Equivalent means:
-  - No fields are added or deleted (new fields MAY be added under 'status')
+  - No fields are added or deleted (only status.externalRef, status.observedState, and status.observedState's sub-fields, may be added under 'status')
   - Field names and types do not change
   - Adding spec.names.listKind is fine
   - Descriptions may change freely
