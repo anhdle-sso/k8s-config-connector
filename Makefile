@@ -14,6 +14,7 @@
 
 PROJECT_ID ?= $(shell gcloud config get-value project)
 SHORT_SHA := $(shell git rev-parse --short=7 HEAD)
+GO_VERSION := $(shell grep "^go" go.mod | sed -e 's/^go[[:space:]]\+//')
 BUILDER_IMG ?= gcr.io/${PROJECT_ID}/builder:${SHORT_SHA}
 CONTROLLER_IMG ?= gcr.io/${PROJECT_ID}/cnrm/controller:${SHORT_SHA}
 RECORDER_IMG ?= gcr.io/${PROJECT_ID}/cnrm/recorder:${SHORT_SHA}
@@ -269,7 +270,7 @@ run: generate fmt vet
 # Ensures dependencies are up-to-date
 .PHONY: ensure
 ensure:
-	go mod tidy -compat=1.23
+	go mod tidy -compat=${GO_VERSION}
 
 # Should run all needed commands before any PR is sent out.
 .PHONY: ready-pr
