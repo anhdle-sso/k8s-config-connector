@@ -8,7 +8,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -19,7 +21,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 113,
+    "downstreamCount": 0
   },
   {
     "group": "apigateway",
@@ -30,7 +34,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -41,7 +47,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 114,
+    "downstreamCount": 0
   },
   {
     "group": "apigateway",
@@ -52,7 +60,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -63,7 +73,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 115,
+    "downstreamCount": 0
   },
   {
     "group": "apikeys",
@@ -75,7 +87,9 @@
       "Direct",
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -86,7 +100,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 116,
+    "downstreamCount": 0
   },
   {
     "group": "cloudquota",
@@ -97,7 +113,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -108,7 +126,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 117,
+    "downstreamCount": 0
   },
   {
     "group": "cloudquota",
@@ -119,7 +139,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -130,7 +153,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 118,
+    "downstreamCount": 0
   },
   {
     "group": "accesscontextmanager",
@@ -141,7 +166,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "AccessContextManagerAccessPolicy",
+      "IAMServiceAccount"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -152,7 +180,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 42,
+    "downstreamCount": 2
   },
   {
     "group": "accesscontextmanager",
@@ -163,7 +193,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "AccessContextManagerAccessLevel"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -174,7 +206,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 119,
+    "downstreamCount": 0
   },
   {
     "group": "accesscontextmanager",
@@ -196,7 +230,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 37,
+    "downstreamCount": 3
   },
   {
     "group": "accesscontextmanager",
@@ -218,7 +254,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 120,
+    "downstreamCount": 0
   },
   {
     "group": "accesscontextmanager",
@@ -229,7 +267,12 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "AccessContextManagerAccessLevel",
+      "AccessContextManagerAccessPolicy",
+      "IAMServiceAccount",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -240,7 +283,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 121,
+    "downstreamCount": 0
   },
   {
     "group": "accesscontextmanager",
@@ -262,7 +307,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 122,
+    "downstreamCount": 0
   },
   {
     "group": "alloydb",
@@ -273,7 +320,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -284,7 +333,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 123,
+    "downstreamCount": 0
   },
   {
     "group": "alloydb",
@@ -296,7 +347,11 @@
       "Direct",
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -307,7 +362,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 43,
+    "downstreamCount": 2
   },
   {
     "group": "alloydb",
@@ -318,7 +375,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "AlloyDBCluster"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -329,7 +388,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 124,
+    "downstreamCount": 0
   },
   {
     "group": "alloydb",
@@ -340,7 +401,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "AlloyDBCluster"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -351,7 +414,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 125,
+    "downstreamCount": 0
   },
   {
     "group": "apigee",
@@ -373,7 +438,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 127,
+    "downstreamCount": 0
   },
   {
     "group": "apigee",
@@ -384,7 +451,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ApigeeOrganization"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -395,7 +464,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 128,
+    "downstreamCount": 0
   },
   {
     "group": "apigee",
@@ -406,7 +477,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ApigeeOrganization"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -417,7 +490,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 69,
+    "downstreamCount": 1
   },
   {
     "group": "apigee",
@@ -428,7 +503,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ApigeeEnvgroup",
+      "ApigeeEnvironment"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -439,7 +517,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 129,
+    "downstreamCount": 0
   },
   {
     "group": "apigee",
@@ -450,7 +530,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ApigeeOrganization"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -461,7 +543,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 44,
+    "downstreamCount": 2
   },
   {
     "group": "apigee",
@@ -472,7 +556,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ApigeeOrganization",
+      "KMSCryptoKey"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -483,7 +570,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 70,
+    "downstreamCount": 1
   },
   {
     "group": "apigee",
@@ -494,7 +583,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ApigeeEnvironment",
+      "ApigeeInstance"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -505,7 +597,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 130,
+    "downstreamCount": 0
   },
   {
     "group": "apigee",
@@ -527,7 +621,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 131,
+    "downstreamCount": 0
   },
   {
     "group": "apigee",
@@ -538,7 +634,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -549,7 +648,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 21,
+    "downstreamCount": 6
   },
   {
     "group": "apigee",
@@ -571,7 +672,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 132,
+    "downstreamCount": 0
   },
   {
     "group": "appengine",
@@ -593,7 +696,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 133,
+    "downstreamCount": 0
   },
   {
     "group": "appengine",
@@ -615,7 +720,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 134,
+    "downstreamCount": 0
   },
   {
     "group": "appengine",
@@ -626,7 +733,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Service"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -637,7 +746,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 135,
+    "downstreamCount": 0
   },
   {
     "group": "appengine",
@@ -659,7 +770,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 136,
+    "downstreamCount": 0
   },
   {
     "group": "appengine",
@@ -670,7 +783,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Service"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -681,7 +796,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 137,
+    "downstreamCount": 0
   },
   {
     "group": "apphub",
@@ -692,7 +809,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -703,7 +822,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 138,
+    "downstreamCount": 0
   },
   {
     "group": "artifactregistry",
@@ -714,7 +835,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -725,7 +848,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 141,
+    "downstreamCount": 0
   },
   {
     "group": "asset",
@@ -736,7 +861,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -747,7 +875,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 142,
+    "downstreamCount": 0
   },
   {
     "group": "asset",
@@ -758,7 +888,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -769,7 +902,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 143,
+    "downstreamCount": 0
   },
   {
     "group": "backupdr",
@@ -780,7 +915,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BackupDRBackupVault",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -791,7 +929,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 71,
+    "downstreamCount": 1
   },
   {
     "group": "backupdr",
@@ -802,7 +942,11 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BackupDRBackupPlan",
+      "ComputeInstance",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -813,7 +957,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 145,
+    "downstreamCount": 0
   },
   {
     "group": "backupdr",
@@ -824,7 +970,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -835,7 +983,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 45,
+    "downstreamCount": 2
   },
   {
     "group": "backupdr",
@@ -846,7 +996,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -857,7 +1010,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 146,
+    "downstreamCount": 0
   },
   {
     "group": "batch",
@@ -868,7 +1023,13 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "IAMServiceAccount",
+      "KMSCryptoKey",
+      "Project",
+      "PubSubTopic"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -879,7 +1040,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 147,
+    "downstreamCount": 0
   },
   {
     "group": "beyondcorp",
@@ -890,7 +1053,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -901,7 +1066,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 149,
+    "downstreamCount": 0
   },
   {
     "group": "beyondcorp",
@@ -912,7 +1079,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -923,7 +1092,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 150,
+    "downstreamCount": 0
   },
   {
     "group": "beyondcorp",
@@ -934,7 +1105,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -945,7 +1118,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 151,
+    "downstreamCount": 0
   },
   {
     "group": "bigquerybiglake",
@@ -967,7 +1142,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 154,
+    "downstreamCount": 0
   },
   {
     "group": "bigqueryanalyticshub",
@@ -978,7 +1155,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -989,7 +1168,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 72,
+    "downstreamCount": 1
   },
   {
     "group": "bigqueryanalyticshub",
@@ -1000,7 +1181,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BigQueryAnalyticsHubDataExchange",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1011,7 +1195,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 155,
+    "downstreamCount": 0
   },
   {
     "group": "bigqueryconnection",
@@ -1022,7 +1208,11 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "DataprocCluster",
+      "MetastoreService",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1033,7 +1223,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 46,
+    "downstreamCount": 2
   },
   {
     "group": "bigquerydatapolicy",
@@ -1044,7 +1236,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1055,7 +1249,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 157,
+    "downstreamCount": 0
   },
   {
     "group": "bigquerydatatransfer",
@@ -1066,7 +1262,13 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "IAMServiceAccount",
+      "KMSCryptoKey",
+      "Project",
+      "PubSubSubscription",
+      "PubSubTopic"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1077,7 +1279,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 158,
+    "downstreamCount": 0
   },
   {
     "group": "bigquery",
@@ -1089,7 +1293,10 @@
       "Direct",
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1100,7 +1307,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 29,
+    "downstreamCount": 4
   },
   {
     "group": "bigquery",
@@ -1111,7 +1320,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1122,7 +1333,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 159,
+    "downstreamCount": 0
   },
   {
     "group": "bigquery",
@@ -1133,7 +1346,11 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BigQueryDataset",
+      "BigQueryTable",
+      "KMSCryptoKey"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1144,7 +1361,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 160,
+    "downstreamCount": 0
   },
   {
     "group": "bigqueryreservation",
@@ -1155,7 +1374,11 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BigQueryReservationReservation",
+      "Folder",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1166,7 +1389,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 161,
+    "downstreamCount": 0
   },
   {
     "group": "bigqueryreservation",
@@ -1177,7 +1402,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1188,7 +1415,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 162,
+    "downstreamCount": 0
   },
   {
     "group": "bigqueryreservation",
@@ -1199,7 +1428,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1210,7 +1441,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 73,
+    "downstreamCount": 1
   },
   {
     "group": "bigquery",
@@ -1221,7 +1454,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BigQueryDataset",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1232,7 +1468,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 163,
+    "downstreamCount": 0
   },
   {
     "group": "bigquery",
@@ -1244,7 +1482,10 @@
       "Direct",
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BigQueryDataset",
+      "KMSCryptoKey"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1255,7 +1496,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 74,
+    "downstreamCount": 1
   },
   {
     "group": "bigtable",
@@ -1267,7 +1510,9 @@
       "Direct",
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BigtableInstance"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1278,7 +1523,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 164,
+    "downstreamCount": 0
   },
   {
     "group": "bigtable",
@@ -1289,7 +1536,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BigtableInstance",
+      "BigtableTable"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1300,7 +1550,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 167,
+    "downstreamCount": 0
   },
   {
     "group": "bigtable",
@@ -1311,7 +1563,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1322,7 +1576,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 17,
+    "downstreamCount": 8
   },
   {
     "group": "bigtable",
@@ -1333,7 +1589,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BigtableInstance"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1344,7 +1602,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 168,
+    "downstreamCount": 0
   },
   {
     "group": "bigtable",
@@ -1355,7 +1615,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BigtableInstance"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1366,7 +1628,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 169,
+    "downstreamCount": 0
   },
   {
     "group": "bigtable",
@@ -1377,7 +1641,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BigtableInstance"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1388,7 +1654,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 47,
+    "downstreamCount": 2
   },
   {
     "group": "billingbudgets",
@@ -1399,7 +1667,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "PubSubTopic"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1410,7 +1680,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 170,
+    "downstreamCount": 0
   },
   {
     "group": "binaryauthorization",
@@ -1421,7 +1693,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1432,7 +1706,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 171,
+    "downstreamCount": 0
   },
   {
     "group": "binaryauthorization",
@@ -1443,7 +1719,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1454,7 +1732,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 172,
+    "downstreamCount": 0
   },
   {
     "group": "certificatemanager",
@@ -1465,7 +1745,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1476,7 +1758,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 173,
+    "downstreamCount": 0
   },
   {
     "group": "certificatemanager",
@@ -1487,7 +1771,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1498,7 +1784,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 175,
+    "downstreamCount": 0
   },
   {
     "group": "certificatemanager",
@@ -1509,7 +1797,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1520,7 +1810,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 176,
+    "downstreamCount": 0
   },
   {
     "group": "certificatemanager",
@@ -1531,7 +1823,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1542,7 +1836,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 177,
+    "downstreamCount": 0
   },
   {
     "group": "cloudasset",
@@ -1553,7 +1849,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1564,7 +1862,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 178,
+    "downstreamCount": 0
   },
   {
     "group": "cloudasset",
@@ -1586,7 +1886,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 179,
+    "downstreamCount": 0
   },
   {
     "group": "cloudasset",
@@ -1597,7 +1899,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1608,7 +1912,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 180,
+    "downstreamCount": 0
   },
   {
     "group": "cloudbuild",
@@ -1619,7 +1925,11 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "IAMServiceAccount",
+      "KMSCryptoKey",
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1630,7 +1940,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 181,
+    "downstreamCount": 0
   },
   {
     "group": "cloudbuild",
@@ -1641,7 +1953,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1652,7 +1967,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 182,
+    "downstreamCount": 0
   },
   {
     "group": "clouddeploy",
@@ -1663,7 +1980,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1674,7 +1993,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 186,
+    "downstreamCount": 0
   },
   {
     "group": "cloudfunctions2",
@@ -1685,7 +2006,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1696,7 +2019,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 189,
+    "downstreamCount": 0
   },
   {
     "group": "cloudfunctions",
@@ -1707,7 +2032,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "IAMServiceAccount",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1718,7 +2046,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 190,
+    "downstreamCount": 0
   },
   {
     "group": "cloudids",
@@ -1729,7 +2059,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1740,7 +2073,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 191,
+    "downstreamCount": 0
   },
   {
     "group": "cloudiot",
@@ -1762,7 +2097,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 192,
+    "downstreamCount": 0
   },
   {
     "group": "cloudiot",
@@ -1784,7 +2121,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 193,
+    "downstreamCount": 0
   },
   {
     "group": "cloudidentity",
@@ -1806,7 +2145,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 77,
+    "downstreamCount": 1
   },
   {
     "group": "cloudidentity",
@@ -1817,7 +2158,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "CloudIdentityGroup"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1828,7 +2171,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 194,
+    "downstreamCount": 0
   },
   {
     "group": "cloudscheduler",
@@ -1839,7 +2184,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "IAMServiceAccount"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1850,7 +2197,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 195,
+    "downstreamCount": 0
   },
   {
     "group": "colab",
@@ -1861,7 +2210,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ColabRuntimeTemplate",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1872,7 +2224,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 196,
+    "downstreamCount": 0
   },
   {
     "group": "colab",
@@ -1883,7 +2237,12 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "IAMServiceAccount",
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1894,7 +2253,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 78,
+    "downstreamCount": 1
   },
   {
     "group": "composer",
@@ -1905,7 +2266,13 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "IAMServiceAccount",
+      "KMSCryptoKey",
+      "Project",
+      "StorageBucket"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -1916,7 +2283,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 197,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -1927,7 +2296,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "ComputeSubnetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1938,7 +2310,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 48,
+    "downstreamCount": 2
   },
   {
     "group": "compute",
@@ -1949,7 +2323,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1960,7 +2336,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 198,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -1971,7 +2349,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -1982,7 +2362,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 18,
+    "downstreamCount": 7
   },
   {
     "group": "compute",
@@ -1993,7 +2375,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeBackendBucket",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2004,7 +2389,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 199,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2015,7 +2402,14 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeHTTPHealthCheck",
+      "ComputeHealthCheck",
+      "ComputeInstanceGroup",
+      "ComputeNetwork",
+      "ComputeNetworkEndpointGroup",
+      "ComputeSecurityPolicy"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2026,7 +2420,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 16,
+    "downstreamCount": 9
   },
   {
     "group": "compute",
@@ -2037,7 +2433,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeBackendService",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2048,7 +2447,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 200,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2060,7 +2461,10 @@
       "Terraform"
     ],
     "dependencies": [
-      "ComputeImage"
+      "ComputeImage",
+      "ComputeSnapshot",
+      "KMSCryptoKey",
+      "Project"
     ],
     "state": "Not Started",
     "steps": {
@@ -2072,7 +2476,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 456,
+    "downstreamCount": 4
   },
   {
     "group": "compute",
@@ -2084,7 +2490,8 @@
       "Terraform"
     ],
     "dependencies": [
-      "ComputeDisk"
+      "ComputeDisk",
+      "Project"
     ],
     "state": "Not Started",
     "steps": {
@@ -2096,7 +2503,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 453,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2118,7 +2527,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 201,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2129,7 +2540,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2140,7 +2553,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 202,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2151,7 +2566,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2162,7 +2579,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 30,
+    "downstreamCount": 4
   },
   {
     "group": "compute",
@@ -2173,7 +2592,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeFirewallPolicy"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2184,7 +2605,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 203,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2195,7 +2618,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeFirewallPolicy"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -2206,7 +2631,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 204,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2218,7 +2645,19 @@
       "Direct",
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeAddress",
+      "ComputeBackendService",
+      "ComputeNetwork",
+      "ComputeServiceAttachment",
+      "ComputeSubnetwork",
+      "ComputeTargetGRPCProxy",
+      "ComputeTargetHTTPProxy",
+      "ComputeTargetHTTPSProxy",
+      "ComputeTargetSSLProxy",
+      "ComputeTargetTCPProxy",
+      "ComputeTargetVPNGateway"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -2229,7 +2668,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 79,
+    "downstreamCount": 1
   },
   {
     "group": "compute",
@@ -2240,7 +2681,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2251,7 +2694,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 205,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2262,7 +2707,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2273,7 +2720,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 206,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2295,7 +2744,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 13,
+    "downstreamCount": 11
   },
   {
     "group": "compute",
@@ -2317,7 +2768,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 207,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2339,7 +2792,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 12,
+    "downstreamCount": 12
   },
   {
     "group": "compute",
@@ -2351,7 +2806,8 @@
       "Terraform"
     ],
     "dependencies": [
-      "ComputeDisk"
+      "ComputeDisk",
+      "KMSCryptoKey"
     ],
     "state": "Not Started",
     "steps": {
@@ -2363,7 +2819,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 454,
+    "downstreamCount": 4
   },
   {
     "group": "compute",
@@ -2374,7 +2832,13 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeInstanceTemplate",
+      "ComputeNetwork",
+      "ComputeSubnetwork",
+      "IAMServiceAccount",
+      "KMSCryptoKey"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2385,7 +2849,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 31,
+    "downstreamCount": 4
   },
   {
     "group": "compute",
@@ -2396,7 +2862,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2407,7 +2875,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 15,
+    "downstreamCount": 10
   },
   {
     "group": "compute",
@@ -2418,7 +2888,12 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeHealthCheck",
+      "ComputeInstanceTemplate",
+      "IAMServiceAccount",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2429,7 +2904,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 80,
+    "downstreamCount": 1
   },
   {
     "group": "compute",
@@ -2440,7 +2917,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2451,7 +2930,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 208,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2462,7 +2943,12 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "ComputeSubnetwork",
+      "IAMServiceAccount",
+      "KMSCryptoKey"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2473,7 +2959,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 19,
+    "downstreamCount": 7
   },
   {
     "group": "compute",
@@ -2484,7 +2972,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeRouter"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2495,7 +2985,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 32,
+    "downstreamCount": 4
   },
   {
     "group": "compute",
@@ -2506,7 +2998,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2517,7 +3011,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 210,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2528,7 +3024,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2539,7 +3037,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 211,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2561,7 +3061,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 6,
+    "downstreamCount": 97
   },
   {
     "group": "compute",
@@ -2572,7 +3074,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -2583,7 +3087,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 212,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2594,7 +3100,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeSecurityPolicy",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -2605,7 +3114,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 213,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2616,7 +3127,11 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeInstance",
+      "ComputeNetworkEndpointGroup",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2627,7 +3142,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 214,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2638,7 +3155,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "ComputeSubnetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2649,7 +3169,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 14,
+    "downstreamCount": 11
   },
   {
     "group": "compute",
@@ -2660,7 +3182,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2671,7 +3195,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 215,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2682,7 +3208,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeFirewallPolicy",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2693,7 +3222,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 216,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2704,7 +3235,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeFirewallPolicy",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2715,7 +3249,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 217,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2726,7 +3262,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2737,7 +3275,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 218,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2748,7 +3288,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2759,7 +3302,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 219,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2770,7 +3315,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNodeTemplate",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2781,7 +3329,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 220,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2803,7 +3353,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 81,
+    "downstreamCount": 1
   },
   {
     "group": "compute",
@@ -2825,7 +3377,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 221,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2847,7 +3401,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 222,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2869,7 +3425,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 223,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2880,7 +3438,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2891,7 +3451,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 224,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2902,7 +3464,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeInstanceGroupManager",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2913,7 +3478,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 225,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2935,7 +3502,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 226,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2946,7 +3515,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -2957,7 +3528,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 227,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2969,7 +3542,8 @@
       "Terraform"
     ],
     "dependencies": [
-      "ComputeDisk"
+      "ComputeDisk",
+      "Project"
     ],
     "state": "Not Started",
     "steps": {
@@ -2981,7 +3555,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 455,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -2992,7 +3568,11 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "ComputeSubnetwork",
+      "Service"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3003,7 +3583,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 228,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -3014,7 +3596,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3025,7 +3609,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 229,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -3036,7 +3622,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3047,7 +3635,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 230,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -3069,7 +3659,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 231,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -3091,7 +3683,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 232,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -3102,7 +3696,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3113,7 +3709,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 233,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -3124,7 +3722,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3135,7 +3735,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 22,
+    "downstreamCount": 6
   },
   {
     "group": "compute",
@@ -3146,7 +3748,12 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeInterconnectAttachment",
+      "ComputeRouter",
+      "ComputeSubnetwork",
+      "ComputeVPNTunnel"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3157,7 +3764,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 82,
+    "downstreamCount": 1
   },
   {
     "group": "compute",
@@ -3168,7 +3777,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeRouter",
+      "ComputeSubnetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3179,7 +3791,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 234,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -3190,7 +3804,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeRouter",
+      "ComputeRouterInterface"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3201,7 +3818,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 235,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -3223,7 +3842,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 236,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -3245,7 +3866,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 33,
+    "downstreamCount": 4
   },
   {
     "group": "compute",
@@ -3267,7 +3890,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 10,
+    "downstreamCount": 13
   },
   {
     "group": "compute",
@@ -3278,7 +3903,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3289,7 +3916,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 49,
+    "downstreamCount": 2
   },
   {
     "group": "compute",
@@ -3311,7 +3940,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 237,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -3322,7 +3953,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3333,7 +3966,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 238,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -3344,7 +3979,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3355,7 +3992,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 34,
+    "downstreamCount": 4
   },
   {
     "group": "compute",
@@ -3366,7 +4005,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3377,7 +4018,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 9,
+    "downstreamCount": 23
   },
   {
     "group": "compute",
@@ -3388,7 +4031,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeURLMap"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3399,7 +4044,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 50,
+    "downstreamCount": 2
   },
   {
     "group": "compute",
@@ -3410,7 +4057,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeURLMap"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3421,7 +4070,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 51,
+    "downstreamCount": 2
   },
   {
     "group": "compute",
@@ -3432,7 +4083,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeSSLPolicy",
+      "ComputeURLMap"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3443,7 +4097,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 52,
+    "downstreamCount": 2
   },
   {
     "group": "compute",
@@ -3454,7 +4110,11 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeInstance",
+      "ComputeNetwork",
+      "ComputeSecurityPolicy"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3465,7 +4125,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 239,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -3476,7 +4138,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeHTTPHealthCheck",
+      "ComputeSecurityPolicy"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3487,7 +4152,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 240,
+    "downstreamCount": 0
   },
   {
     "group": "compute",
@@ -3498,7 +4165,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeBackendService",
+      "ComputeSSLPolicy"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3509,7 +4179,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 53,
+    "downstreamCount": 2
   },
   {
     "group": "compute",
@@ -3521,7 +4193,9 @@
       "Direct",
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeBackendService"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -3532,7 +4206,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 54,
+    "downstreamCount": 2
   },
   {
     "group": "compute",
@@ -3543,7 +4219,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3554,7 +4232,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 25,
+    "downstreamCount": 5
   },
   {
     "group": "compute",
@@ -3565,7 +4245,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeBackendBucket",
+      "ComputeBackendService"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3576,7 +4259,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 26,
+    "downstreamCount": 5
   },
   {
     "group": "compute",
@@ -3587,7 +4272,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeInterconnectAttachment",
+      "ComputeNetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3598,7 +4286,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 38,
+    "downstreamCount": 3
   },
   {
     "group": "compute",
@@ -3609,7 +4299,11 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeRouter",
+      "ComputeTargetVPNGateway",
+      "ComputeVPNGateway"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3620,7 +4314,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 55,
+    "downstreamCount": 2
   },
   {
     "group": "configcontroller",
@@ -3631,7 +4327,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3642,7 +4341,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 241,
+    "downstreamCount": 0
   },
   {
     "group": "containeranalysis",
@@ -3664,7 +4365,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 243,
+    "downstreamCount": 0
   },
   {
     "group": "containeranalysis",
@@ -3675,7 +4378,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3686,7 +4391,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 244,
+    "downstreamCount": 0
   },
   {
     "group": "containerattached",
@@ -3697,7 +4404,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3708,7 +4417,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 245,
+    "downstreamCount": 0
   },
   {
     "group": "container",
@@ -3719,7 +4430,11 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "IAMServiceAccount",
+      "KMSCryptoKey"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3730,7 +4445,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 56,
+    "downstreamCount": 2
   },
   {
     "group": "container",
@@ -3741,7 +4458,12 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "ContainerCluster",
+      "IAMServiceAccount",
+      "KMSCryptoKey"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3752,7 +4474,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 246,
+    "downstreamCount": 0
   },
   {
     "group": "dlp",
@@ -3763,7 +4487,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3774,7 +4501,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 247,
+    "downstreamCount": 0
   },
   {
     "group": "dlp",
@@ -3785,7 +4514,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3796,7 +4527,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 83,
+    "downstreamCount": 1
   },
   {
     "group": "dlp",
@@ -3807,7 +4540,11 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "DLPInspectTemplate",
+      "Project",
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3818,7 +4555,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 248,
+    "downstreamCount": 0
   },
   {
     "group": "dlp",
@@ -3829,7 +4568,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3840,7 +4581,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 249,
+    "downstreamCount": 0
   },
   {
     "group": "dns",
@@ -3851,7 +4594,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3862,7 +4607,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 84,
+    "downstreamCount": 1
   },
   {
     "group": "dns",
@@ -3873,7 +4620,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3884,7 +4633,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 250,
+    "downstreamCount": 0
   },
   {
     "group": "dns",
@@ -3895,7 +4646,11 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "DNSManagedZone",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3906,7 +4661,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 251,
+    "downstreamCount": 0
   },
   {
     "group": "dns",
@@ -3917,7 +4674,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3928,7 +4687,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 252,
+    "downstreamCount": 0
   },
   {
     "group": "dns",
@@ -3939,7 +4700,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -3950,7 +4713,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 253,
+    "downstreamCount": 0
   },
   {
     "group": "datacatalog",
@@ -3961,7 +4726,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "DataCatalogEntryGroup"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -3972,7 +4739,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 85,
+    "downstreamCount": 1
   },
   {
     "group": "datacatalog",
@@ -3983,7 +4752,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -3994,7 +4765,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 57,
+    "downstreamCount": 2
   },
   {
     "group": "datacatalog",
@@ -4005,7 +4778,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "DataCatalogTaxonomy"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4016,7 +4791,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 254,
+    "downstreamCount": 0
   },
   {
     "group": "datacatalog",
@@ -4027,7 +4804,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "DataCatalogEntry"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4038,7 +4817,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 255,
+    "downstreamCount": 0
   },
   {
     "group": "datacatalog",
@@ -4049,7 +4830,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4060,7 +4843,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 256,
+    "downstreamCount": 0
   },
   {
     "group": "datacatalog",
@@ -4071,7 +4856,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4082,7 +4869,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 86,
+    "downstreamCount": 1
   },
   {
     "group": "datafusion",
@@ -4093,7 +4882,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "IAMServiceAccount"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4104,7 +4896,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 257,
+    "downstreamCount": 0
   },
   {
     "group": "dataflow",
@@ -4116,7 +4910,11 @@
       "Direct",
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "IAMServiceAccount",
+      "KMSCryptoKey"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4127,7 +4925,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 258,
+    "downstreamCount": 0
   },
   {
     "group": "dataflow",
@@ -4138,7 +4938,11 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "IAMServiceAccount",
+      "KMSCryptoKey"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4149,7 +4953,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 259,
+    "downstreamCount": 0
   },
   {
     "group": "dataform",
@@ -4160,7 +4966,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "IAMServiceAccount",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4171,7 +4980,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 260,
+    "downstreamCount": 0
   },
   {
     "group": "dataplex",
@@ -4182,7 +4993,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4193,7 +5006,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 261,
+    "downstreamCount": 0
   },
   {
     "group": "dataplex",
@@ -4204,7 +5019,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4215,7 +5032,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 262,
+    "downstreamCount": 0
   },
   {
     "group": "dataplex",
@@ -4226,7 +5045,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project",
+      "Service"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4237,7 +5059,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 58,
+    "downstreamCount": 2
   },
   {
     "group": "dataplex",
@@ -4248,7 +5072,12 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "DataplexLake",
+      "IAMServiceAccount",
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4259,7 +5088,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 263,
+    "downstreamCount": 0
   },
   {
     "group": "dataplex",
@@ -4270,7 +5101,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "DataplexLake"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4281,7 +5114,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 264,
+    "downstreamCount": 0
   },
   {
     "group": "dataproc",
@@ -4292,7 +5127,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4303,7 +5140,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 265,
+    "downstreamCount": 0
   },
   {
     "group": "dataproc",
@@ -4314,7 +5153,13 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "DataprocCluster",
+      "IAMServiceAccount",
+      "KMSCryptoKey",
+      "Project",
+      "StorageBucket"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4325,7 +5170,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 266,
+    "downstreamCount": 0
   },
   {
     "group": "dataproc",
@@ -4336,7 +5183,13 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "IAMServiceAccount",
+      "KMSCryptoKey",
+      "Project",
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4347,7 +5200,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 35,
+    "downstreamCount": 4
   },
   {
     "group": "dataproc",
@@ -4358,7 +5213,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4369,7 +5226,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 267,
+    "downstreamCount": 0
   },
   {
     "group": "dataproc",
@@ -4380,7 +5239,13 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "IAMServiceAccount",
+      "KMSCryptoKey",
+      "Project",
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4391,7 +5256,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 268,
+    "downstreamCount": 0
   },
   {
     "group": "datastore",
@@ -4402,7 +5269,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4413,7 +5282,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 269,
+    "downstreamCount": 0
   },
   {
     "group": "datastream",
@@ -4424,7 +5295,11 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "DatastreamPrivateConnection",
+      "Project",
+      "SecretManagerSecret"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4435,7 +5310,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 270,
+    "downstreamCount": 0
   },
   {
     "group": "datastream",
@@ -4446,7 +5323,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4457,7 +5337,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 59,
+    "downstreamCount": 2
   },
   {
     "group": "datastream",
@@ -4468,7 +5350,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "DatastreamPrivateConnection"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4479,7 +5363,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 271,
+    "downstreamCount": 0
   },
   {
     "group": "datastream",
@@ -4490,7 +5376,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4501,7 +5389,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 272,
+    "downstreamCount": 0
   },
   {
     "group": "deploymentmanager",
@@ -4512,7 +5402,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4523,7 +5415,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 273,
+    "downstreamCount": 0
   },
   {
     "group": "dialogflow",
@@ -4545,7 +5439,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 274,
+    "downstreamCount": 0
   },
   {
     "group": "dialogflowcx",
@@ -4556,7 +5452,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4567,7 +5465,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 275,
+    "downstreamCount": 0
   },
   {
     "group": "dialogflowcx",
@@ -4589,7 +5489,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 276,
+    "downstreamCount": 0
   },
   {
     "group": "dialogflowcx",
@@ -4611,7 +5513,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 277,
+    "downstreamCount": 0
   },
   {
     "group": "dialogflowcx",
@@ -4633,7 +5537,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 278,
+    "downstreamCount": 0
   },
   {
     "group": "dialogflowcx",
@@ -4655,7 +5561,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 279,
+    "downstreamCount": 0
   },
   {
     "group": "dialogflowcx",
@@ -4677,7 +5585,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 280,
+    "downstreamCount": 0
   },
   {
     "group": "dialogflow",
@@ -4688,7 +5598,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4699,7 +5611,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 281,
+    "downstreamCount": 0
   },
   {
     "group": "dialogflow",
@@ -4710,7 +5624,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4721,7 +5637,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 282,
+    "downstreamCount": 0
   },
   {
     "group": "dialogflow",
@@ -4732,7 +5650,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4743,7 +5663,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 283,
+    "downstreamCount": 0
   },
   {
     "group": "discoveryengine",
@@ -4754,7 +5676,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4765,7 +5689,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 87,
+    "downstreamCount": 1
   },
   {
     "group": "documentai",
@@ -4776,7 +5702,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4787,7 +5716,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 88,
+    "downstreamCount": 1
   },
   {
     "group": "documentai",
@@ -4809,7 +5740,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 286,
+    "downstreamCount": 0
   },
   {
     "group": "documentai",
@@ -4820,7 +5753,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "DocumentAIProcessor",
+      "KMSCryptoKey"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4831,7 +5767,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 287,
+    "downstreamCount": 0
   },
   {
     "group": "edgecontainer",
@@ -4842,7 +5780,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4853,7 +5794,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 60,
+    "downstreamCount": 2
   },
   {
     "group": "edgecontainer",
@@ -4864,7 +5807,11 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "EdgeContainerCluster",
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4875,7 +5822,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 289,
+    "downstreamCount": 0
   },
   {
     "group": "edgecontainer",
@@ -4886,7 +5835,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "EdgeContainerCluster",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4897,7 +5849,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 290,
+    "downstreamCount": 0
   },
   {
     "group": "edgenetwork",
@@ -4908,7 +5862,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4919,7 +5875,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 89,
+    "downstreamCount": 1
   },
   {
     "group": "edgenetwork",
@@ -4930,7 +5888,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "EdgeNetworkNetwork",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -4941,7 +5902,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 291,
+    "downstreamCount": 0
   },
   {
     "group": "essentialcontacts",
@@ -4952,7 +5915,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4963,7 +5929,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 292,
+    "downstreamCount": 0
   },
   {
     "group": "eventarc",
@@ -4974,7 +5942,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -4985,7 +5956,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 90,
+    "downstreamCount": 1
   },
   {
     "group": "eventarc",
@@ -4996,7 +5969,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -5007,7 +5983,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 293,
+    "downstreamCount": 0
   },
   {
     "group": "eventarc",
@@ -5018,7 +5996,13 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "EventarcChannel",
+      "IAMServiceAccount",
+      "Project",
+      "Service"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5029,7 +6013,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 294,
+    "downstreamCount": 0
   },
   {
     "group": "filestore",
@@ -5040,7 +6026,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5051,7 +6039,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 295,
+    "downstreamCount": 0
   },
   {
     "group": "filestore",
@@ -5062,7 +6052,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5073,7 +6066,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 296,
+    "downstreamCount": 0
   },
   {
     "group": "filestore",
@@ -5084,7 +6079,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5095,7 +6092,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 297,
+    "downstreamCount": 0
   },
   {
     "group": "firebase",
@@ -5106,7 +6105,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "FirebaseProject"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5117,7 +6118,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 298,
+    "downstreamCount": 0
   },
   {
     "group": "firebasedatabase",
@@ -5128,7 +6131,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5139,7 +6144,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 299,
+    "downstreamCount": 0
   },
   {
     "group": "firebasehosting",
@@ -5161,7 +6168,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 300,
+    "downstreamCount": 0
   },
   {
     "group": "firebasehosting",
@@ -5172,7 +6181,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5183,7 +6194,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 301,
+    "downstreamCount": 0
   },
   {
     "group": "firebase",
@@ -5205,7 +6218,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 91,
+    "downstreamCount": 1
   },
   {
     "group": "firebasestorage",
@@ -5216,7 +6231,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5227,7 +6244,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 302,
+    "downstreamCount": 0
   },
   {
     "group": "firebase",
@@ -5249,7 +6268,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 303,
+    "downstreamCount": 0
   },
   {
     "group": "firestore",
@@ -5260,7 +6281,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -5271,7 +6294,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 39,
+    "downstreamCount": 3
   },
   {
     "group": "firestore",
@@ -5282,7 +6307,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "FirestoreDatabase"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -5293,7 +6320,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 305,
+    "downstreamCount": 0
   },
   {
     "group": "firestore",
@@ -5304,7 +6333,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "FirestoreDatabase"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -5315,7 +6346,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 306,
+    "downstreamCount": 0
   },
   {
     "group": "firestore",
@@ -5337,7 +6370,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 307,
+    "downstreamCount": 0
   },
   {
     "group": "resourcemanager",
@@ -5359,7 +6394,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 1,
+    "downstreamCount": 298
   },
   {
     "group": "gkebackup",
@@ -5370,7 +6407,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "GKEBackupBackupPlan"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -5381,7 +6420,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 92,
+    "downstreamCount": 1
   },
   {
     "group": "gkebackup",
@@ -5392,7 +6433,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -5403,7 +6447,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 40,
+    "downstreamCount": 3
   },
   {
     "group": "gkebackup",
@@ -5414,7 +6460,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "GKEBackupBackup",
+      "GKEBackupRestorePlan"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -5425,7 +6474,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 308,
+    "downstreamCount": 0
   },
   {
     "group": "gkebackup",
@@ -5436,7 +6487,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "GKEBackupBackupPlan",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -5447,7 +6501,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 93,
+    "downstreamCount": 1
   },
   {
     "group": "gkehub",
@@ -5458,7 +6514,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5469,7 +6527,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 94,
+    "downstreamCount": 1
   },
   {
     "group": "gkehub",
@@ -5480,7 +6540,12 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "GKEHubFeature",
+      "GKEHubMembership",
+      "IAMServiceAccount",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -5491,7 +6556,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 309,
+    "downstreamCount": 0
   },
   {
     "group": "gkehub",
@@ -5513,7 +6580,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 95,
+    "downstreamCount": 1
   },
   {
     "group": "healthcare",
@@ -5535,7 +6604,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 310,
+    "downstreamCount": 0
   },
   {
     "group": "healthcare",
@@ -5557,7 +6628,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 311,
+    "downstreamCount": 0
   },
   {
     "group": "healthcare",
@@ -5568,7 +6641,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5579,7 +6654,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 312,
+    "downstreamCount": 0
   },
   {
     "group": "healthcare",
@@ -5601,7 +6678,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 313,
+    "downstreamCount": 0
   },
   {
     "group": "healthcare",
@@ -5623,7 +6702,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 314,
+    "downstreamCount": 0
   },
   {
     "group": "iam",
@@ -5634,7 +6715,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5645,7 +6728,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 315,
+    "downstreamCount": 0
   },
   {
     "group": "iam",
@@ -5667,7 +6752,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 316,
+    "downstreamCount": 0
   },
   {
     "group": "iam",
@@ -5689,7 +6776,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 317,
+    "downstreamCount": 0
   },
   {
     "group": "iam",
@@ -5701,7 +6790,12 @@
       "Direct",
       "IAMPartialPolicy"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BigQueryConnectionConnection",
+      "IAMServiceAccount",
+      "SQLInstance",
+      "ServiceIdentity"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -5712,7 +6806,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 319,
+    "downstreamCount": 0
   },
   {
     "group": "iam",
@@ -5734,7 +6830,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 320,
+    "downstreamCount": 0
   },
   {
     "group": "iam",
@@ -5745,7 +6843,12 @@
     "supportedControllers": [
       "IAMPolicyMember"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BigQueryConnectionConnection",
+      "IAMServiceAccount",
+      "SQLInstance",
+      "ServiceIdentity"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5756,7 +6859,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 321,
+    "downstreamCount": 0
   },
   {
     "group": "iam",
@@ -5778,7 +6883,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 7,
+    "downstreamCount": 43
   },
   {
     "group": "iam",
@@ -5789,7 +6896,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "IAMServiceAccount"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5800,7 +6909,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 322,
+    "downstreamCount": 0
   },
   {
     "group": "iam",
@@ -5822,7 +6933,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 96,
+    "downstreamCount": 1
   },
   {
     "group": "iam",
@@ -5833,7 +6946,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "IAMWorkforcePool"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5844,7 +6959,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 323,
+    "downstreamCount": 0
   },
   {
     "group": "iam",
@@ -5855,7 +6972,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5866,7 +6985,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 97,
+    "downstreamCount": 1
   },
   {
     "group": "iam",
@@ -5877,7 +6998,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "IAMWorkloadIdentityPool",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5888,7 +7012,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 324,
+    "downstreamCount": 0
   },
   {
     "group": "iap",
@@ -5910,7 +7036,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 98,
+    "downstreamCount": 1
   },
   {
     "group": "iap",
@@ -5921,7 +7049,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "IAPBrand"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5932,7 +7062,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 325,
+    "downstreamCount": 0
   },
   {
     "group": "iap",
@@ -5943,7 +7075,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -5954,7 +7089,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 326,
+    "downstreamCount": 0
   },
   {
     "group": "identityplatform",
@@ -5965,7 +7102,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5976,7 +7115,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 327,
+    "downstreamCount": 0
   },
   {
     "group": "identityplatform",
@@ -5987,7 +7128,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -5998,7 +7141,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 328,
+    "downstreamCount": 0
   },
   {
     "group": "identityplatform",
@@ -6009,7 +7154,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6020,7 +7167,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 329,
+    "downstreamCount": 0
   },
   {
     "group": "identityplatform",
@@ -6042,7 +7191,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 330,
+    "downstreamCount": 0
   },
   {
     "group": "identityplatform",
@@ -6053,7 +7204,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6064,7 +7217,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 331,
+    "downstreamCount": 0
   },
   {
     "group": "identityplatform",
@@ -6086,7 +7241,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 99,
+    "downstreamCount": 1
   },
   {
     "group": "identityplatform",
@@ -6097,7 +7254,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6108,7 +7267,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 332,
+    "downstreamCount": 0
   },
   {
     "group": "identityplatform",
@@ -6119,7 +7280,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6130,7 +7293,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 333,
+    "downstreamCount": 0
   },
   {
     "group": "identityplatform",
@@ -6141,7 +7306,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "IdentityPlatformTenant"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6152,7 +7319,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 334,
+    "downstreamCount": 0
   },
   {
     "group": "kms",
@@ -6163,7 +7332,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6174,7 +7345,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 335,
+    "downstreamCount": 0
   },
   {
     "group": "kms",
@@ -6185,7 +7358,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSKeyRing"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6196,7 +7371,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 5,
+    "downstreamCount": 113
   },
   {
     "group": "kms",
@@ -6218,7 +7395,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 336,
+    "downstreamCount": 0
   },
   {
     "group": "kms",
@@ -6229,7 +7408,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSKeyRing"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6240,7 +7421,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 337,
+    "downstreamCount": 0
   },
   {
     "group": "kms",
@@ -6251,7 +7434,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6262,7 +7447,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 338,
+    "downstreamCount": 0
   },
   {
     "group": "kms",
@@ -6284,7 +7471,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 4,
+    "downstreamCount": 115
   },
   {
     "group": "kms",
@@ -6306,7 +7495,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 339,
+    "downstreamCount": 0
   },
   {
     "group": "kms",
@@ -6328,7 +7519,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 340,
+    "downstreamCount": 0
   },
   {
     "group": "logging",
@@ -6339,7 +7532,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "LoggingLogBucket"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6350,7 +7545,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 341,
+    "downstreamCount": 0
   },
   {
     "group": "logging",
@@ -6361,7 +7558,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6372,7 +7572,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 41,
+    "downstreamCount": 3
   },
   {
     "group": "logging",
@@ -6383,7 +7585,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6394,7 +7599,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 342,
+    "downstreamCount": 0
   },
   {
     "group": "logging",
@@ -6405,7 +7612,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "LoggingLogBucket",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6416,7 +7626,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 343,
+    "downstreamCount": 0
   },
   {
     "group": "logging",
@@ -6427,7 +7639,14 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "BigQueryDataset",
+      "Folder",
+      "LoggingLogBucket",
+      "Project",
+      "PubSubTopic",
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6438,7 +7657,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 344,
+    "downstreamCount": 0
   },
   {
     "group": "logging",
@@ -6449,7 +7670,11 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder",
+      "Project",
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6460,7 +7685,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 345,
+    "downstreamCount": 0
   },
   {
     "group": "mlengine",
@@ -6471,7 +7698,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6482,7 +7711,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 346,
+    "downstreamCount": 0
   },
   {
     "group": "managedkafka",
@@ -6493,7 +7724,11 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6504,7 +7739,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 61,
+    "downstreamCount": 2
   },
   {
     "group": "managedkafka",
@@ -6515,7 +7752,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ManagedKafkaCluster",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6526,7 +7766,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 348,
+    "downstreamCount": 0
   },
   {
     "group": "memcache",
@@ -6537,7 +7779,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6548,7 +7792,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 349,
+    "downstreamCount": 0
   },
   {
     "group": "memorystore",
@@ -6559,7 +7805,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6570,7 +7819,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 350,
+    "downstreamCount": 0
   },
   {
     "group": "metastore",
@@ -6581,7 +7832,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "MetastoreService"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6592,7 +7845,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 351,
+    "downstreamCount": 0
   },
   {
     "group": "metastore",
@@ -6603,7 +7858,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6614,7 +7871,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 352,
+    "downstreamCount": 0
   },
   {
     "group": "metastore",
@@ -6625,7 +7884,11 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6636,7 +7899,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 36,
+    "downstreamCount": 4
   },
   {
     "group": "monitoring",
@@ -6658,7 +7923,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 100,
+    "downstreamCount": 1
   },
   {
     "group": "monitoring",
@@ -6669,7 +7936,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "MonitoringAlertPolicy",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6680,7 +7950,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 353,
+    "downstreamCount": 0
   },
   {
     "group": "monitoring",
@@ -6691,7 +7963,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6702,7 +7976,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 101,
+    "downstreamCount": 1
   },
   {
     "group": "monitoring",
@@ -6713,7 +7989,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6724,7 +8002,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 354,
+    "downstreamCount": 0
   },
   {
     "group": "monitoring",
@@ -6746,7 +8026,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 355,
+    "downstreamCount": 0
   },
   {
     "group": "monitoring",
@@ -6768,7 +8050,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 356,
+    "downstreamCount": 0
   },
   {
     "group": "monitoring",
@@ -6779,7 +8063,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6790,7 +8076,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 102,
+    "downstreamCount": 1
   },
   {
     "group": "monitoring",
@@ -6801,7 +8089,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "MonitoringService",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6812,7 +8103,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 357,
+    "downstreamCount": 0
   },
   {
     "group": "monitoring",
@@ -6823,7 +8116,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "MonitoringGroup",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6834,7 +8130,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 358,
+    "downstreamCount": 0
   },
   {
     "group": "netapp",
@@ -6845,7 +8143,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6856,7 +8156,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 359,
+    "downstreamCount": 0
   },
   {
     "group": "networkconnectivity",
@@ -6867,7 +8169,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6878,7 +8182,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 103,
+    "downstreamCount": 1
   },
   {
     "group": "networkconnectivity",
@@ -6889,7 +8195,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6900,7 +8209,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 361,
+    "downstreamCount": 0
   },
   {
     "group": "networkconnectivity",
@@ -6911,7 +8222,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6922,7 +8236,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 362,
+    "downstreamCount": 0
   },
   {
     "group": "networkconnectivity",
@@ -6933,7 +8249,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "NetworkConnectivityHub",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6944,7 +8263,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 363,
+    "downstreamCount": 0
   },
   {
     "group": "networkmanagement",
@@ -6955,7 +8276,13 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeForwardingRule",
+      "ComputeInstance",
+      "ComputeNetwork",
+      "ContainerCluster",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -6966,7 +8293,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 364,
+    "downstreamCount": 0
   },
   {
     "group": "networksecurity",
@@ -6977,7 +8306,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -6988,7 +8319,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 365,
+    "downstreamCount": 0
   },
   {
     "group": "networksecurity",
@@ -6999,7 +8332,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7010,7 +8345,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 366,
+    "downstreamCount": 0
   },
   {
     "group": "networksecurity",
@@ -7021,7 +8358,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7032,7 +8371,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 367,
+    "downstreamCount": 0
   },
   {
     "group": "networkservices",
@@ -7043,7 +8384,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7054,7 +8397,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 368,
+    "downstreamCount": 0
   },
   {
     "group": "networkservices",
@@ -7065,7 +8410,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7076,7 +8423,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 369,
+    "downstreamCount": 0
   },
   {
     "group": "networkservices",
@@ -7087,7 +8436,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7098,7 +8449,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 370,
+    "downstreamCount": 0
   },
   {
     "group": "networkservices",
@@ -7109,7 +8462,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7120,7 +8475,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 371,
+    "downstreamCount": 0
   },
   {
     "group": "networkservices",
@@ -7131,7 +8488,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project",
+      "Service"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7142,7 +8502,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 372,
+    "downstreamCount": 0
   },
   {
     "group": "networkservices",
@@ -7153,7 +8515,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7164,7 +8528,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 373,
+    "downstreamCount": 0
   },
   {
     "group": "networkservices",
@@ -7175,7 +8541,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project",
+      "Service"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7186,7 +8555,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 374,
+    "downstreamCount": 0
   },
   {
     "group": "networkservices",
@@ -7197,7 +8568,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7208,7 +8581,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 376,
+    "downstreamCount": 0
   },
   {
     "group": "networkservices",
@@ -7219,7 +8594,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project",
+      "Service"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -7230,7 +8608,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 377,
+    "downstreamCount": 0
   },
   {
     "group": "networkservices",
@@ -7241,7 +8621,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project",
+      "Service"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7252,7 +8635,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 378,
+    "downstreamCount": 0
   },
   {
     "group": "networkservices",
@@ -7263,7 +8648,10 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project",
+      "Service"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7274,7 +8662,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 379,
+    "downstreamCount": 0
   },
   {
     "group": "notebooks",
@@ -7285,7 +8675,12 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "IAMServiceAccount",
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -7296,7 +8691,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 380,
+    "downstreamCount": 0
   },
   {
     "group": "notebooks",
@@ -7307,7 +8704,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -7318,7 +8717,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 381,
+    "downstreamCount": 0
   },
   {
     "group": "osconfig",
@@ -7329,7 +8730,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7340,7 +8743,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 382,
+    "downstreamCount": 0
   },
   {
     "group": "osconfig",
@@ -7351,7 +8756,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7362,7 +8769,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 383,
+    "downstreamCount": 0
   },
   {
     "group": "osconfig",
@@ -7373,7 +8782,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7384,7 +8795,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 384,
+    "downstreamCount": 0
   },
   {
     "group": "oslogin",
@@ -7406,7 +8819,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 385,
+    "downstreamCount": 0
   },
   {
     "group": "orgpolicy",
@@ -7428,7 +8843,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 386,
+    "downstreamCount": 0
   },
   {
     "group": "orgpolicy",
@@ -7439,7 +8856,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -7450,7 +8870,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 387,
+    "downstreamCount": 0
   },
   {
     "group": "parametermanager",
@@ -7461,7 +8883,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -7472,7 +8897,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 104,
+    "downstreamCount": 1
   },
   {
     "group": "privateca",
@@ -7484,7 +8911,9 @@
       "DCL",
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -7495,7 +8924,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 62,
+    "downstreamCount": 2
   },
   {
     "group": "privateca",
@@ -7506,7 +8937,12 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "PrivateCACAPool",
+      "PrivateCACertificateAuthority",
+      "PrivateCACertificateTemplate",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7517,7 +8953,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 389,
+    "downstreamCount": 0
   },
   {
     "group": "privateca",
@@ -7528,7 +8966,12 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "PrivateCACAPool",
+      "Project",
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7539,7 +8982,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 105,
+    "downstreamCount": 1
   },
   {
     "group": "privateca",
@@ -7550,7 +8995,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7561,7 +9008,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 106,
+    "downstreamCount": 1
   },
   {
     "group": "privilegedaccessmanager",
@@ -7572,7 +9021,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -7583,7 +9035,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 390,
+    "downstreamCount": 0
   },
   {
     "group": "resourcemanager",
@@ -7594,7 +9048,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7605,7 +9061,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 3,
+    "downstreamCount": 292
   },
   {
     "group": "pubsublite",
@@ -7616,7 +9074,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7627,7 +9087,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 391,
+    "downstreamCount": 0
   },
   {
     "group": "pubsublite",
@@ -7638,7 +9100,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7649,7 +9113,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 392,
+    "downstreamCount": 0
   },
   {
     "group": "pubsublite",
@@ -7660,7 +9126,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7671,7 +9139,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 393,
+    "downstreamCount": 0
   },
   {
     "group": "pubsub",
@@ -7682,7 +9152,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7693,7 +9165,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 20,
+    "downstreamCount": 7
   },
   {
     "group": "pubsub",
@@ -7704,7 +9178,11 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project",
+      "PubSubSubscription",
+      "PubSubTopic"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -7715,7 +9193,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 394,
+    "downstreamCount": 0
   },
   {
     "group": "pubsub",
@@ -7726,7 +9206,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "PubSubTopic",
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7737,7 +9220,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 63,
+    "downstreamCount": 2
   },
   {
     "group": "pubsub",
@@ -7748,7 +9233,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "PubSubSchema"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7759,7 +9247,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 24,
+    "downstreamCount": 6
   },
   {
     "group": "recaptchaenterprise",
@@ -7770,7 +9260,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -7781,7 +9273,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 395,
+    "downstreamCount": 0
   },
   {
     "group": "recaptchaenterprise",
@@ -7792,7 +9286,9 @@
     "supportedControllers": [
       "DCL"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7803,7 +9299,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 396,
+    "downstreamCount": 0
   },
   {
     "group": "redis",
@@ -7814,7 +9312,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -7825,7 +9326,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 397,
+    "downstreamCount": 0
   },
   {
     "group": "redis",
@@ -7836,7 +9339,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7847,7 +9352,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 398,
+    "downstreamCount": 0
   },
   {
     "group": "resourcemanager",
@@ -7858,7 +9365,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7869,7 +9378,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 399,
+    "downstreamCount": 0
   },
   {
     "group": "resourcemanager",
@@ -7880,7 +9391,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Folder",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7891,7 +9405,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 400,
+    "downstreamCount": 0
   },
   {
     "group": "run",
@@ -7903,7 +9419,12 @@
       "Direct",
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "IAMServiceAccount",
+      "Project",
+      "StorageBucket"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -7914,7 +9435,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 401,
+    "downstreamCount": 0
   },
   {
     "group": "run",
@@ -7925,7 +9448,11 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "IAMServiceAccount",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7936,7 +9463,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 402,
+    "downstreamCount": 0
   },
   {
     "group": "sql",
@@ -7947,7 +9476,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "SQLInstance"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -7958,7 +9489,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 403,
+    "downstreamCount": 0
   },
   {
     "group": "sql",
@@ -7969,7 +9502,11 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "KMSCryptoKey",
+      "StorageBucket"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -7980,7 +9517,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 27,
+    "downstreamCount": 5
   },
   {
     "group": "sql",
@@ -7991,7 +9530,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "SQLInstance"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8002,7 +9543,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 404,
+    "downstreamCount": 0
   },
   {
     "group": "sql",
@@ -8013,7 +9556,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "SQLInstance"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8024,7 +9569,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 405,
+    "downstreamCount": 0
   },
   {
     "group": "secretmanager",
@@ -8036,7 +9583,9 @@
       "Direct",
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8047,7 +9596,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 64,
+    "downstreamCount": 2
   },
   {
     "group": "secretmanager",
@@ -8059,7 +9610,9 @@
       "Direct",
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "SecretManagerSecret"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8070,7 +9623,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 406,
+    "downstreamCount": 0
   },
   {
     "group": "securesourcemanager",
@@ -8081,7 +9636,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8092,7 +9650,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 107,
+    "downstreamCount": 1
   },
   {
     "group": "securesourcemanager",
@@ -8103,7 +9663,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project",
+      "SecureSourceManagerInstance"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8114,7 +9677,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 407,
+    "downstreamCount": 0
   },
   {
     "group": "securitycenter",
@@ -8136,7 +9701,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 408,
+    "downstreamCount": 0
   },
   {
     "group": "securitycenter",
@@ -8158,7 +9725,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 409,
+    "downstreamCount": 0
   },
   {
     "group": "serviceusage",
@@ -8169,7 +9738,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8180,7 +9751,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 11,
+    "downstreamCount": 13
   },
   {
     "group": "servicedirectory",
@@ -8191,7 +9764,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Service"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8202,7 +9778,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 410,
+    "downstreamCount": 0
   },
   {
     "group": "servicedirectory",
@@ -8213,7 +9791,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8224,7 +9804,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 108,
+    "downstreamCount": 1
   },
   {
     "group": "servicedirectory",
@@ -8235,7 +9817,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ServiceDirectoryNamespace"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8246,7 +9830,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 411,
+    "downstreamCount": 0
   },
   {
     "group": "serviceusage",
@@ -8257,7 +9843,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8268,7 +9856,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 65,
+    "downstreamCount": 2
   },
   {
     "group": "servicenetworking",
@@ -8279,7 +9869,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8290,7 +9882,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 412,
+    "downstreamCount": 0
   },
   {
     "group": "servicenetworking",
@@ -8301,7 +9895,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8312,7 +9908,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 413,
+    "downstreamCount": 0
   },
   {
     "group": "serviceusage",
@@ -8323,7 +9921,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8334,7 +9934,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 414,
+    "downstreamCount": 0
   },
   {
     "group": "sourcerepo",
@@ -8345,7 +9947,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "IAMServiceAccount"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8356,7 +9960,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 415,
+    "downstreamCount": 0
   },
   {
     "group": "spanner",
@@ -8367,7 +9973,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "SpannerDatabase"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8378,7 +9987,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 416,
+    "downstreamCount": 0
   },
   {
     "group": "spanner",
@@ -8389,7 +10000,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "SpannerInstance"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8400,7 +10014,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 109,
+    "downstreamCount": 1
   },
   {
     "group": "spanner",
@@ -8423,7 +10039,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 66,
+    "downstreamCount": 2
   },
   {
     "group": "spanner",
@@ -8434,7 +10052,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8445,7 +10065,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 417,
+    "downstreamCount": 0
   },
   {
     "group": "speech",
@@ -8456,7 +10078,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8467,7 +10091,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 418,
+    "downstreamCount": 0
   },
   {
     "group": "speech",
@@ -8478,7 +10104,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8489,7 +10117,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 419,
+    "downstreamCount": 0
   },
   {
     "group": "speech",
@@ -8500,7 +10130,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8511,7 +10143,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 420,
+    "downstreamCount": 0
   },
   {
     "group": "storage",
@@ -8522,7 +10156,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "StorageBucket"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8533,7 +10169,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 421,
+    "downstreamCount": 0
   },
   {
     "group": "storage",
@@ -8544,7 +10182,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8555,7 +10195,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 8,
+    "downstreamCount": 37
   },
   {
     "group": "storage",
@@ -8566,7 +10208,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8577,7 +10221,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 422,
+    "downstreamCount": 0
   },
   {
     "group": "storage",
@@ -8588,7 +10234,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8599,7 +10247,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 423,
+    "downstreamCount": 0
   },
   {
     "group": "storage",
@@ -8610,7 +10260,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project",
+      "StorageBucket"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8621,7 +10274,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 424,
+    "downstreamCount": 0
   },
   {
     "group": "storage",
@@ -8632,7 +10287,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8643,7 +10300,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 425,
+    "downstreamCount": 0
   },
   {
     "group": "storage",
@@ -8654,7 +10313,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8665,7 +10326,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 427,
+    "downstreamCount": 0
   },
   {
     "group": "storagetransfer",
@@ -8676,7 +10339,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8687,7 +10352,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 428,
+    "downstreamCount": 0
   },
   {
     "group": "storagetransfer",
@@ -8698,7 +10365,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "StorageBucket"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8709,7 +10378,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 429,
+    "downstreamCount": 0
   },
   {
     "group": "tpu",
@@ -8720,7 +10391,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8731,7 +10404,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 430,
+    "downstreamCount": 0
   },
   {
     "group": "tags",
@@ -8743,7 +10418,9 @@
       "Direct",
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "TagsTagValue"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8754,7 +10431,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 432,
+    "downstreamCount": 0
   },
   {
     "group": "tags",
@@ -8766,7 +10445,9 @@
       "Direct",
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "TagsTagValue"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8777,7 +10458,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 433,
+    "downstreamCount": 0
   },
   {
     "group": "tags",
@@ -8800,7 +10483,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 434,
+    "downstreamCount": 0
   },
   {
     "group": "tags",
@@ -8823,7 +10508,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 67,
+    "downstreamCount": 2
   },
   {
     "group": "cloudtasks",
@@ -8834,7 +10521,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8845,7 +10534,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 435,
+    "downstreamCount": 0
   },
   {
     "group": "vmwareengine",
@@ -8856,7 +10547,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "VMwareEngineExternalAddress",
+      "VMwareEngineNetworkPolicy"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8867,7 +10561,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 436,
+    "downstreamCount": 0
   },
   {
     "group": "vmwareengine",
@@ -8878,7 +10574,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "VMwareEnginePrivateCloud"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8889,7 +10587,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 110,
+    "downstreamCount": 1
   },
   {
     "group": "vmwareengine",
@@ -8900,7 +10600,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8911,7 +10613,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 28,
+    "downstreamCount": 5
   },
   {
     "group": "vmwareengine",
@@ -8922,7 +10626,11 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project",
+      "VMwareEngineNetwork"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8933,7 +10641,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 437,
+    "downstreamCount": 0
   },
   {
     "group": "vmwareengine",
@@ -8944,7 +10654,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project",
+      "VMwareEngineNetwork"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8955,7 +10668,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 111,
+    "downstreamCount": 1
   },
   {
     "group": "vmwareengine",
@@ -8966,7 +10681,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project",
+      "VMwareEngineNetwork"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -8977,7 +10695,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 68,
+    "downstreamCount": 2
   },
   {
     "group": "vpcaccess",
@@ -8988,7 +10708,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -8999,7 +10722,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 438,
+    "downstreamCount": 0
   },
   {
     "group": "vertexai",
@@ -9010,7 +10735,10 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -9021,7 +10749,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 439,
+    "downstreamCount": 0
   },
   {
     "group": "vertexai",
@@ -9032,7 +10762,11 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -9043,7 +10777,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 440,
+    "downstreamCount": 0
   },
   {
     "group": "vertexai",
@@ -9054,7 +10790,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -9065,7 +10804,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 441,
+    "downstreamCount": 0
   },
   {
     "group": "vertexai",
@@ -9087,7 +10828,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 442,
+    "downstreamCount": 0
   },
   {
     "group": "vertexai",
@@ -9109,7 +10852,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 443,
+    "downstreamCount": 0
   },
   {
     "group": "vertexai",
@@ -9120,7 +10865,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -9131,7 +10878,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 444,
+    "downstreamCount": 0
   },
   {
     "group": "vertexai",
@@ -9142,7 +10891,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -9153,7 +10904,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 445,
+    "downstreamCount": 0
   },
   {
     "group": "vertexai",
@@ -9164,7 +10917,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -9175,7 +10931,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 446,
+    "downstreamCount": 0
   },
   {
     "group": "vertexai",
@@ -9186,7 +10944,9 @@
     "supportedControllers": [
       "Terraform"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Not Started",
     "steps": {
       "gen-types": false,
@@ -9197,7 +10957,9 @@
       "tests": false
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 447,
+    "downstreamCount": 0
   },
   {
     "group": "workflowexecutions",
@@ -9208,7 +10970,9 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -9219,7 +10983,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": "Missing _reference.go"
+    "notes": "Missing _reference.go",
+    "sortOrder": 448,
+    "downstreamCount": 0
   },
   {
     "group": "workflows",
@@ -9230,7 +10996,11 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "IAMServiceAccount",
+      "KMSCryptoKey",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -9241,7 +11011,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 449,
+    "downstreamCount": 0
   },
   {
     "group": "workstations",
@@ -9263,7 +11035,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 450,
+    "downstreamCount": 0
   },
   {
     "group": "workstations",
@@ -9274,7 +11048,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "ComputeNetwork",
+      "Project"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -9285,7 +11062,9 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 451,
+    "downstreamCount": 0
   },
   {
     "group": "workstations",
@@ -9296,7 +11075,10 @@
     "supportedControllers": [
       "Direct"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "IAMServiceAccount",
+      "KMSCryptoKey"
+    ],
     "state": "Completed",
     "steps": {
       "gen-types": true,
@@ -9307,6 +11089,8 @@
       "tests": true
     },
     "mocksLastRefreshed": "Never",
-    "notes": ""
+    "notes": "",
+    "sortOrder": 452,
+    "downstreamCount": 0
   }
 ]
