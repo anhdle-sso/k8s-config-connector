@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Copyright 2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,4 +13,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-license: MPL-2.0
+set -o errexit
+set -o nounset
+set -o pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd ${REPO_ROOT}
+
+. ${REPO_ROOT}/dev/tasks/setup-envtest
+
+# Go projects
+projects=(
+  "experiments/kompanion"
+  "experiments/kubectl-plan"
+  "experiments/composite"
+  "experiments/tools/licensescan"
+)
+
+for project in "${projects[@]}"; do
+    echo "--- Testing ${project} ---"
+    (
+        cd "${project}"
+        export GOWORK=off
+        go build ./...
+        go test ./...
+    )
+done
