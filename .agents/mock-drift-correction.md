@@ -62,6 +62,16 @@ The body template is treated as markdown. Retain the formatting as is when filli
 ------------ BEGIN ISSUE BODY TEMPLATE ------------
 This issue tracks the required updates to the mock definitions for `<service>` to address drift from upstream proto changes.
 
+### Context & Guidelines
+
+We should **always prefer to use the proto where there is a proto**. The service team is responsible for publishing an updated proto and client libraries.
+
+There are two ways we consume protos in `mockgcp`:
+1. **via the `googleapis/googleapis` repo**: This means we compile our own protos to `.pb.go`. This approach makes it easier to "patch the protos" and compile in a change (e.g., for service teams testing new fields).
+2. **using the precompiled versions in the google clients**: (e.g., as seen in `mockbillingbudgets`). This is much easier because there is only one proto version in play and it avoids `grpc-gateway`. The disadvantage is that sometimes the google clients are not up to date.
+
+Keep these approaches in mind when updating the mock definitions.
+
 ### Instructions
 
 - [ ] 1. **Identify the drift**:
