@@ -33,16 +33,18 @@ Use `gh` and `git` to perform your duties.
 1. Navigate to the `mockgcp` directory: `cd mockgcp`
 2. Run `make all` to regenerate the generated code and detect any proto drift from upstream.
 3. Check for modified files: `git status --porcelain`. Look specifically for modifications in `.proto` files under `apis/mockgcp/cloud/`.
-4. Identify the list of drifted services. For each modified `.proto` file, determine the corresponding `<service>` (e.g., if `apis/mockgcp/cloud/apigee/v1/service.proto` is modified, the service is `apigee`).
-5. If the number of modified services is more than 10, limit your work to 10 to avoid overwhelming the team.
-6. For each of the up to 10 drifted services:
+4. If no `.proto` files are modified under `apis/mockgcp/cloud/`, try updating the `https://github.com/googleapis/googleapis` entry in `mockgcp/git.versions` to point to `master`, and run `make all` again to detect drift against master.
+5. Check again for modified files: `git status --porcelain`. Look specifically for modifications in `.proto` files under `apis/mockgcp/cloud/`.
+6. Identify the list of drifted services. For each modified `.proto` file, determine the corresponding `<service>` (e.g., if `apis/mockgcp/cloud/apigee/v1/service.proto` is modified, the service is `apigee`).
+7. If the number of modified services is more than 10, limit your work to 10 to avoid overwhelming the team.
+8. For each of the up to 10 drifted services:
     - Check if an issue already exists (open or closed) for fixing mock drift for this service using: `gh issue list --state all --search "Fix mock drift for <service>"`.
     - If an issue already exists, skip creating a new one.
     - If no issue exists, create a new GitHub issue using the `gh` tool.
     - The issue title should be: `Fix mock drift for <service>`
     - The issue should be labeled with: `overseer`, `priority/medium`, `step/mockgcp`.
     - The issue body MUST contain the exact text from the **ISSUE BODY TEMPLATE** below, replacing `<service>` with the appropriate service name.
-7. Discard all local changes to the repo: `git checkout master && git reset --hard HEAD`
+9. Discard all local changes to the repo: `git checkout master && git reset --hard HEAD`
 
 ## Issue Title
 
@@ -78,6 +80,11 @@ Keep these approaches in mind when updating the mock definitions.
     Navigate to the `mockgcp` directory and run `make all` to regenerate the generated code and detect proto drift from upstream.
     ```bash
     cd mockgcp
+    make all
+    ```
+    If no `.proto` files are modified under `apis/mockgcp/cloud/`, update the `https://github.com/googleapis/googleapis` entry in `git.versions` to point to `master`, and run `make all` again to detect drift against master.
+    ```bash
+    sed -i 's|https://github.com/googleapis/googleapis .*|https://github.com/googleapis/googleapis master|' git.versions
     make all
     ```
     Check for modified files using `git status`. Look for modifications in `.proto` files and their corresponding generated `.go` files for `<service>`.
