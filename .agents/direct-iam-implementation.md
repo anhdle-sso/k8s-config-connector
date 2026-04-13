@@ -46,7 +46,7 @@ Create at most one GitHub issue per run for a resource that needs IAM support im
 3.  **Create Issue**:
     - Title: `Implement Direct IAM for <Kind>`
     - Labels: `overseer`, `area/direct`, `priority/medium`, `step/iam`
-    - Body: Use the **IAM ISSUE BODY TEMPLATE** below.
+    - Body: Use the **IAM ISSUE BODY TEMPLATE** below. Append a link to this chore file (`.agents/direct-iam-implementation.md`) at the end of the issue body for traceability.
 
 ---
 
@@ -74,3 +74,9 @@ Your task is to implement the `IAMAdapter` interface for the `<Kind>` resource a
 4.  **Acceptance Criteria**:
     - `IAMPolicyMember` or `IAMPolicy` can successfully manage permissions for the `<Kind>` resource using the direct `GetIAMPolicy`/ `SetIAMPolicy` functions.
     - Golden `_http.log` shows direct GCP IAM calls (not via Terraform/DCL).
+
+5.  **Create PR**:
+    - Create a Pull Request with your changes.
+    - Add the same labels to the PR as this issue has.
+    - Include a link to the chore file (`.agents/direct-iam-implementation.md`) in the PR description.
+    - Include `Fixes #<issue-number>` in the PR description.

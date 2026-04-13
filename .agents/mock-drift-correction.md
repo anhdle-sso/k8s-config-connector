@@ -44,6 +44,7 @@ Use `gh` and `git` to perform your duties.
     - The issue title should be: `Fix mock drift for <service>`
     - The issue should be labeled with: `overseer`, `priority/medium`, `step/mockgcp`.
     - The issue body MUST contain the exact text from the **ISSUE BODY TEMPLATE** below, replacing `<service>` with the appropriate service name.
+    - Append a link to this chore file (`.agents/mock-drift-correction.md`) at the end of the issue body for traceability.
 9. Discard all local changes to the repo: `git checkout master && git reset --hard HEAD`
 
 ## Issue Title
@@ -114,6 +115,8 @@ Keep these approaches in mind when updating the mock definitions.
 - [ ] 5. **Create a PR**:
     Add the changes in mock<service> that you worked on. Its ok if there are no changes in that folder.
     Add the modified proto files for <service> in `apis/mockgcp/cloud/` and their corresponding generated `.pb.go`, `.pb.gw.go`, and `_grpc.pb.go` files.
-    Create a PR using gh and dont forget to link the Fixes #<issue number> in the PR
+    Create a PR using gh and don't forget to link the Fixes #<issue number> in the PR.
+    Include a link to the chore file (`.agents/mock-drift-correction.md`) in the PR description.
+    Apply the same labels to the PR as are on this issue.
     
     ------------ END ISSUE BODY TEMPLATE ------------
