@@ -163,6 +163,8 @@ func (s *instanceServer) populateDefaultsForInstance(name *instanceName, obj *pb
 					}
 					autoConnection.IpAddress = fmt.Sprintf("10.128.0.%d", pscConnectionID%256)
 					autoConnection.ForwardingRule = fmt.Sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/forwardingRules/sca-auto-fr-%x", network.Project.ID, name.Location, pscConnectionID)
+					autoConnection.IpAddress = fmt.Sprintf("10.128.0.%d", pscConnectionID%256)
+					autoConnection.ForwardingRule = fmt.Sprintf("https://www.googleapis.com/compute/v1/projects/%s/regions/%s/forwardingRules/sca-auto-fr-%x", network.Project.ID, name.Location, pscConnectionID)
 					autoConnection.PscConnectionId = fmt.Sprintf("%d", pscConnectionID)
 					autoConnection.ConnectionType = attachmentDetails.ConnectionType
 					autoConnection.ServiceAttachment = attachmentDetails.ServiceAttachment
@@ -182,11 +184,13 @@ func (s *instanceServer) populateDefaultsForInstance(name *instanceName, obj *pb
 					userConnection.ProjectId = network.Project.ID
 					userConnection.PscConnectionStatus = pb.PscConnectionStatus_ACTIVE
 					userConnection.ConnectionType = attachmentDetails.ConnectionType
+					userConnection.PscConnectionId = fmt.Sprintf("%d", pscConnectionID)
 					if userConnection.Ports == nil && userConnection.ConnectionType != pb.ConnectionType_CONNECTION_TYPE_UNSPECIFIED {
 						userConnection.Ports = &pb.PscConnection_Port{
 							Port: 6379,
 						}
 					}
+					pscConnectionID++
 				}
 			}
 		}
@@ -357,7 +361,7 @@ func (r *instanceServer) UpdateInstance(ctx context.Context, req *pb.UpdateInsta
 		case "deletionProtectionEnabled":
 			obj.DeletionProtectionEnabled = req.Instance.DeletionProtectionEnabled
 		case "endpoints":
-			obj.Endpoints = req.Instance.Endpoints
+			obj.Endpoints = r.mergeEndpoints(obj.Endpoints, req.Instance.Endpoints)
 		case "maintenancePolicy":
 			if req.Instance.MaintenancePolicy != nil {
 				obj.MaintenancePolicy = req.Instance.MaintenancePolicy
@@ -409,6 +413,21 @@ func (r *instanceServer) UpdateInstance(ctx context.Context, req *pb.UpdateInsta
 		r.storage.Update(ctx, fqn, retObj)
 		return retObj, nil
 	})
+}
+
+func (r *instanceServer) mergeEndpoints(current, updates []*pb.Instance_InstanceEndpoint) []*pb.Instance_InstanceEndpoint {
+	var results []*pb.Instance_InstanceEndpoint
+	for _, item := range current {
+		if item != nil && len(item.Connections) > 0 && item.Connections[0].GetPscAutoConnection() != nil {
+			results = append(results, item)
+		}
+	}
+	for _, item := range updates {
+		if item != nil && len(item.Connections) > 0 && item.Connections[0].GetPscConnection() != nil {
+			results = append(results, item)
+		}
+	}
+	return results
 }
 
 func (r *instanceServer) DeleteInstance(ctx context.Context, req *pb.DeleteInstanceRequest) (*longrunning.Operation, error) {
