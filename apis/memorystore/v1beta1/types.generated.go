@@ -239,14 +239,14 @@ type Instance_ManagedBackupSource struct {
 	Backup *string `json:"backup,omitempty"`
 }
 
-/* found existing non-generated go type "Instance_StateInfo", skipping
+/* found existing non-generated go type with proto tag "google.cloud.memorystore.v1.Instance.StateInfo", skipping
 
 // +kcc:proto=google.cloud.memorystore.v1.Instance.StateInfo
 type Instance_StateInfo struct {
 }
 */
 
-/* found existing non-generated go type "Instance_StateInfo_UpdateInfo", skipping
+/* found existing non-generated go type with proto tag "google.cloud.memorystore.v1.Instance.StateInfo.UpdateInfo", skipping
 
 // +kcc:proto=google.cloud.memorystore.v1.Instance.StateInfo.UpdateInfo
 type Instance_StateInfo_UpdateInfo struct {
@@ -267,7 +267,7 @@ type MaintenancePolicy struct {
 type MaintenanceSchedule struct {
 }
 
-/* found existing non-generated go type "NodeConfig", skipping
+/* found existing non-generated go type with proto tag "google.cloud.memorystore.v1.NodeConfig", skipping
 
 // +kcc:proto=google.cloud.memorystore.v1.NodeConfig
 type NodeConfig struct {
@@ -318,9 +318,12 @@ type PersistenceConfig_RdbConfig struct {
 }
 */
 
+/* found existing non-generated go type with proto tag "google.cloud.memorystore.v1.PscAttachmentDetail", skipping
+
 // +kcc:proto=google.cloud.memorystore.v1.PscAttachmentDetail
 type PSCAttachmentDetail struct {
 }
+*/
 
 /* found existing non-generated go type with proto tag "google.cloud.memorystore.v1.PscAutoConnection", skipping
 
@@ -341,8 +344,6 @@ type PSCAutoConnection struct {
 	Network *string `json:"network,omitempty"`
 }
 */
-
-/* found existing non-generated go type with proto tag "google.cloud.memorystore.v1.PscConnection", skipping
 
 // +kcc:proto=google.cloud.memorystore.v1.PscConnection
 type PSCConnection struct {
@@ -377,7 +378,6 @@ type PSCConnection struct {
 	// +kcc:proto:field=google.cloud.memorystore.v1.PscConnection.service_attachment
 	ServiceAttachment *string `json:"serviceAttachment,omitempty"`
 }
-*/
 
 // +kcc:proto=google.cloud.memorystore.v1.WeeklyMaintenanceWindow
 type WeeklyMaintenanceWindow struct {
@@ -648,6 +648,8 @@ type NodeConfigObservedState struct {
 }
 */
 
+/* found existing non-generated go type with proto tag "google.cloud.memorystore.v1.PscAttachmentDetail", skipping
+
 // +kcc:observedstate:proto=google.cloud.memorystore.v1.PscAttachmentDetail
 type PSCAttachmentDetailObservedState struct {
 	// Output only. Service attachment URI which your self-created PscConnection
@@ -659,6 +661,7 @@ type PSCAttachmentDetailObservedState struct {
 	// +kcc:proto:field=google.cloud.memorystore.v1.PscAttachmentDetail.connection_type
 	ConnectionType *string `json:"connectionType,omitempty"`
 }
+*/
 
 /* found existing non-generated go type with proto tag "google.cloud.memorystore.v1.PscAutoConnection", skipping
 
@@ -699,8 +702,6 @@ type PSCAutoConnectionObservedState struct {
 }
 */
 
-/* found existing non-generated go type with proto tag "google.cloud.memorystore.v1.PscConnection", skipping
-
 // +kcc:observedstate:proto=google.cloud.memorystore.v1.PscConnection
 type PSCConnectionObservedState struct {
 	// Output only. The consumer project_id where the forwarding rule is created
@@ -719,4 +720,3 @@ type PSCConnectionObservedState struct {
 	// +kcc:proto:field=google.cloud.memorystore.v1.PscConnection.connection_type
 	ConnectionType *string `json:"connectionType,omitempty"`
 }
-*/
