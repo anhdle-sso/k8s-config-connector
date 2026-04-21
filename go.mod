@@ -336,6 +336,5 @@ replace (
 	k8s.io/klog/v2 => k8s.io/klog/v2 v2.130.1
 	k8s.io/kube-openapi => k8s.io/kube-openapi v0.0.0-20250318190949-c8a335a9a2ff
 	k8s.io/kubectl => k8s.io/kubectl v0.32.1
-	sigs.k8s.io/structured-merge-diff/v6 => sigs.k8s.io/structured-merge-diff/v4 v4.6.0
 	sigs.k8s.io/yaml => sigs.k8s.io/yaml v1.4.0
 )
