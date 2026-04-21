@@ -182,44 +182,23 @@ Content-Type: application/json
 User-Agent: kcc/${kccVersion} (+https://github.com/GoogleCloudPlatform/k8s-config-connector) kcc/controller-manager/${kccVersion}
 
 {
-  "description": "Description of BQ Table",
-  "friendlyName": "BigQueryTable Example",
   "labels": {
     "cnrm-test": "true",
-    "key1": "value1",
-    "key2": "value2",
     "managed-by-cnrm": "true"
   },
   "schema": {
     "fields": [
       {
-        "description": "Name of the entity",
-        "mode": "REQUIRED",
-        "name": "name",
+        "mode": "NULLABLE",
+        "name": "col_with_empty_policy_tags",
         "policyTags": {},
         "type": "STRING"
       },
       {
-        "description": "atlan BQ labels",
-        "fields": [
-          {
-            "description": "key",
-            "mode": "NULLABLE",
-            "name": "key",
-            "policyTags": {},
-            "type": "STRING"
-          },
-          {
-            "description": "values",
-            "mode": "NULLABLE",
-            "name": "value",
-            "policyTags": {},
-            "type": "STRING"
-          }
-        ],
-        "mode": "REPEATED",
-        "name": "labels",
-        "type": "RECORD"
+        "mode": "NULLABLE",
+        "name": "col_without_policy_tags",
+        "policyTags": {},
+        "type": "STRING"
       }
     ]
   },
@@ -242,15 +221,11 @@ X-Xss-Protection: 0
 
 {
   "creationTime": "123456789",
-  "description": "Description of BQ Table",
   "etag": "abcdef0123A=",
-  "friendlyName": "BigQueryTable Example",
   "id": "000000000000000000000",
   "kind": "bigquery#table",
   "labels": {
     "cnrm-test": "true",
-    "key1": "value1",
-    "key2": "value2",
     "managed-by-cnrm": "true"
   },
   "lastModifiedTime": "123456789",
@@ -264,30 +239,14 @@ X-Xss-Protection: 0
   "schema": {
     "fields": [
       {
-        "description": "Name of the entity",
-        "mode": "REQUIRED",
-        "name": "name",
+        "mode": "NULLABLE",
+        "name": "col_with_empty_policy_tags",
         "type": "STRING"
       },
       {
-        "description": "atlan BQ labels",
-        "fields": [
-          {
-            "description": "key",
-            "mode": "NULLABLE",
-            "name": "key",
-            "type": "STRING"
-          },
-          {
-            "description": "values",
-            "mode": "NULLABLE",
-            "name": "value",
-            "type": "STRING"
-          }
-        ],
-        "mode": "REPEATED",
-        "name": "labels",
-        "type": "RECORD"
+        "mode": "NULLABLE",
+        "name": "col_without_policy_tags",
+        "type": "STRING"
       }
     ]
   },
@@ -317,15 +276,11 @@ X-Xss-Protection: 0
 
 {
   "creationTime": "123456789",
-  "description": "Description of BQ Table",
   "etag": "abcdef0123A=",
-  "friendlyName": "BigQueryTable Example",
   "id": "000000000000000000000",
   "kind": "bigquery#table",
   "labels": {
     "cnrm-test": "true",
-    "key1": "value1",
-    "key2": "value2",
     "managed-by-cnrm": "true"
   },
   "lastModifiedTime": "123456789",
@@ -339,30 +294,14 @@ X-Xss-Protection: 0
   "schema": {
     "fields": [
       {
-        "description": "Name of the entity",
-        "mode": "REQUIRED",
-        "name": "name",
+        "mode": "NULLABLE",
+        "name": "col_with_empty_policy_tags",
         "type": "STRING"
       },
       {
-        "description": "atlan BQ labels",
-        "fields": [
-          {
-            "description": "key",
-            "mode": "NULLABLE",
-            "name": "key",
-            "type": "STRING"
-          },
-          {
-            "description": "values",
-            "mode": "NULLABLE",
-            "name": "value",
-            "type": "STRING"
-          }
-        ],
-        "mode": "REPEATED",
-        "name": "labels",
-        "type": "RECORD"
+        "mode": "NULLABLE",
+        "name": "col_without_policy_tags",
+        "type": "STRING"
       }
     ]
   },
