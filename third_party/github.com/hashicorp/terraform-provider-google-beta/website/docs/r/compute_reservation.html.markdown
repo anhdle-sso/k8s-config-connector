@@ -177,7 +177,7 @@ The following arguments are supported:
 * `share_type` -
   (Optional)
   Type of sharing for this shared-reservation
-  Possible values are: `LOCAL`, `SPECIFIC_PROJECTS`.
+  Possible values are: `LOCAL`, `ORGANIZATION`, `SPECIFIC_PROJECTS`.
 
 * `project_map` -
   (Optional)
