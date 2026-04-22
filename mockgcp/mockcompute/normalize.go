@@ -65,6 +65,9 @@ func (s *MockService) ConfigureVisitor(url string, replacements mockgcpregistry.
 
 	// BackendService
 	replacements.SortSlice(".backends")
+
+	// FutureReservation
+	replacements.ReplacePath(".status.existingMatchingUsageInfo.timestamp", PlaceholderTimestamp)
 }
 
 func (s *MockService) Previsit(event mockgcpregistry.Event, replacements mockgcpregistry.NormalizingVisitor) {
