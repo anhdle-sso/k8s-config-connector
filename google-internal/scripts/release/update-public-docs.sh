@@ -48,6 +48,10 @@ fi
 
 # Prepare google3 docs submission
 cd $REPO_ROOT
+
+echo "Generating Google-flavored resource docs..."
+make google-resource-docs
+
 CLIENT_NAME=configconnector_resource_doc_$(date +%s)
 p4 g4d -f $CLIENT_NAME
 GOOGLE3_DOCS_DIR=/google/src/cloud/$USER/$CLIENT_NAME/google3/third_party/devsite/cloud/en/config-connector/docs
@@ -82,7 +86,7 @@ while read -r STATUS FILE; do
           echo "Updating ${DEST_FILE}..."
           (cd "${GOOGLE3_DOCS_DIR}" && p4 edit "${DEST_FILE}")
         fi
-        git show "${CURRENT_RELEASE_TAG}:${FILE}" > "${DEST_FILE}"
+        cp "${REPO_ROOT}/${FILE}" "${DEST_FILE}"
         if [[ "${STATUS}" == "A" ]]; then
           (cd "${GOOGLE3_DOCS_DIR}" && p4 add "${DEST_FILE}")
         fi
