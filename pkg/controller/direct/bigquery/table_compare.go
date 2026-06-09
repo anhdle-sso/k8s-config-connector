@@ -299,9 +299,11 @@ func TableEq(a, b *bigquery.Table, diff *structuredreporting.Diff) (bool, error)
 		diff.AddField("description", a.Description, b.Description)
 		return false, nil
 	}
-	if !reflect.DeepEqual(a.EncryptionConfiguration, b.EncryptionConfiguration) {
-		diff.AddField("encryption_configuration", a.EncryptionConfiguration, b.EncryptionConfiguration)
-		return false, nil
+	if b.EncryptionConfiguration != nil && b.EncryptionConfiguration.KmsKeyName != "" {
+		if !reflect.DeepEqual(a.EncryptionConfiguration, b.EncryptionConfiguration) {
+			diff.AddField("encryption_configuration", a.EncryptionConfiguration, b.EncryptionConfiguration)
+			return false, nil
+		}
 	}
 	if !reflect.DeepEqual(a.ExpirationTime, b.ExpirationTime) {
 		diff.AddField("expiration_time", a.ExpirationTime, b.ExpirationTime)
