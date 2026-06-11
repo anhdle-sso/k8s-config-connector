@@ -64,7 +64,7 @@ type ComputeAddressSpec struct {
 	// +optional
 	Ipv6EndpointType *string `json:"ipv6EndpointType,omitempty"`
 
-	/* Location represents the geographical location of the ComputeAddress. Specify a region name or "global" for global resources. Reference: GCP definition of regions/zones (https://cloud.google.com/compute/docs/regions-zones/) */
+	/* Location represents the geographical location of the ComputeAddress. Specify a region name or "global" for global resources. Reference: Google Cloud definition of regions/zones (https://cloud.google.com/compute/docs/regions-zones/) */
 	Location string `json:"location"`
 
 	/* The network in which to reserve the address. If global, the address
@@ -145,7 +145,7 @@ type ComputeAddressStatus struct {
 	// +optional
 	ObservedGeneration *int64 `json:"observedGeneration,omitempty"`
 
-	/* The observed state of the underlying GCP resource. */
+	/* The observed state of the underlying Google Cloud resource. */
 	// +optional
 	ObservedState *AddressObservedStateStatus `json:"observedState,omitempty"`
 

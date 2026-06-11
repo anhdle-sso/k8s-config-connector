@@ -1101,7 +1101,7 @@ spec:
                 type: array
               externalRef:
                 description: A unique specifier for the ComposerEnvironment resource
-                  in GCP.
+                  in Google Cloud.
                 type: string
               observedGeneration:
                 description: ObservedGeneration is the generation of the resource
@@ -1113,7 +1113,7 @@ spec:
                 type: integer
               observedState:
                 description: ObservedState is the state of the resource as most recently
-                  observed in GCP.
+                  observed in Google Cloud.
                 properties:
                   config:
                     description: Optional. Configuration parameters for this environment.
@@ -2277,7 +2277,7 @@ spec:
                 type: array
               externalRef:
                 description: A unique specifier for the ComposerEnvironment resource
-                  in GCP.
+                  in Google Cloud.
                 type: string
               observedGeneration:
                 description: ObservedGeneration is the generation of the resource
@@ -2289,7 +2289,7 @@ spec:
                 type: integer
               observedState:
                 description: ObservedState is the state of the resource as most recently
-                  observed in GCP.
+                  observed in Google Cloud.
                 properties:
                   config:
                     description: Optional. Configuration parameters for this environment.
